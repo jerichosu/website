@@ -1,0 +1,1648 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- <head lang="en"> -->
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Jiayi's Bookshelf</title>
+
+    <!-- <meta name="description" content=""> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+
+    <!-- <meta property="og:image" content="https://jonbarron.info/mipnerf360/img/gardenvase.jpg"> -->
+    <!-- <meta property="og:image:type" content="image/png"> -->
+    <!-- <meta property="og:image:width" content="1296"> -->
+    <!-- <meta property="og:image:height" content="840"> -->
+    <!-- <meta property="og:type" content="website" /> -->
+    <!-- <meta property="og:url" content="https://jonbarron.info/mipnerf360/"/> -->
+    <!-- <meta property="og:title" content="This page includes books that I've been reading" /> -->
+    <!-- <meta property="og:description" content="What neural radiance fields (NeRF) have demonstrated impressive view synthesis results on objects and small bounded regions of space, they struggle on 'unbounded' scenes, where the camera may point in any direction and content may exist at any distance. In this setting, existing NeRF-like models often produce blurry or low-resolution renderings (due to the unbalanced detail and scale of nearby and distant objects), are slow to train, and may exhibit artifacts due to the inherent ambiguity of the task of reconstructing a large scene from a small set of images. We present an extension of mip-NeRF (a NeRF variant that addresses sampling and aliasing) that uses a non-linear scene parameterization, online distillation, and a novel distortion-based regularizer to overcome the challenges presented by unbounded scenes. Our model, which we dub 'mip-NeRF 360' as we target scenes in which the camera rotates 360 degrees around a point, reduces mean-squared error by 54% compared to mip-NeRF, and is able to produce realistic synthesized views and detailed depth maps for highly intricate, unbounded real-world scenes." /> -->
+
+    <!-- <meta name="twitter:card" content="summary_large_image" /> -->
+    <!-- <meta name="twitter:title" content="Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields" /> -->
+    <!-- <meta name="twitter:description" content="Though neural radiance fields (NeRF) have demonstrated impressive view synthesis results on objects and small bounded regions of space, they struggle on 'unbounded' scenes, where the camera may point in any direction and content may exist at any distance. In this setting, existing NeRF-like models often produce blurry or low-resolution renderings (due to the unbalanced detail and scale of nearby and distant objects), are slow to train, and may exhibit artifacts due to the inherent ambiguity of the task of reconstructing a large scene from a small set of images. We present an extension of mip-NeRF (a NeRF variant that addresses sampling and aliasing) that uses a non-linear scene parameterization, online distillation, and a novel distortion-based regularizer to overcome the challenges presented by unbounded scenes. Our model, which we dub 'mip-NeRF 360' as we target scenes in which the camera rotates 360 degrees around a point, reduces mean-squared error by 54% compared to mip-NeRF, and is able to produce realistic synthesized views and detailed depth maps for highly intricate, unbounded real-world scenes." /> -->
+    <!-- <meta name="twitter:image" content="https://jonbarron.info/mipnerf360/img/gardenvase.jpg" /> -->
+
+
+	<!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💫</text></svg>"> -->
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/app.css"> -->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script> -->
+    
+    <!-- <script src="js/app.js"></script> -->
+</head>
+
+<body>
+    <div class="container" id="main">
+	
+	<!-- ------------------------------------------------------------------------------------------------------------------- -->
+		<!-- title row --> 
+		
+		
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                <b>Welcome to Jiayi's Bookshelf</b> <br>
+				<br> This page includes technical and non-technical books I like  </br> 
+				<br> Reviews might be included in the near future, I'll try to <br> update reviews periodically</br> 
+                <small>
+                </small>
+            </h2>
+        </div>
+		
+		
+		<!-- ------------------------------------------------------------------------------------------------------------------- -->
+		<!-- author row --> 
+		
+		
+        <!-- <div class="row"> -->
+            <!-- <div class="col-md-12 text-center"> -->
+                <!-- <ul class="list-inline"> -->
+                    <!-- <li> -->
+                        <!-- <a href="https://jonbarron.info/"> -->
+                          <!-- Jonathan T. Barron -->
+                        <!-- </a> -->
+                        <!-- </br>Google -->
+                    <!-- </li> -->
+                    <!-- <li> -->
+                        <!-- <a href="http://bmild.github.io/"> -->
+                            <!-- Ben Mildenhall -->
+                        <!-- </a> -->
+                        <!-- </br>Google -->
+                    <!-- </li> -->
+                    <!-- <li> -->
+                        <!-- <a href="https://scholar.harvard.edu/dorverbin/home"> -->
+                          <!-- Dor Verbin -->
+                        <!-- </a> -->
+                        <!-- </br>Harvard University -->
+                    <!-- </li><br> -->
+                    <!-- <li> -->
+                        <!-- <a href="https://pratulsrinivasan.github.io/"> -->
+                          <!-- Pratul P. Srinivasan -->
+                        <!-- </a> -->
+                        <!-- </br>Google -->
+                    <!-- </li> -->
+                    <!-- <li> -->
+                        <!-- <a href="https://phogzone.com/"> -->
+                          <!-- Peter Hedman -->
+                        <!-- </a> -->
+                        <!-- </br>Google -->
+                    <!-- </li> -->
+                <!-- </ul> -->
+            <!-- </div> -->
+        <!-- </div> -->
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+		<!-- paper & video row --> 
+
+
+        <!-- <div class="row"> -->
+                <!-- <div class="col-md-4 col-md-offset-4 text-center"> -->
+                    <!-- <ul class="nav nav-pills nav-justified"> -->
+                        <!-- <li> -->
+                            <!-- <a href="https://arxiv.org/abs/2111.12077"> -->
+                            <!-- <image src="img/360_paper_image.jpg" height="60px"> -->
+                                <!-- <h4><strong>Paper</strong></h4> -->
+                            <!-- </a> -->
+                        <!-- </li> -->
+                        <!-- <li> -->
+                            <!-- <a href="https://youtu.be/zBSH-k9GbV4"> -->
+                            <!-- <image src="img/youtube_icon.png" height="60px"> -->
+                                <!-- <h4><strong>Video</strong></h4> -->
+                            <!-- </a> -->
+                        <!-- </li> -->
+                        <!-- <!-- <li> -->
+                            <!-- <a href="TODO"> -->
+                            <!-- <image src="img/github.png" height="60px"> -->
+                                <!-- <h4><strong>Code</strong></h4> -->
+                            <!-- </a> -->
+                        <!-- </li> --> 
+                    <!-- </ul> -->
+                <!-- </div> -->
+        <!-- </div> -->
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+		<!-- fisrt gif with comment -->
+        <!-- <div class="row"> -->
+            <!-- <div class="col-md-8 col-md-offset-2"> -->
+			<div class="one">
+                <!-- <video id="v0" width="100%" autoplay loop muted controls> -->
+                  <!-- <source src="img/gardenvase_720.mp4" type="video/mp4" /> -->
+				  <source src="img/lab_test.mp4" type="video/mp4" />
+                <!-- </video> -->
+						<!-- </div> -->
+            <!-- <div class="col-md-8 col-md-offset-2"> -->
+							<!-- <p class="text-center"> -->
+							<!-- Rendered images and depths from our model. -->
+							<!-- </p> -->
+						<!-- </div> -->
+        <!-- </div> -->
+
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+		<!-- abstract -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Techincal
+                </h3>
+                <p class="text-justify">
+The techincal part contains some of my favorite collections in terms of state estiamtion and control        </p>
+            </div>
+        </div>
+		
+		
+		
+		
+		
+
+
+
+			<table style="width:70%; border:0px;border-spacing:20px;border-collapse:separate;margin-right:auto;margin-left:auto; border-spacing:0px 50px;"><tbody>
+			
+			<tr>
+            <td style="padding:10px;width:30%;vertical-align:bottom; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://www.wiley.com/en-sg/Optimal+State+Estimation%3A+Kalman%2C+H+Infinity%2C+and+Nonlinear+Approaches-p-9780471708582"><img src='img/dan_simon.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    Optimal State Estimation: Kalman, H Infinity, and Nonlinear Approaches
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://engineering.csuohio.edu/eecs/dan-simon-professor" target="_blank"> <h2> Dan Simon </h2></a>
+				
+				
+				<h3>
+                    "My estimation Bible, 1/3"
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:top; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="http://users.cecs.anu.edu.au/~john/papers/BOOK/B02.PDF"><img src='img/optimal_filtering.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:top; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    Optimal Filtering
+                </h3>
+				
+				
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Brian_Anderson_(academic)" target="_blank"> <h2> Brian Anderson </h2></a> <a style="text-decoration: none" href="https://en.wikipedia.org/wiki/John_B._Moore_(engineer)" target="_blank"> <h2> John Moore </h2></a>
+				
+				
+				<h3>
+                    "My estimation Bible, 2/3"
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://www.amazon.com/Adaptive-Filtering-Prediction-Electrical-Engineering/dp/0486469328"><img src='img/goodwin_sin.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:top; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    Adaptive Filtering Prediction and Control
+                </h3>
+				
+				
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Graham_Goodwin" target="_blank"> <h2> Graham Goodwin
+ </h2></a> <a style="text-decoration: none" href="https://www.linkedin.com/in/kwai-sang-sin-48406b10/?originalSubdomain=hk" target="_blank"> <h2> Kwai Sang Sin </h2></a>
+					
+				
+				<h3>
+                    "My estimation Bible, 3/3"
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://link.springer.com/book/10.1007/978-1-4471-0283-0"><img src='img/model_reduction.jpg' width="200";></a>
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    Model Reduction for Control System Design
+                </h3>
+				
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Brian_Anderson_(academic)" target="_blank"> <h2> Brian Anderson </h2></a>
+				<a style="text-decoration: none" href="https://ieeexplore.ieee.org/author/37277264000" target="_blank"> <h2> Goro Obinata </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://www.amazon.com/LMIs-Control-Systems-Analysis-Applications/dp/1466582995"><img src='img/lmi.jpg' width="200";></a>
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    LMIs in Control Systems: Analysis, Design and Applications
+                </h3>
+				
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Duan_Guangren" target="_blank"> <h2> Guangren Duan </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<!-- <tr> -->
+            <!-- <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;"> -->
+              <!-- <div class="one"> -->
+			 <!-- <a href="https://en.wikipedia.org/wiki/The_Death_and_Life_of_Great_American_Cities"><img src='img/death_and_life.jpg' width="200";></a> -->
+              <!-- </div> -->
+
+            <!-- </td> -->
+            <!-- <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;"> -->
+				
+				<!-- <p class="text-justify"> -->
+				<!-- <h3> -->
+                    <!-- The Death and Life of Great American Cities -->
+                <!-- </h3> -->
+				
+				<!-- <a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Jane_Jacobs" target="_blank"> <h2> Jane Jacobs </h2></a> -->
+				
+				
+				<!-- <h3> -->
+                    <!-- ----- -->
+                <!-- </h3> -->
+			  <!-- </p> -->
+			  
+			
+			<!-- </td> -->
+          <!-- </tr>  -->
+		  
+		  
+		  
+		  
+		  			<!-- <tr> -->
+            <!-- <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;"> -->
+              <!-- <div class="one"> -->
+			 <!-- <a href="https://en.wikipedia.org/wiki/The_City_in_History"><img src='img/city_in_history.jpg' width="200";></a> -->
+              <!-- </div> -->
+
+            <!-- </td> -->
+            <!-- <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;"> -->
+				
+				<!-- <p class="text-justify"> -->
+				<!-- <h3> -->
+                    <!-- The City in History: Its Origins, Its Transformations, and Its Prospects -->
+                <!-- </h3> -->
+				
+				<!-- <a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Lewis_Mumford" target="_blank"> <h2> Lewis Mumford </h2></a> -->
+				
+				
+				<!-- <h3> -->
+                    <!-- ----- -->
+                <!-- </h3> -->
+			  <!-- </p> -->
+			  
+			
+			<!-- </td> -->
+          <!-- </tr>  -->
+		  
+		  
+		  
+		  
+		  
+		  			<!-- <tr> -->
+            <!-- <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;"> -->
+              <!-- <div class="one"> -->
+			 <!-- <a href="https://en.wikipedia.org/wiki/Being_and_Time"><img src='img/being_and_time.jpg' width="200";></a> -->
+              <!-- </div> -->
+
+            <!-- </td> -->
+            <!-- <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;"> -->
+				
+				<!-- <p class="text-justify"> -->
+				<!-- <h3> -->
+                    <!-- Being and Time -->
+                <!-- </h3> -->
+				
+				<!-- <a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Martin_Heidegger" target="_blank"> <h2> Martin Heidegger </h2></a> -->
+				
+				
+				<!-- <h3> -->
+                    <!-- ----- -->
+                <!-- </h3> -->
+			  <!-- </p> -->
+			  
+			
+			<!-- </td> -->
+          <!-- </tr>  -->
+		  
+		  
+		  
+		  
+		  
+		  			<!-- <tr> -->
+            <!-- <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;"> -->
+              <!-- <div class="one"> -->
+			 <!-- <a href="https://en.wikipedia.org/wiki/%22Left-Wing%22_Communism:_An_Infantile_Disorder"><img src='img/left_wing.jpg' width="200";></a> -->
+              <!-- </div> -->
+
+            <!-- </td> -->
+            <!-- <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;"> -->
+				
+				<!-- <p class="text-justify"> -->
+				<!-- <h3> -->
+                    <!-- "Left-Wing" Communism: An Infantile Disorder -->
+                <!-- </h3> -->
+				
+				<!-- <a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Vladimir_Lenin" target="_blank"> <h2> Vladimir Lenin </h2></a> -->
+				
+				
+				<!-- <h3> -->
+                    <!-- ----- -->
+                <!-- </h3> -->
+			  <!-- </p> -->
+			  
+			
+			<!-- </td> -->
+          <!-- </tr>  -->
+		  
+		  
+		  
+		  
+		  
+		  			<!-- <tr> -->
+            <!-- <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;"> -->
+              <!-- <div class="one"> -->
+			 <!-- <a href="https://baike.baidu.com/item/%E4%BB%8E%E9%B8%A6%E7%89%87%E6%88%98%E4%BA%89%E5%88%B0%E4%BA%94%E5%9B%9B%E8%BF%90%E5%8A%A8/8805289"><img src='img/from_opium.jpg' width="200";></a> -->
+              <!-- </div> -->
+
+            <!-- </td> -->
+            <!-- <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;"> -->
+				
+				<!-- <p class="text-justify"> -->
+				<!-- <h3> -->
+					<!-- <p> -->
+					<!-- 从鸦片战争到五四运动 (English: From the Opium War to the May Fourth Movement) -->
+					<!-- </p>   -->
+                <!-- </h3> -->
+				
+				<!-- <a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Hu_Sheng" target="_blank"> <h2> Hu Sheng </h2></a> -->
+				
+				
+				<!-- <h3> -->
+                    <!-- ----- -->
+                <!-- </h3> -->
+			  <!-- </p> -->
+			  
+			
+			<!-- </td> -->
+          <!-- </tr>  -->
+		  
+		  
+		  
+		  
+		  <!-- <tr> -->
+            <!-- <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;"> -->
+              <!-- <div class="one"> -->
+			 <!-- <a href="https://en.wikipedia.org/wiki/Guns,_Germs,_and_Steel"><img src='img/steel_gun.jpg' width="200";></a> -->
+              <!-- </div> -->
+
+            <!-- </td> -->
+            <!-- <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;"> -->
+				
+				<!-- <p class="text-justify"> -->
+				<!-- <h3> -->
+					<!-- <p> -->
+					<!-- Guns, Germs, and Steel: The Fates of Human Societies -->
+					<!-- </p>   -->
+                <!-- </h3> -->
+				
+				<!-- <a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Jared_Diamond" target="_blank"> <h2> Jared Diamond </h2></a> -->
+				
+				
+				<!-- <h3> -->
+                    <!-- ----- -->
+                <!-- </h3> -->
+			  <!-- </p> -->
+			  
+			
+			<!-- </td> -->
+          <!-- </tr>  -->
+		  
+		  
+		  
+		  
+		  <!-- <tr> -->
+            <!-- <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;"> -->
+              <!-- <div class="one"> -->
+			 <!-- <a href="https://en.wikipedia.org/wiki/The_Pill_Versus_the_Springhill_Mine_Disaster#:~:text=The%20Pill%20Versus%20the%20Springhill%20Mine%20Disaster%20is%20Richard%20Brautigan,version%20of%20the%20first%20edition.&text=The%20collection%20of%20ninety%2Deight,eight%20that%20were%20previously%20uncollected."><img src='img/Pill_vs_Springhill.jpg' width="200";></a> -->
+              <!-- </div> -->
+
+            <!-- </td> -->
+            <!-- <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;"> -->
+				
+				<!-- <p class="text-justify"> -->
+				<!-- <h3> -->
+					<!-- <p> -->
+					<!-- The Pill Versus the Springhill Mine Disaster -->
+					<!-- </p>   -->
+                <!-- </h3> -->
+				
+				<!-- <a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Richard_Brautigan" target="_blank"> <h2> Richard Brautigan </h2></a> -->
+				
+				
+				<!-- <h3> -->
+                    <!-- ----- -->
+                <!-- </h3> -->
+			  <!-- </p> -->
+			  
+			
+			<!-- </td> -->
+          <!-- </tr>  -->
+		  
+		  
+		  
+		  
+		  <!-- <tr> -->
+            <!-- <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;"> -->
+              <!-- <div class="one"> -->
+			 <!-- <a href="https://baike.baidu.com/item/%E4%BB%8E%E9%B8%A6%E7%89%87%E6%88%98%E4%BA%89%E5%88%B0%E4%BA%94%E5%9B%9B%E8%BF%90%E5%8A%A8/8805289"><img src='img/from_opium.jpg' width="200";></a> -->
+              <!-- </div> -->
+
+            <!-- </td> -->
+            <!-- <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;"> -->
+				
+				<!-- <p class="text-justify"> -->
+				<!-- <h3> -->
+					<!-- <p> -->
+					<!-- 从鸦片战争到五四运动 (English: From the Opium War to the May Fourth Movement) -->
+					<!-- </p>   -->
+                <!-- </h3> -->
+				
+				<!-- <a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Hu_Sheng" target="_blank"> <h2> Hu Sheng </h2></a> -->
+				
+				
+				<!-- <h3> -->
+                    <!-- ----- -->
+                <!-- </h3> -->
+			  <!-- </p> -->
+			  
+			
+			<!-- </td> -->
+          <!-- </tr>  -->
+		  
+			
+			</tbody></table>
+			
+			
+		
+		
+		
+		
+		
+		
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+		<!-- abstract -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Non-Techincal
+                </h3>
+                <p class="text-justify">
+None-technical part usually contains history, political science, sociology and more   </p>
+            </div>
+        </div>
+		
+		
+		
+		
+		
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+		<!-- test -->	
+		
+		<!-- <div class="row"> -->
+			<!-- <div class="column"> -->
+			<!-- <video width="360" height="280" autoplay loop muted controls> -->
+			<!-- <source src="images/publication_image/tracking_demo.mp4" type=video/mp4> -->
+			<!-- </video> -->
+			<!-- </div> -->
+			
+			<!-- <div class="column"> -->
+			<!-- <td style="padding:10px;width:60%;vertical-align:top; position:relative;top:10px; right:-50px;"> -->
+                <!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+              <!-- <br> -->
+              <!-- <strong>Jiayi Su</strong> -->
+			  <!-- <br> -->
+				<!-- Project page & source code coming soon! -->
+              <!-- <br> -->
+
+				<!-- <p>Project page coming soon</p> -->
+
+
+			  <!-- <p></p> -->
+              <!-- <p></p> -->
+              <!-- <p>Using <a href="https://arxiv.org/abs/2203.14360" target="_blank">OC-SORT</a> + <a href="https://arxiv.org/abs/2110.06864" target="_blank">ByteTrack</a> (with <a href="https://arxiv.org/abs/2107.08430" target="_blank">YOLOX</a> as the object detector) for online pedetrian tracking</p> -->
+            <!-- </td> -->
+			<!-- </div> -->
+		<!-- </div> -->
+
+
+				
+            <!-- <td style="padding:10px;width:40%; position:relative; right:-30px; vertical-align:top;"> -->
+        <!-- <div class="row"> -->
+			<!-- <div class="col-md-4 col-md-offset-2"> -->
+				<!-- <a href="https://en.wikipedia.org/wiki/One_Summer:_America,_1927"><img src='img/One_Summer_America_1927.jpg' width="200";></a> -->
+				<!-- <img width="360" height="280" autoplay loop muted controls> -->
+				<!-- <source src="mipnerf360/img/One_Summer_America_1927.jpg"> -->
+				<!-- </video> -->
+			<!-- </div> -->
+			
+			<!-- <div class="col-md-0 col-md-offset-0"> -->
+				<!-- <p class="text-justify"> -->
+				<!-- <h3> -->
+                    <!-- <b>One Summer America 1927</b> -->
+                <!-- </h3> -->
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<!-- <a href="https://en.wikipedia.org/wiki/Bill_Bryson" target="_blank"> <h2> <strong>Bill Bryson</strong> </h2></a> -->
+				
+				
+              <!-- <br> -->
+              <!-- <strong>Jiayi Su</strong> -->
+			  <!-- <br> -->
+				<!-- Project page & source code coming soon! -->
+              <!-- <br> -->
+
+				<!-- <p>Project page coming soon</p> -->
+
+
+			  <!-- <p></p> -->
+              <!-- <p></p> -->
+              <!-- <p class="text-justify"> -->
+		      <!-- Using OC-SORT + ByteTrack (with YOLOX as the object detector) for online pedetrian tracking</p>                 -->
+			  
+			  <!-- </p> -->
+			<!-- </div> -->
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<table style="width:70%; border:0px;border-spacing:20px;border-collapse:separate;margin-right:auto;margin-left:auto; border-spacing:0px 50px;"><tbody>
+			
+			<tr>
+            <td style="padding:10px;width:30%;vertical-align:bottom; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/One_Summer:_America,_1927"><img src='img/One_Summer_America_1927.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    One Summer America 1927 
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Bill_Bryson" target="_blank"> <h2> Bill Bryson </h2></a>
+				
+				
+				<h3>
+                    American life in 1927: What it was becoming still shapes our modern world.
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:top; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/Dark_Money_(book)"><img src='img/dark_money.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:top; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right
+                </h3>
+				
+				
+				<a style="text-decoration: none" href="https://www.newyorker.com/contributors/jane-mayer" target="_blank"> <h2> Jane Mayer </h2></a>
+				
+				
+				<h3>
+                    How the richest Americans are influencing American politics.
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/The_Dark_Side_(book)#:~:text=The%20Dark%20Side%3A%20The%20Inside,whether%22%20U.S.%20President%20George%20W."><img src='img/dark_side.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:top; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    The Dark Side: The Inside Story of How The War on Terror Turned into a War on American Ideals
+                </h3>
+				
+				
+			<a style="text-decoration: none" href="https://www.newyorker.com/contributors/jane-mayer" target="_blank"> <h2> Jane Mayer </h2></a>
+				
+				
+				<h3>
+                    I wish these are not true.
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/The_Kingdom_and_the_Power"><img src='img/kingdom_and_power.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    The Kingdom and the Power: Behind the Scenes at The New York Times: The Institution That Influences the World
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Gay_Talese" target="_blank"> <h2> Gay Talese </h2></a>
+				
+				
+				<h3>
+                    Stories inside The New York Times.
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/The_Man_Who_Knew_Infinity_(book)"><img src='img/infinity.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    The Man Who Knew Infinity: A Life of the Genius Ramanujan
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Robert_Kanigel" target="_blank"> <h2> Robert Kanigel </h2></a>
+				
+				
+				<h3>
+                    Story of the Indian math genius Ramanujan.
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/The_Death_and_Life_of_Great_American_Cities"><img src='img/death_and_life.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    The Death and Life of Great American Cities
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Jane_Jacobs" target="_blank"> <h2> Jane Jacobs </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/The_City_in_History"><img src='img/city_in_history.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    The City in History: Its Origins, Its Transformations, and Its Prospects
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Lewis_Mumford" target="_blank"> <h2> Lewis Mumford </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/Being_and_Time"><img src='img/being_and_time.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    Being and Time
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Martin_Heidegger" target="_blank"> <h2> Martin Heidegger </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/%22Left-Wing%22_Communism:_An_Infantile_Disorder"><img src='img/left_wing.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+                    "Left-Wing" Communism: An Infantile Disorder
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Vladimir_Lenin" target="_blank"> <h2> Vladimir Lenin </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  
+		  			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://baike.baidu.com/item/%E4%BB%8E%E9%B8%A6%E7%89%87%E6%88%98%E4%BA%89%E5%88%B0%E4%BA%94%E5%9B%9B%E8%BF%90%E5%8A%A8/8805289"><img src='img/from_opium.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					从鸦片战争到五四运动 (English: From the Opium War to the May Fourth Movement)
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Hu_Sheng" target="_blank"> <h2> Hu Sheng </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/Guns,_Germs,_and_Steel"><img src='img/steel_gun.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					Guns, Germs, and Steel: The Fates of Human Societies
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Jared_Diamond" target="_blank"> <h2> Jared Diamond </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/The_Pill_Versus_the_Springhill_Mine_Disaster#:~:text=The%20Pill%20Versus%20the%20Springhill%20Mine%20Disaster%20is%20Richard%20Brautigan,version%20of%20the%20first%20edition.&text=The%20collection%20of%20ninety%2Deight,eight%20that%20were%20previously%20uncollected."><img src='img/Pill_vs_Springhill.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					The Pill Versus the Springhill Mine Disaster
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Richard_Brautigan" target="_blank"> <h2> Richard Brautigan </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://archive.org/details/indiaschinawar0000maxw"><img src='img/india_china_war.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					India's China War
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Neville_Maxwell" target="_blank"> <h2> George Gamow  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/The_Expert_at_the_Card_Table"><img src='img/card.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					The Expert at the Card Table: The Classic Treatise on Card Manipulation
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/S._W._Erdnase" target="_blank"> <h2> S. W. Erdnase  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://books.google.com/books/about/The_Force_of_Destiny.html?id=lSRwOZ0Yxw8C"><img src='img/italy.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					The Force of Destiny: A History of Italy since 1796
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Christopher_Duggan" target="_blank"> <h2> Christopher Duggan
+  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/One_Two_Three..._Infinity"><img src='img/123.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					One Two Three . . . Infinity: Facts and Speculations of Science
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/George_Gamow" target="_blank"> <h2> George Gamow  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://books.google.com/books/about/Dead_Aid.html?id=-gYxhXHjOckC&source=kp_book_description"><img src='img/dead_aid.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					Dead Aid: Why Aid Is Not Working and How There Is a Better Way for Africa
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Dambisa_Moyo,_Baroness_Moyo" target="_blank"> <h2> Dambisa Moyo  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/Zhongxian_Ganbu"><img src='img/zhongxian.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					中县干部 (English: Zhongxian Ganbu)
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://baike.baidu.com/item/%E5%86%AF%E5%86%9B%E6%97%97/8868587" target="_blank"> <h2> 冯军旗  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+			
+			
+			
+			
+			
+			
+			
+			
+					  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://books.google.com/books/about/Qatar.html?id=Z_SPT5N9ypoC&source=kp_book_description"><img src='img/qatar.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					Qatar: A Modern History
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Allen_James_Fromherz" target="_blank"> <h2> Allen James Fromherz  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="http://www.saudiincbook.com/"><img src='img/saudi.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					Saudi, Inc.
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="http://www.ellenrwald.com/" target="_blank"> <h2> Ellen R Wald   </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  
+		  		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/Argonauts_of_the_Western_Pacific"><img src='img/western_pacific.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					Argonauts of the Western Pacific
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Bronis%C5%82aw_Malinowski" target="_blank"> <h2> Bronisław Malinowski  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  
+		  		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://www.amazon.com/Power-Prowess-Kingship-Southeast-Publications/dp/0824825004"><img src='img/power_and_power.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					Power and Prowess: The Origins of Brooke Kingship in Sarawak
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://scholar.google.com.au/citations?user=SikEeZUAAAAJ&hl=en" target="_blank"> <h2> J. H. Walker   </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  
+		  		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/Tristes_Tropiques"><img src='img/Tristes_Tropiques.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					Tristes Tropiques
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Claude_L%C3%A9vi-Strauss" target="_blank"> <h2> Claude Lévi-Strauss  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  
+		  		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/Politics_as_a_Vocation#:~:text=%22Politics%20as%20a%20Vocation%22%20(,Bavaria%20on%2028%20January%201919."><img src='img/Politics_as_a_Vocation.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					Politics as a Vocation
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Max_Weber" target="_blank"> <h2> Max Weber
+  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  
+		  		  		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://books.google.com/books/about/The_Rise_and_Fall_of_Czech_Capitalism.html?id=lKuFAAAAIAAJ&source=kp_book_description"><img src='img/rise_fall.jpeg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					The Rise and Fall of Czech Capitalism: Economic Development in the Czech Republic Since 1989
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://scholar.google.com/citations?user=ZBpkaV4AAAAJ" target="_blank"> <h2> Martin Myant  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://en.wikipedia.org/wiki/Britannia_Unchained"><img src='img/Britannia_Unchained.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+						Britannia Unchained: Global Lessons for Growth and Prosperity
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				Kwasi Kwarteng, Priti Patel, Dominic Raab, Chris Skidmore and  <a style="text-decoration: none" href="https://en.wikipedia.org/wiki/Liz_Truss" target="_blank"> <h2> Liz Truss  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+		  <tr>
+            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+			 <a href="https://www.tandfonline.com/doi/abs/10.1080/713688310"><img src='img/oxford_dev.jpg' width="200";></a>
+			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
+              </div>
+
+            </td>
+            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-60px;">
+				
+				<p class="text-justify">
+				<h3>
+					<p>
+					Indonesia: The Strange and Sudden Death of a Tiger Economy (Journal Paper)
+					</p>  
+                </h3>
+				
+				<!-- <papertitle>Online Multi-Object Tracking</papertitle> -->
+				<a style="text-decoration: none" href="https://crawford.anu.edu.au/people/visitors/hal-hill" target="_blank"> <h2> Hal Hill  </h2></a>
+				
+				
+				<h3>
+                    -----
+                </h3>
+			  </p>
+			  
+			
+			</td>
+          </tr> 
+		  
+		  
+		  
+		  
+
+		  
+		  
+		  
+		  
+		  <tr>
+		  <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:30px;">
+              <div class="one">
+            		<a href="http://jiayisu.com">
+                <papertitle>Back to main page</papertitle>
+              </a>
+          </tr> 
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</tbody></table>
+
+		</div>
+   
+		  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+		<!-- Acknowledgements -->
+		
+		
+        <!-- <div class="row"> -->
+            <!-- <div class="col-md-8 col-md-offset-2"> -->
+                <!-- <h3> -->
+                    <!-- Acknowledgements -->
+                <!-- </h3> -->
+                <!-- <p class="text-justify"> -->
+                <!-- Thanks to Ricardo Martin-Brualla and David Salesin for their comments on the text, and to George Drettakis and Georgios Kopanas for graciously assisting us with our baseline evaluation. -->
+                    <!-- <br> -->
+                <!-- The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>. -->
+                <!-- </p> -->
+            <!-- </div> -->
+        <!-- </div> -->
+		
+
+    </div>
+</body>
+</html>
