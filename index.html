@@ -205,23 +205,21 @@
     /* ── Research / Publications cards ── */
     .pub-list { display: flex; flex-direction: column; gap: 32px; }
     .pub-card {
-      display: grid;
-      grid-template-columns: 200px 1fr;
+      display: flex;
+      flex-direction: row;
       gap: 24px;
-      align-items: start;
+      align-items: flex-start;
     }
     .pub-img {
       border-radius: 6px;
       overflow: hidden;
       background: #f0eeeb;
+      flex-shrink: 0;
       width: 200px;
-      min-width: 200px;
-      height: 150px;
     }
     .pub-img img, .pub-img video {
       width: 200px;
-      height: 150px;
-      object-fit: cover;
+      height: auto;
       display: block;
     }
     .pub-body {}
@@ -327,16 +325,14 @@
       }
       .exp-label { min-width: 120px; }
       .pub-card {
-        grid-template-columns: 1fr;
+        flex-direction: column;
       }
       .pub-img {
         width: 100%;
-        min-width: unset;
-        height: 180px;
       }
       .pub-img img, .pub-img video {
         width: 100%;
-        height: 180px;
+        height: auto;
       }
       nav .links { gap: 12px; }
       nav .links a { font-size: 12px; }
