@@ -1,798 +1,837 @@
 <!DOCTYPE HTML>
 <html lang="en">
-
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
-    <!-- This is the style for the header -->
-    <link rel="stylesheet" href="css/style.css">
-    
-  <title>Jiayi Su</title>
-  
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Jiayi Su, PhD</title>
   <meta name="author" content="Jiayi Su">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" type="image/png" href="images/icons/seal_icons.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #1a1a1a;
+      --mid:    #555;
+      --muted:  #888;
+      --rule:   #e0dbd3;
+      --bg:     #faf9f7;
+      --card:   #ffffff;
+      --accent: #1c4f8a;
+      --hover:  #c2621e;
+      --tag-bg: #eef2f8;
+      --max:    840px;
+      --serif:  'EB Garamond', Georgia, serif;
+      --sans:   'DM Sans', Helvetica, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,249,247,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    nav .inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      gap: 12px;
+    }
+    nav .logo {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    nav .links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav .links a {
+      font-size: 13px;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: .02em;
+      transition: color .15s;
+    }
+    nav .links a:hover { color: var(--hover); }
+
+    /* ── Hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: start;
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-text h1 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+    .hero-text .subtitle {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .hero-text p {
+      margin-top: 18px;
+      font-size: 15px;
+      color: var(--mid);
+      max-width: 520px;
+    }
+    .hero-links {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hero-links a {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid var(--rule);
+      border-radius: 40px;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--card);
+      transition: border-color .15s, background .15s, color .15s;
+    }
+    .hero-links a:hover {
+      border-color: var(--hover);
+      color: var(--hover);
+      background: #fff8f4;
+    }
+    .hero-img {
+      width: 180px;
+      flex-shrink: 0;
+    }
+    .hero-img img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      box-shadow: 0 4px 24px rgba(0,0,0,.10);
+    }
+    .expertise {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .exp-item { display: flex; gap: 12px; align-items: flex-start; }
+    .exp-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 1px;
+      min-width: 160px;
+    }
+    .exp-text { font-size: 13.5px; color: var(--mid); }
+
+    /* ── Erdos ── */
+    .erdos {
+      margin: 28px 0;
+      padding: 16px 20px;
+      background: var(--tag-bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      font-size: 13.5px;
+      color: var(--mid);
+    }
+    .erdos strong { color: var(--ink); }
+
+    /* ── Section ── */
+    section { margin-top: 56px; }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 6px;
+      margin-bottom: 24px;
+    }
+
+    /* ── News ── */
+    .news-list { display: flex; flex-direction: column; gap: 10px; }
+    .news-item { display: flex; gap: 14px; align-items: baseline; }
+    .news-date {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      min-width: 70px;
+    }
+    .news-text { font-size: 14px; color: var(--mid); line-height: 1.6; }
+    .news-text a { color: var(--accent); }
+    .news-text a:hover { color: var(--hover); }
+
+    /* ── Research / Publications cards ── */
+    .pub-list { display: flex; flex-direction: column; gap: 32px; }
+    .pub-card {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .pub-img {
+      border-radius: 6px;
+      overflow: hidden;
+      background: #f0eeeb;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pub-img img, .pub-img video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .pub-body {}
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 15.5px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+    .pub-title a { color: var(--ink); text-decoration: none; }
+    .pub-title a:hover { color: var(--hover); }
+    .pub-authors { margin-top: 6px; font-size: 13px; color: var(--mid); }
+    .pub-authors a { color: var(--mid); text-decoration: none; }
+    .pub-authors a:hover { color: var(--hover); }
+    .pub-venue { margin-top: 4px; font-size: 13px; font-style: italic; color: var(--muted); }
+    .pub-links { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .pub-links a {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--tag-bg);
+      background: var(--tag-bg);
+      padding: 2px 10px;
+      border-radius: 30px;
+      transition: background .15s, color .15s;
+    }
+    .pub-links a:hover { background: #dde6f3; color: var(--accent); }
+    .pub-abstract {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+    .pub-abstract details > summary {
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 12.5px;
+      list-style: none;
+      user-select: none;
+    }
+    .pub-abstract details > summary::-webkit-details-marker { display: none; }
+    .pub-abstract details > summary::before { content: '+ '; }
+    .pub-abstract details[open] > summary::before { content: '− '; }
+    .pub-abstract details p { margin-top: 8px; }
+
+    /* ── Links section ── */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+      list-style: none;
+    }
+    .links-grid li a {
+      display: block;
+      padding: 10px 14px;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      font-size: 13.5px;
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--card);
+      line-height: 1.4;
+      transition: border-color .15s, background .15s;
+    }
+    .links-grid li a:hover { border-color: var(--hover); background: #fff8f4; color: var(--hover); }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer a { color: var(--muted); font-size: 13px; text-decoration: none; }
+    footer a:hover { color: var(--hover); }
+    .marquette-link img { height: 36px; display: block; }
+
+    /* ── Divider ── */
+    .pub-divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0;
+    }
+
+    /* ── Global links ── */
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--hover); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 620px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 36px 0 28px;
+      }
+      .hero-img {
+        width: 130px;
+        order: -1;
+      }
+      .exp-label { min-width: 120px; }
+      .pub-card {
+        grid-template-columns: 1fr;
+      }
+      .pub-img {
+        aspect-ratio: 16/7;
+        max-height: 180px;
+      }
+      nav .links { gap: 12px; }
+      nav .links a { font-size: 12px; }
+    }
+
+    @media (max-width: 420px) {
+      nav .links .hide-xs { display: none; }
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text { animation: fadeUp .55s ease both; }
+    .hero-img  { animation: fadeUp .55s .12s ease both; }
+  </style>
 </head>
-
-<!-- ------------------------------------------------------------------------------------ -->
-<!-- ------------------------------------------------------------------------------------ -->
-<!-- ------------------------------------------------------------------------------------ -->
-
-
-<!-- comment shortcut: control + k -->
-<!-- uncomment shortcut: control + shift + k -->
-
 <body>
-<!-- Start of the header -->
 
-	
-	
-    <!-- End of the header --> 
-	<table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <!-- <tr style="padding:0px"> -->
-      <!-- <td style="padding:0px"> -->
-        <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody> -->
-          <!-- <tr style="padding:0px"> -->
-            <!-- <td style="padding:2.5%;width:63%;vertical-align:middle"> -->
-			<!-- <style> -->
-			  <!-- p{ -->
-			  <!-- padding:5px 0 -->
-			  <!-- } -->
-			  <!-- </style> -->
-              <!-- <p style="text-align:center";> -->
-	<tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:58%;vertical-align:middle">
-              <p style="text-align:center">
-                <name>Jiayi Su, PhD</name>
-              </p>
-			  
-			  <p style="text-align:center">
-                <name>苏嘉懿</name>
-              </p>
-			  
-			  <style>
-			  p{
-			  line-height:22px;
-			  padding:15px 0
-			  }
-			  </style>
-              <p> I'm a senior algorithm engineer at <a href="https://www.farasis-energy.com/en/" target="_blank">Farasis Energy</a>. Prior on that, I received my PhD in Electrical and Computer Engineering from <a href="https://www.marquette.edu/" target="_blank">Marquette University</a>. I worked with <a href="https://www.marquette.edu/electrical-computer-engineering/directory/edwin-yaz.php" target="_blank">Dr. Edwin Yaz</a> in the Modeling, Analysis, Control and Estimation (MACE) Group at <a href="https://www.marquette.edu/electrical-computer-engineering/" target="_blank">EECE Department</a>, <a href="https://www.marquette.edu/" target="_blank">Marquette University</a>. My research interest includes deep learning based computer vision, multi-object tracking, sensor network, sensor fusion, state estimation, parameter identification, distributed estimation theory and their applications.
-              </p>
-              <p>
-				<b>Computer vision & Deep Learning:</b> I have 3 years academic experience in deep learning based image classification, object detection, video analysis, and milti-object tracking using state-of-the-art deep learning techniques. 
-              </p>
-			  <p>
-				<b>State & Parameter Estimation:</b> I have over 8 years of research experience in state estimation, parameter identification and distributed estimation on sensor network using Kalman filter (and its variants like EKF, SPKF) based techniques.              
-				</p>
-			  
-            </td>
-            <td style="padding:2.5%;width:50%;max-width:50%;position:relative;right:-80px;top:50px;">
-              <a href="images/my_images/image5.jpg"><img style="width:90%;max-width:90%" alt="profile photo" src="images/my_images/image5.jpg" class="hoverZoomLink"></a>
-			</td>
-          </tr>
-        </tbody></table>
-		
-		<table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-		<!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody> -->
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <p>
-				Just for fun, my <a href="https://en.wikipedia.org/wiki/Erd%C5%91s_number" target="_blank">Erdos Number</a> is 5:<br>
-				Paul Erdős --> L. Bruce Richmond --> John W. Helton Jr --> Robert E. Skelton --> Edwin E. Yaz --> Jiayi Su
-			  </p>
-			  
-			                <p style="text-align:center">
-				<a href="data/email.txt" target="_blank">Email</a> &nbsp/&nbsp
-                <!-- <a href="mailto:jerry.su@marquette.edu">Email</a> &nbsp/&nbsp -->
-                <a href="data/jiayi_resume_v3.pdf" target="_blank">Resume</a> &nbsp/&nbsp
-                <a href="https://scholar.google.com/citations?user=0LrQJ68AAAAJ&hl=en" target="_blank">Google Scholar</a> &nbsp/&nbsp
-                <a href="https://github.com/jerichosu" target="_blank">Github</a> &nbsp/&nbsp
-				<a href="https://www.linkedin.com/in/jiayi-su-8987b554/" target="_blank">Linkedin</a> &nbsp/&nbsp
-				<a href="https://www.researchgate.net/profile/Jiayi-Su-4" target="_blank">Research Gate</a> &nbsp/&nbsp
-				<a href="https://ieeexplore.ieee.org/author/37088920457" target="_blank">IEEE Xplore</a> 
-				
-              </p>
-			  
-			  
-            </td>
-          </tr>
-        </tbody></table>
-		
-		<!-- ------------------------------------------------------------------------------------ -->
-		
-		<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-			
-              <p style="text-align:center">
-			  
-			  <a href="http://jiayisu.com/bookshelf">
-                <papertitle>My bookshelf</papertitle>
-              </a>
-			  
-				
-              </p>
-
-            </td>
-          </tr>
-        </tbody></table>
-		
-		
-		
-		
-		
-				<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>News</heading>
-              <p>
-				<b>Jan/2026</b>: Our paper "Online State of Health Estimaiton Using Approixmate Weighted Total Least Squares" will be available soon. </br> 
-				<b>Jan/2026</b>: Our MECC 25 paper <a href="https://www.sciencedirect.com/science/article/pii/S2405896325029404?via%3Dihub" target="_blank">"Permanent Magnet Synchronous Motor Speed and Position Estimation Using Nonlinear Reduced-Order H-infinity Filter with Dynamic Uncertainties"</a> is now available! </br> 
-				<b>Jun/2025</b>: Our paper "Permanent Magnet Synchronous Motor Speed and Position Estimation Using Nonlinear Reduced-Order H-infinity Filter with Dynamic Uncertainties" is now accepted to <a href="https://mecc2025.a2c2.org/" target="_blank">MECC 2025</a>, final version coming soon. </br> 
-				<b>Oct/2024</b>: Our <a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank">MECC 2024 paper</a> is now available! </br> 
-				<b>Jul/2024</b>: Our paper "Permanent Magnet Synchronous Motor Speed and Position Estimation Using Reduced-Order Extended Kalman Filter" is now accepted to <a href="https://mecc2024.a2c2.org/" target="_blank">MECC 2024</a>, final version coming soon. </br> 
-				<b>Jun/2024</b>: I defended my doctoral dissertation and received my doctorate degree!</br>  
-				<b>Jun/2024</b>: Our paper "Multi-Object Tracking Using Video Sequences with Improved Performance and Reduced Computation Cost" is now accepted to <a href="https://ccta2024.ieeecss.org/" target="_blank">CCTA 2024</a>, final version coming soon. </br> 
-				<b>May/2024</b>: Our paper "Reduced-order H-infinity Filter for Linear Systems" is now accepted to <a href="https://www.iecon-2024.org/" target="_blank">IECON 2024</a>, final version coming soon. </br> 
-				<b>Dec/2022</b>: Our <a href="https://ieeexplore.ieee.org/document/9965999" target="_blank">CCTA 2022 paper</a> is now available! </br>  
-				<b>Nov/2022</b>: Our <a href="https://ieeexplore.ieee.org/document/9959393" target="_blank">AVSS 2022 paper</a> is now available! </br>  
-              </p>
-
-            </td>
-          </tr>
-        </tbody></table>
-		
-		
-		
-		<!-- ------------------------------------------------------------------------------------ -->
-
-		
-		
-		<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Research</heading>
-              <p>
-                I'm interested in computer vision, especially using different deep learning methods to solve video based computer vision problems such as human behaviors recognition and object detection.</br>  
-				I'm also working on distributed state and parameter estimation theory. In particular, I work on estimating State-of-Charge (SOC) and State-of-Health (SOH) of Lithium-ion cells using estimation theory. I'm also working on multi-target tracking problem in surveillance camera systems, which combines computer vision and distributed estimation problem together. 
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-		
-		
-		
-		<!-- ------------------------------------------------------------------------------------ -->
-		
-		
-
-		
-		
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Ongoing Research & Project:</heading>
-            </td>
-          </tr>
-        </tbody></table>
-		
-		
-
-
-		  
-			<!-- ------------------------------------------------------------------------------------ -->
-		
-		<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-		
-		
-	
-		  
-		  
-		<!-- ------------------------------------------------------------------------------------ -->
-
-
-
-		
-					<tr>
-            <td style="padding:50px;width:40%; position:relative; right:-30px; vertical-align:top;">
-        <div class="one">
-			<a href="images/publication_image/reduced_ekf.jpg"><img src='images/publication_image/reduced_ekf.jpg' width="300";></a>
-		</div>
-
-            </td>
-            <td style="padding:50px;width:60%;vertical-align:top; position:relative;top:10px; right:-150px;">
-                <papertitle>Novel Reduced-Order Non-Linear Filter with Sensor Faliures</papertitle>
-              <br>
-              <strong>Jiayi Su</strong>
-			  <br>
-				Project page coming soon
-              <br>
-
-				<!-- <p>Project page coming soon</p> -->
-
-
-			  <p></p>
-              <p></p>
-              <p> A novel reduced-order non-linear filter for intermittent sensor measurement is developed for non-linear system state estimation</p>
-            </td>
-          </tr> 
-		  
-		  
-		  
-		 <!-- ------------------------------------------------------------------------------------ -->
-		  
-		<tr>
-            <td style="padding:50px;width:40%; position:relative; right:-30px; vertical-align:top;">
-        <div class="one">
-			<a href="images/publication_image/imu.jpg"><img src='images/publication_image/imu.jpg' width="300";></a>
-		</div>
-
-            </td>
-            <td style="padding:50px;width:60%;vertical-align:top; position:relative;top:10px; right:-150px;">
-                <papertitle>Angle Estimation Using 6-DoF Inertial Measuerment Unit via Robust Filter</papertitle>
-              <br>
-              <strong>Jiayi Su</strong>
-			  <br>
-				Project page coming soon
-              <br>
-
-				<!-- <p>Project page coming soon</p> -->
-
-
-			  <p></p>
-              <p></p>
-              <p>A robust sensor fusion technique is developed for roll and pitch angle estimation using a 6-DoF IMU</p>
-            </td>
-          </tr> 
-		  
-		  
-	
-		  
-		  
-		  
-		<!-- ------------------------------------------------------------------------------------ -->
-
-		  
-		  
-		<tr>
-            <td style="padding:10px;width:40%; position:relative; right:-30px; vertical-align:top;">
-        <div class="one">
-			<div class="two"> 
-			<video width="360" height="280" autoplay loop muted controls>
-			<source src="images/publication_image/voids_mandate.mp4" type=video/mp4>
-			</video>
-		</div>
-
-            </td>
-            <td style="padding:50px;width:60%;vertical-align:top; position:relative;top:10px; right:-150px;">
-                <papertitle>Real Time Face Mask Detection</papertitle>
-              <br>
-              <strong>Jiayi Su</strong>
-			  
-			  <br>
-							<a href="https://github.com/jerichosu/yolox_face_mask_detection" target="_blank">project page</a>
-              <br>
-
-				<!-- <p>Project page coming soon</p> -->
-
-
-			  <p></p>
-              <p></p>
-              <p>Applying <a href="https://arxiv.org/abs/2107.08430" target="_blank">YOLOX</a> to detect face masks in real time</p>
-            </td>
-          </tr> 
-		  
-
-
-
-
-	
-		</tbody></table>
-		
-		
-		
-		
-		
-		<table style="width:100%;border:0px;border-spacing:100px; position:relative; top:80px; right:80px; border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Publications:</heading>
-
-            </td>
-          </tr>
-        </tbody></table>
-		
-		
-		
-		
-        <table style="width:100%; border:0px;border-spacing:20px;border-collapse:separate;margin-right:auto;margin-left:auto; border-spacing:0px 50px;"><tbody>
-		  
-		     <!-- ------------------------------------------- PUBLICATION MECC 2025 ----------------------------------------- -->
-		  
-		  <tr>
-		  	<td style="padding:10px;width:30%; position:relative; right:35px; vertical-align:middle">
-              <div class="one">
-                <a href="images/publication_image/mecc2024.jpg"><img src='images/publication_image/mecc2025.jpg' width="400";></a>
-              </div>
-
-            </td>
-            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-120px;">
-              
-                <papertitle>Permanent Magnet Synchronous Motor Speed and Position Estimation Using Nonlinear Reduced-Order H-infinity Filter with Dynamic Uncertainties</papertitle>
-              </a>
-              <br>
-			  <strong>Jiayi Su</strong>,
-              <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-              <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-
-			  
-			  <br>
-				<em>Accepted to Modeling, Estimation and Control Conference(IFAC-PapersOnline-MECC), 2025</em>
-			  <br>
-             
-              
-
-              <p><b>Abstract</b>:Permanent Magnet Synchronous Motor (PMSM) serves as a critical component in numerous industrial applications. Robust rotor speed and position estimates are essential for achieving precise motor control. Conventional approaches typically employ full-order nonlinear filters for state estimation. While since the winding currents are directly measurable, deploying a full-order observer to estimate all states becomes redundant. Furthermore, inherent system uncertainties - including modeling inaccuracies, temperature variations, and aging effects - can significantly compromise estimation accuracy. To address these challenges, a novel nonlinear reduced-order $H_{\infty}$ filter is introduced to estimate the speed and position of a two-phase PMSM with biased winding resistance. Simulation results show that the proposed filter brings robust estimation results compared to both full- and reduced-order EKFs if there exists model uncertainty. In addition, it can also be transformed to a reduced-order EKF for applications with accurate system dynamics as well.
-			  
-
-			  </td>
-		  </tr> 
-			
-			
-			
-			<!-- ------------------------------------------- PUBLICATION MECC 2024 ----------------------------------------- -->
-		  
-		  <tr>
-		  	<td style="padding:10px;width:30%; position:relative; right:35px; vertical-align:top">
-              <div class="one">
-                <a href="images/publication_image/mecc2024.jpg"><img src='images/publication_image/mecc2024.jpg' width="400";></a>
-              </div>
-
-            </td>
-            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-120px;">
-              <a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank">
-                <papertitle>Permanent Magnet Synchronous Motor Speed and Position Estimation Using Reduced-Order Extended Kalman Filter</papertitle>
-              </a>
-              <br>
-			  <strong>Jiayi Su</strong>,
-              <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-              <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-
-			  
-			  <br>
-				<em>Accepted to Modeling, Estimation and Control Conference(IFAC-PapersOnline-MECC), 2024</em>
-			  <br>
-             
-              
-
-              <p><b>Abstract</b>:Permanent Magnet Synchronous Motor (PMSM) plays a pivotal role in many applications. Precise control of the PMSM necessitates accurate estimation of its states, particularly the motor's speed and position. Conventionally, a full-order Extended Kalman filter (EKF) is employed for state estimation. However, since the winding currents are directly measurable, deploying a full-order observer to estimate all states becomes unnecessary. In this work, a novel Reduced-order Extended Kalman filter (ROEKF) is introduced to estimate the speed and position of a two-phase PMSM. Simulation results show that the proposed ROEKF brings equivalent estimation accuracy compared to the full-order EKF, while it reduces the computation cost significantly. In addition, the proposed reduced-order filtering approach can be easily adapted to other applications to reduce the computation cost as well.
-			  
-			  </td>
-		  </tr> 
-		  
-		  
-		  
-		  
-		  		  <!-- ------------------------------------------- PUBLICATION CCTA 2024 ----------------------------------------- -->
-
-
-		<tr>
-		  	<td style="padding:10px;width:30%; position:relative; right:-30px; vertical-align:top">
-              <div class="one">
-                <video width="280" height="280" autoplay loop muted controls>
-			<source src="images/publication_image/tracking_demo.mp4" type=video/mp4>
-			</video>
-              </div>
-
-            </td>
-            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-120px;">
-              <a href="https://ieeexplore.ieee.org/abstract/document/10666653" target="_blank">
-                <papertitle>Multi-Object Tracking Using Video Sequences with Improved Performance and Reduced Computation Cost</papertitle>
-              </a>
-              <br>
-			  <strong>Jiayi Su</strong>,
-              <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-              <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-
-			  
-			  <br>
-				<em>Accepted to Conference on Control Technology and Applications (CCTA), 2024</em>
-			  <br>
-             
-              
-
-              <p><b>Abstract</b>: Multi-object tracking (MOT) in video sequences is a fundamental problem in surveillance applications, aimed at robustly tracking multiple objects over time in video sequences. Following the tracking by detection framework, in this work, two efficient techniques are introduced to improve the tracking accuracy and reduce the computation complexity. Specifically, a more realistic motion model is used to improve the tracking performance with no extra computation cost, and a novel reduced-order Kalman filter is introduced to reduce the computation cost but with the same tracking accuracy compared to the full-order Kalman filter. Experimental results on MOT datasets show that the proposed method brings competitive results in terms of tracking accuracy and inference speed. In addition, the proposed techniques can easily be migrated into other trackers to improve their tracking performance. 
-			  </td>
-		  </tr> 
-		  
-		  
-		  
-		  
-		  		  <!-- ------------------------------------------- PUBLICATION IECON 2024 ----------------------------------------- -->
-
-		  
-		  <tr>
-		  	<td style="padding:10px;width:30%; position:relative; right:35px; vertical-align:middle">
-              <div class="one">
-                <a href="images/publication_image/iecon_figure.jpg"><img src='images/publication_image/iecon_figure.jpg' width="400";></a>
-              </div>
-
-            </td>
-            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-120px;">
-              
-                <papertitle>Reduced-order H-infinity Filter for Linear Systems</papertitle>
-              </a>
-              <br>
-			  <strong>Jiayi Su</strong>,
-              <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-              <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-
-			  
-			  <br>
-				<em>Accepted to IEEE IECON 2024</em>
-			  <br>
-             
-              
-
-              <p><b>Abstract: </b>Robust state estimation plays a critical role in many applications, especially when system dynamics contain uncertainty, biased noise or perturbation. In this work, a novel discrete-time reduced-order H-infinity filter is introduced, where it offers a compelling alternative to the full-order H-infinity filter by significantly reducing computational costs without sacrificing its performance. Specifically, a novel 1-step, 2-step and steady-state reduced-order H-infinity filter are introduced. Simulations on a simple nearly constant velocity (NCV) model with biased process noise show that the proposed reduced-order H-infinity filters bring similar estimation accuracy compared to the full-order H-infinity filter under the same set up, while it reduces the computation cost significantly. In addition, the proposed reduced-order filtering approach can be easily adapted to other real-time applications to reduce the computation cost as well.
-				</td>
-		  </tr> 
-		  
-		  
-		  
-		  
-		  <!-- ------------------------------------------- PUBLICATION 1 ----------------------------------------- -->
-          <tr>
-		  	<td style="padding:10px;width:30%; position:relative; right:-30px; vertical-align:middle">
-              <div class="one">
-                <img src='images/publication_image/video02.gif' width="280">
-              </div>
-
-            </td>
-            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-120px;">
-              <a href="https://ieeexplore.ieee.org/document/9959393" target="_blank">
-                <papertitle>Violence Detection using 3D Convolutional Neural Networks</papertitle>
-              </a>
-              <br>
-              <!-- <!-- <strong>Jiayi Su, Paris Her, Erik Clemens, Edwin Yaz, Susan Schneider, Henry Medeiros</strong> --> 
-			  <strong>Jiayi Su</strong>,
-			  <a href="https://ieeexplore.ieee.org/author/37089615285" target="_blank">Paris Her</a>,
-			  <a href="https://ieeexplore.ieee.org/author/37089615458" target="_blank">Erik Clemens</a>,
-              <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-              <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-              <a href="https://ieeexplore.ieee.org/author/37400201600" target="_blank">Henry Medeiros</a>
-			  
-			  <br>
-				<em>IEEE International Conference on Advanced Video and Signal-Based Surveillance (AVSS 2022)</em>
-			  <br>
-             
-							<a href="https://github.com/jerichosu/X3D" target="_blank">project page</a>
-              
-
-              
-              <p><b>Abstract: </b>Accurate detection of abnormal behavior can help improve public safety. In this work, a 3D convolutional neural network (CNN) is implemented to detect violence captured by surveillance cameras. A comprehensive study of model hyper-parameter tuning is addressed to show competitive violence detection results using a general action recognition CNN without modifying the original architecture. Experimental results on three publicly available benchmark datasets show that the proposed method outperforms other sophisticated techniques designed specifically to detect violence in videos. Our analysis further indicates that reasonable network parameter adjustments can be an effective mechanism to guide the design of computer vision models in abnormal human behavior detection. 
-				</td>
-		  </tr> 
-		  
-		  
-		  
-		  <!-- ------------------------------------------- PUBLICATION 2 ----------------------------------------- -->
-		  
-		  
-		  <tr>
-			<td style="padding:10px;width:30%; position:relative; right:-30px; vertical-align:top">
-              <div class="one">
-			  <a href="images/publication_image/ccta.png"><img src='images/publication_image/ccta.png' width="280"></a>
-			  <!-- <a href="images/publication_image/ccta.png"><img style="width:100%; max-width:100%" alt="profile photo"; src="images/publication_image/ccta.png";></a> -->
-              </div>
-
-            </td>
-			<td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-120px;">
-			<a href="https://ieeexplore.ieee.org/document/9965999" target="_blank">
-                <papertitle>Simultaneous State of Charge and Total Capacity Estimation of Lithium-ion Cells Using Multiple Model Adaptive Estimation</papertitle>
-              </a>
-              <br>
-              <strong>Jiayi Su</strong>,
-              <!-- <a href="https://ieeexplore.ieee.org/author/37085674566" target="_blank">Alia Strandt</a>, -->
-              <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-              <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-              <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank">Fabien Josse</a>
-              <br>
-							<em>Conference on Control Technology and Applications (CCTA), 2022</em>
-              <br>
-              
-              
-              <p><b>Abstract: </b>Accurate State of Charge (SOC) and total capacity estimation are needed to ensure effective performance monitoring of Lithium-ion battery management systems. In this work, a Multiple Model Adaptive Estimation (MMAE) technique is implemented to estimate SOC and cell total capacity simultaneously with an Enhanced Self-Correcting (ESC) model. In MMAE technique, conditional probabilities of all possible capacity values are computed to find the most probable cell capacity estimate, and SOC estimate is then calculated based on the given probabilities. Simulation results for a LiFePO4 Lithium-ion cell demonstrate that MMAE technique provides smaller estimation error compared to Joint and Dual estimation techniques.</p>
-            </td>
-          </tr>
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		   <!-- ------------------------------------------- PUBLICATION 2 ----------------------------------------- -->
-		  
-		  
-		  <tr>
-            <td style="padding:10px;width:30%;vertical-align:top; position:relative; right:-30px; top:30px;">
-              <div class="one">
-			  <a href="images/publication_image/ECC2021.jpg"><img src='images/publication_image/ECC2021.jpg' width="300";></a>
-			  <!-- <a href="images/publication_image/ECC2021.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/ECC2021.jpg" width="200" class="hoverZoomLink"></a> -->
-              </div>
-
-            </td>
-            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-120px;">
-              <a href="https://ieeexplore.ieee.org/abstract/document/9654838" target="_blank">
-                <papertitle>Improved State of Charge Estimation of Lithium-ion Battery cells</papertitle>
-              </a>
-              <br>
-              <strong>Jiayi Su</strong>,
-              <a href="https://ieeexplore.ieee.org/author/37085674566" target="_blank">Alia Strandt</a>,
-              <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-              <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-              <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank">Fabien Josse</a>
-              <br>
-							<em>European Control Conference (ECC)</em>, 2021
-              <br>
-              
-              
-              <p><b>Abstract:</b> Lithium-ion battery cells are widely used in a variety of applications. An accurate online estimation technique to determine the State of Charge (SOC) can improve the safety of Lithium-ion cells, their performance and life cycle. However, nonlinear cell models bring many estimation challenges. In this work, an estimation technique which combines the Multiple Model Adaptive Estimation (MMAE) and Extended Kalman filter (EKF) is introduced. The combination of these two techniques improves the SOC estimation accuracy and avoids each technique’s drawback. Simulation results for a LiFePO4 Lithium-ion cell demonstrate that this combined technique provides smaller estimation error compared to either MMAE or EKF alone.</p>
-            </td>
-          </tr> 
-
-		  
-		  <!-- ------------------------------------------- PUBLICATION 3 ----------------------------------------- -->
-		  
-		  
-		  <tr>
-            <td style="padding:10px;width:30%;vertical-align:top; position:relative;  right:-30px; top:30px;">
-              <div class="one">
-			  <a href="images/publication_image/ACC2021.jpg"><img src='images/publication_image/ACC2021.jpg' width="300";></a>
-			  <!-- <a href="images/publication_image/ACC2021.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/ACC2021.jpg" width="200" class="hoverZoomLink"></a> -->
-              </div>
-
-            </td>
-            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-120px;">
-              <a href="https://ieeexplore.ieee.org/document/9482734" target="_blank">
-                <papertitle>Online State of Charge Estimation of Lithium-ion Battery Cells: A Multiple Model Adaptive Estimation Approach</papertitle>
-              </a>
-              <br>
-              <strong>Jiayi Su</strong>,
-              <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-              <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-              <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank">Fabien Josse</a>
-              <br>
-							<em>American Control Conference (ACC)</em>, 2021
-              <br>
-              
-              
-              <p><b>Abstract:</b> Accurate state of charge (SOC) estimation of Lithium-ion battery cells is critical since they are commonly used in a variety of applications. However, the complex chemical reactions inside the cell makes its model nonlinear, which increases the difficulty of the SOC estimation. An accurate online estimation technique to determine the SOC estimate can improve the safety of Lithium-ion cells. More importantly, cell performance and life cycle can also be improved. In this work, the nonlinear state estimation problem of determining SOC is converted to a linear estimation problem solved in a parallel fashion. Multiple model adaptive estimation (MMAE) technique based on a bank of Kalman filters is used to adaptively estimate the SOC. Simulation results for a LiFePO4 Lithium-ion battery cell demonstrate that this technique provides smaller estimation error compared to the Extended Kalman filter.</p>
-            </td>
-          </tr> 
-		  
-		  
-		  
-		  <!-- ------------------------------------------- PUBLICATION 4 ----------------------------------------- -->
-		  	<tr>
-            <td style="padding:10px;width:30%;vertical-align:middle;  position:relative; right:-30px; top:10px;">
-              <div class="one">
-			  <a href="images/publication_image/DSCC2020.jpg"><img src='images/publication_image/DSCC2020.jpg' width="300";></a>
-			  <!-- <a href="images/publication_image/DSCC2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/DSCC2020.jpg" width="200" class="hoverZoomLink"></a> -->
-              </div>
-
-            </td>
-            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-120px;">
-              <a href="https://asmedigitalcollection.asme.org/DSCC/proceedings-abstract/DSCC2020/84287/V002T33A002/1096580" target="_blank">
-                <papertitle>Sensor and Actuator Intrusion Detection for Cyber-Physical Systems via Adaptive Estimation Algorithm</papertitle>
-              </a>
-              <br>
-              <strong>Jiayi Su</strong>,
-			  <a>Yuqin Weng</a>,
-              <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-              <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-              
-              <br>
-				<em>Dynamic Systems and Control Conference (DSCC)</em>, 2020
-              <br>
-              
-              
-              <p><b>Abstract:</b> In this work, a new approach to detect sensor and actuator intrusion for Cyber-Physical Systems using a bank of Kalman filters is presented. The case where the unknown type of the intrusion signal is considered first, using two Kalman filters in a bank to provide the conditional state estimates, then the unknown type of intrusion signal can be detected properly via the adaptive estimation algorithm. The case where the target (either sensor or actuator) of the intrusion signal is unknown is also considered, using four Kalman filters in a bank designed to detect if the intrusion signal is about to affect healthy sensor or actuator signal. To test these methods, a DC motor speed control system subject to attack by different types of sensor and actuator signals is simulated. Simulations show that different types of sensor and actuator intrusion signals can be detected properly without the knowledge of the nature and the type of these signals.</p>
-            </td>
-          </tr> 
-		  
-		  
-		  
-		  	<!-- ------------------------------------------- PUBLICATION 5 ----------------------------------------- -->
-
-		  
-		  	<tr>
-            <td style="padding:10px;width:30%;vertical-align:middle; position:relative; right:-30px; top:10px;">
-              <div class="one">
-			  <a href="images/publication_image/CDSR2020.jpg"><img src='images/publication_image/CDSR2020.jpg' width="300";></a>
-			  <!-- <a href="images/publication_image/CDSR2020.jpg"><img style="width:170%;max-width:170%" alt="profile photo" src="images/publication_image/CDSR2020.jpg" width="200" class="hoverZoomLink"></a> -->
-              </div>
-
-            </td>
-            <td style="padding:30px;width:70%;vertical-align:middle; position:relative; right:-120px;">
-              <a href="https://avestia.com/CDSR2020_Proceedings/files/papers.html" target="_blank">
-                <papertitle>Accelerated Detection Method for Sensor and Actuator Intrusions in Cyber-Physical Systems Using Multiple Model Estimation Algorithm</papertitle>
-              </a>
-              <br>
-              <strong>Jiayi Su</strong>,
-			  <a>Yuqin Weng</a>,
-              <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-              <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-              
-              <br>
-				<em>International Conference of Control, Dynamic Systems, and Robotics (CDSR)</em>, 2020
-              <br>
-              
-              
-              <p><b>Abstract:</b> Although Cyber-Physical Systems play a critical role in industrial production and our daily life, the safety of the CPS sensor and actuator signals have not been given due attention. In our previous work, a new approach which successfully detects CPS sensor and actuator intrusion using the multiple model estimation (MME) algorithm with a bank of Kalman filters was described. Since the earlier detection is of importance in such applications, in the present paper, an accelerated detection method using the fading memory technique is applied to the MME resulting in significant faster detection of intrusion signals. To verify the algorithm introduced in this paper, a DC motor speed control system subject to attack by different types of sensor and actuator signals is simulated. Simulations verify that the addition of the fading memory technique allows for the faster detection of sensor and actuator intrusions.</p>
-            </td>
-          </tr> 
-
-
-
-        </tbody></table>
-
-
-
-
-
-				
-
-		  
-		  
-
-		  
-		  
-		  <table style="width:100%;height:300px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto; position:relative; right:-60px;"><tbody>
-            <tr>
-            <td style="padding:0px;width:100%;vertical-align:middle">
-              <heading>Some Useful Links</heading>
-              <p>
-                <a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf" target="_blank">Matrix Cookbook</a>
-              <br>
-              <a href="http://mocha-java.uccs.edu/ECE5550/index.html" vtarget="_blank">ECE5550: Applied Kalman Filtering</a> from University of Colorado, Colorado Springs by <a href="http://mocha-java.uccs.edu/" target="_blank">Dr. Gregory Plett</a> 
-              <br>
-			  <a href="http://mocha-java.uccs.edu/ECE5560/index.html" target="_blank">ECE5560: System Identification</a> from University of Colorado, Colorado Springs by <a href="http://mocha-java.uccs.edu/" target="_blank">Dr. Gregory Plett</a> 
-              <br>
-              <a href="https://www.youtube.com/c/joshstarmer" target="_blank">StatQuest</a> with Josh Starmer, if you want some intuitions on machine learning from Youtube
-              <br>
-              <a href="https://www.youtube.com/watch?v=1nqCZqDYPp0&list=PLTKMiZHVd_2KJtIXOW0zFhFfBaJJilH51" target="_blank">Introduction to Deep Learning and Generative Modeling</a> from University of Wisconsin by <a href="https://sebastianraschka.com/" target="_blank">Dr. Sebastian Raschka</a> 
-			  <br>
-			  Two High Performance Computing (HPC) tutorials I found: <a href="https://ulhpc-tutorials.readthedocs.io/en/latest/" target="_blank">this is the first one</a> and <a href="https://hpc-wiki.info/hpc/HPC_Wiki" target="_blank">this is the second one</a>
-              <br>
-			  <a href="https://clustrmaps.com/" target="_blank">Clustrmaps</a>
-			  <br>
-			  <a href="http://aima.cs.berkeley.edu/" target="_blank"> "Artificial Intelligence: A Modern Approach", 3rd Edition</a>
-			  <br>
-			  <a href="https://stonesoup.readthedocs.io/en/v0.1b9/auto_tutorials/index.html" target="_blank"> "Multi Target Tracking Tutorial (Python)"</a>
-			  <br>
-			  <a href="https://sassy-glasses-37e.notion.site/a649eaead75a4db7a40c942610aed5bb?v=6bad6d4e8ab94eb494594a87ae72ebca" target="_blank"> "Machine learning and computer vision cheat sheet"</a>
-			  <br>
-			  <a href="https://arxiv.org/pdf/2206.13446.pdf" target="_blank"> "Exercises in Machine Learning"</a>
-			  <br>
-			  <a href="https://www.pytorch.wiki/" target="_blank"> "Pytorch Wiki"</a>
-			  <br>
-			  <a href=“https://jupyterlab.readthedocs.io/en/stable/index.html" target="_blank"> Jupyter lab tutorial</a>
-			  <br>
-			  <a href=“ https://www.taniarascia.com/make-a-static-website-with-jekyll/" target="_blank"> How to make a static website with jekyll</a>
-			  <br>
-			  <a href=“ https://www.mapchart.net/" target="_blank"> Mapchart</a>
-			  <br>
-			  <a href=“ https://maxpumperla.com/learning_ray/" target="_blank"> Learning Ray</a>
-			  <br>
-			  <a href="data/red_ord_kf.pdf" target="_blank">Reduced order Kalman Filter, derivation and simulation</a> 
-
-
-			  </p>
-            </td>
-          </tr>
-        </tbody></table>
-		
-		
-
-		
-		
-		
-		
-		<table style="width:100%; height:200px; border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;position:relative; right:-60px;"><tbody>
-            <tr>
-            <td>
-              <heading>LET'S GO GOLDEN EAGLES!</heading>
-            </td>
-          </tr>
-		  
-			<tr>
-            <td style="padding:10px;width:120%; position:relative; left:100px; top: 80px">
-              <a href="https://gomarquette.com/" target="_blank"> <img src="images/icons/MARQUETTE.jpg" alt="MARQUETTE"></a>
-            </td>
-
-          </tr>
-        </tbody></table>
-		
-		
-		
-		<!-- <table style="width:120%; height:250px; border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody> -->
-            <!-- <tr> -->
-            <!-- <td> -->
-              <!-- <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=Ai9pUsYFlmpnJrMgBOENfgMOz8jPr1uw-AFDbmIT9xk&cl=ffffff&w=a"></script> -->
-            <!-- </td> -->
-          <!-- </tr> -->
-		  
-        <!-- </tbody></table> -->
-		
-		
-
-
-		
-		
-		
-		
-		<table style="width:100%; height:250px; border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;position:relative; right:-60px;"><tbody>
-            <tr>
-            <td style="padding:50px; position:relative;right:40px; top:70px;">
-              <!-- <heading>Visitors Map</heading> -->
-			  <heading><a href="https://clustrmaps.com/site/1bn6k">Visitors Map</a></heading>
-            </td>
-          </tr>
-		  
-			<tr>
-            <td style="padding:10px;width:100%; position:relative; left:100px; top: 80px">
-              <a href="https://clustrmaps.com/site/1bn6k"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=Ai9pUsYFlmpnJrMgBOENfgMOz8jPr1uw-AFDbmIT9xk&cl=ffffff" /></a>
-            </td>
-
-          </tr>
-        </tbody></table>
-		
-		
-		<!-- Globe Widget -->
-		<!-- <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=Ai9pUsYFlmpnJrMgBOENfgMOz8jPr1uw-AFDbmIT9xk"></script>	 -->
-		
-		<!-- Map Widget (plain image)  -->
-		<!-- <a href="https://clustrmaps.com/site/1bn6k"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=Ai9pUsYFlmpnJrMgBOENfgMOz8jPr1uw-AFDbmIT9xk&cl=ffffff" /></a> -->
-		
-		<!-- Map Widget (based on javascript)  -->
-		<!-- <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=Ai9pUsYFlmpnJrMgBOENfgMOz8jPr1uw-AFDbmIT9xk&cl=ffffff&w=a"></script>		 -->
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;  position:relative; top: 100px"><tbody>
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:right;font-size:small;">
-               	      
-                <br>
-                Template 'stolen' from <a href="http://jonbarron.info" target="_blank">Jon Barron</a>
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
+<!-- ── Navigation ── -->
+<nav>
+  <div class="inner">
+    <a class="logo" href="#">Jiayi Su, PhD &thinsp;·&thinsp; 苏嘉懿</a>
+    <div class="links">
+      <a href="#news">News</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#links" class="hide-xs">Links</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Jiayi Su, PhD</h1>
+      <div class="subtitle">苏嘉懿</div>
+      <p>
+        Senior Algorithm Engineer at <a href="https://www.farasis-energy.com/en/" target="_blank">Farasis Energy</a>.
+        PhD in Electrical &amp; Computer Engineering from <a href="https://www.marquette.edu/" target="_blank">Marquette University</a>,
+        advised by <a href="https://www.marquette.edu/electrical-computer-engineering/directory/edwin-yaz.php" target="_blank">Dr. Edwin Yaz</a>
+        in the MACE Group.
+      </p>
+
+      <div class="expertise">
+        <div class="exp-item">
+          <span class="exp-label">Computer Vision &amp; DL</span>
+          <span class="exp-text">3 years in image classification, object detection, video analysis, and multi-object tracking.</span>
+        </div>
+        <div class="exp-item">
+          <span class="exp-label">State Estimation</span>
+          <span class="exp-text">8+ years in Kalman filter variants (EKF, SPKF), sensor fusion, distributed estimation, and parameter identification.</span>
+        </div>
+      </div>
+
+      <div class="hero-links">
+        <a href="data/email.txt" target="_blank">✉ Email</a>
+        <a href="data/jiayi_resume_v3.pdf" target="_blank">Resume</a>
+        <a href="https://scholar.google.com/citations?user=0LrQJ68AAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <a href="https://github.com/jerichosu" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/jiayi-su-8987b554/" target="_blank">LinkedIn</a>
+        <a href="https://www.researchgate.net/profile/Jiayi-Su-4" target="_blank">ResearchGate</a>
+        <a href="https://ieeexplore.ieee.org/author/37088920457" target="_blank">IEEE Xplore</a>
+        <a href="http://jiayisu.com/bookshelf" target="_blank">📚 Bookshelf</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="images/my_images/image5.jpg" alt="Jiayi Su">
+    </div>
+  </div>
+
+  <!-- ── Erdős ── -->
+  <div class="erdos">
+    <strong>Erdős Number: 5</strong> &nbsp;—&nbsp;
+    Paul Erdős → L. Bruce Richmond → John W. Helton Jr → Robert E. Skelton → Edwin E. Yaz → Jiayi Su
+    &nbsp;(<a href="https://en.wikipedia.org/wiki/Erd%C5%91s_number" target="_blank">what's this?</a>)
+  </div>
+
+  <!-- ── News ── -->
+  <section id="news">
+    <div class="section-title">News</div>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="news-date">Jan 2026</span>
+        <span class="news-text">Paper "Online State of Health Estimation Using Approximate Weighted Total Least Squares" — coming soon.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jan 2026</span>
+        <span class="news-text">MECC 2025 paper <a href="https://www.sciencedirect.com/science/article/pii/S2405896325029404?via%3Dihub" target="_blank">"PMSM Speed and Position Estimation Using Nonlinear Reduced-Order H∞ Filter"</a> is now available.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jun 2025</span>
+        <span class="news-text">Paper on PMSM H∞ filter accepted to <a href="https://mecc2025.a2c2.org/" target="_blank">MECC 2025</a>.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Oct 2024</span>
+        <span class="news-text"><a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank">MECC 2024 paper</a> is now available.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jul 2024</span>
+        <span class="news-text">Paper on Reduced-Order EKF for PMSM accepted to <a href="https://mecc2024.a2c2.org/" target="_blank">MECC 2024</a>.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jun 2024</span>
+        <span class="news-text">🎓 Defended doctoral dissertation and received PhD degree!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jun 2024</span>
+        <span class="news-text">Multi-Object Tracking paper accepted to <a href="https://ccta2024.ieeecss.org/" target="_blank">CCTA 2024</a>.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">May 2024</span>
+        <span class="news-text">Reduced-order H∞ filter paper accepted to <a href="https://www.iecon-2024.org/" target="_blank">IECON 2024</a>.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Dec 2022</span>
+        <span class="news-text"><a href="https://ieeexplore.ieee.org/document/9965999" target="_blank">CCTA 2022 paper</a> is now available.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Nov 2022</span>
+        <span class="news-text"><a href="https://ieeexplore.ieee.org/document/9959393" target="_blank">AVSS 2022 paper</a> is now available.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Research ── -->
+  <section id="research">
+    <div class="section-title">Research</div>
+    <p style="color:var(--mid);font-size:14.5px;margin-bottom:24px;">
+      My research bridges deep learning–based computer vision (video analysis, multi-object tracking) and distributed estimation theory
+      (SOC/SOH estimation, Kalman filter variants, multi-target tracking in sensor networks).
+    </p>
+
+    <div class="pub-list">
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/reduced_ekf.jpg" alt="Reduced-Order Filter">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Novel Reduced-Order Non-Linear Filter with Sensor Failures</div>
+          <div class="pub-authors"><strong>Jiayi Su</strong></div>
+          <div class="pub-venue">Ongoing project</div>
+          <div class="pub-abstract">
+            A novel reduced-order non-linear filter for intermittent sensor measurement, developed for non-linear system state estimation.
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/imu.jpg" alt="IMU Estimation">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Angle Estimation Using 6-DoF IMU via Robust Filter</div>
+          <div class="pub-authors"><strong>Jiayi Su</strong></div>
+          <div class="pub-venue">Ongoing project</div>
+          <div class="pub-abstract">
+            A robust sensor fusion technique for roll and pitch angle estimation using a 6-DoF inertial measurement unit.
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+      <div class="pub-card">
+        <div class="pub-img">
+          <video autoplay loop muted playsinline>
+            <source src="images/publication_image/voids_mandate.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Real-Time Face Mask Detection</div>
+          <div class="pub-authors"><strong>Jiayi Su</strong></div>
+          <div class="pub-venue">Project</div>
+          <div class="pub-links">
+            <a href="https://github.com/jerichosu/yolox_face_mask_detection" target="_blank">GitHub</a>
+          </div>
+          <div class="pub-abstract">
+            Applying <a href="https://arxiv.org/abs/2107.08430" target="_blank">YOLOX</a> to detect face masks in real time from live video streams.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Publications ── -->
+  <section id="publications">
+    <div class="section-title">Publications</div>
+    <div class="pub-list">
+
+      <!-- MECC 2025 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/mecc2025.jpg" alt="MECC 2025">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Permanent Magnet Synchronous Motor Speed and Position Estimation Using Nonlinear Reduced-Order H∞ Filter with Dynamic Uncertainties</div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+          </div>
+          <div class="pub-venue">IFAC-PapersOnline / MECC, 2025</div>
+          <div class="pub-links">
+            <a href="https://www.sciencedirect.com/science/article/pii/S2405896325029404?via%3Dihub" target="_blank">Paper</a>
+          </div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>A novel nonlinear reduced-order H∞ filter is introduced to estimate the speed and position of a two-phase PMSM with biased winding resistance, addressing modeling inaccuracies, temperature variations, and aging effects. Simulation results show robust estimation compared to both full- and reduced-order EKFs under model uncertainty.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+
+      <!-- MECC 2024 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/mecc2024.jpg" alt="MECC 2024">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank">Permanent Magnet Synchronous Motor Speed and Position Estimation Using Reduced-Order Extended Kalman Filter</a></div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+          </div>
+          <div class="pub-venue">IFAC-PapersOnline / MECC, 2024</div>
+          <div class="pub-links">
+            <a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank">Paper</a>
+          </div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>A novel Reduced-order Extended Kalman Filter (ROEKF) for PMSM speed and position estimation that achieves equivalent accuracy to the full-order EKF while significantly reducing computation cost.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+
+      <!-- CCTA 2024 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <video autoplay loop muted playsinline>
+            <source src="images/publication_image/tracking_demo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10666653" target="_blank">Multi-Object Tracking Using Video Sequences with Improved Performance and Reduced Computation Cost</a></div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+          </div>
+          <div class="pub-venue">Conference on Control Technology and Applications (CCTA), 2024</div>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/10666653" target="_blank">Paper</a>
+          </div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>Two efficient techniques for multi-object tracking: a realistic motion model improving tracking with no extra cost, and a reduced-order Kalman filter cutting computation while maintaining tracking accuracy. Competitive results on MOT benchmarks.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+
+      <!-- IECON 2024 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/iecon_figure.jpg" alt="IECON 2024">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Reduced-order H∞ Filter for Linear Systems</div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+          </div>
+          <div class="pub-venue">IEEE IECON 2024</div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>A discrete-time reduced-order H∞ filter offering a compelling alternative to the full-order version with significantly reduced computation cost and similar estimation accuracy under biased process noise.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+
+      <!-- AVSS 2022 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/video02.gif" alt="AVSS 2022">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9959393" target="_blank">Violence Detection using 3D Convolutional Neural Networks</a></div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>,
+            <a href="https://ieeexplore.ieee.org/author/37089615285" target="_blank">Paris Her</a>,
+            <a href="https://ieeexplore.ieee.org/author/37089615458" target="_blank">Erik Clemens</a>,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
+            <a href="https://ieeexplore.ieee.org/author/37400201600" target="_blank">Henry Medeiros</a>
+          </div>
+          <div class="pub-venue">IEEE AVSS 2022</div>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/document/9959393" target="_blank">Paper</a>
+            <a href="https://github.com/jerichosu/X3D" target="_blank">GitHub</a>
+          </div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>3D CNN applied to violence detection in surveillance footage. A comprehensive hyperparameter study shows competitive results on three benchmark datasets, outperforming techniques designed specifically for violence detection.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+
+      <!-- CCTA 2022 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/ccta.png" alt="CCTA 2022">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9965999" target="_blank">Simultaneous State of Charge and Total Capacity Estimation of Lithium-ion Cells Using Multiple Model Adaptive Estimation</a></div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
+            <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank">Fabien Josse</a>
+          </div>
+          <div class="pub-venue">Conference on Control Technology and Applications (CCTA), 2022</div>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/document/9965999" target="_blank">Paper</a>
+          </div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>MMAE technique for simultaneous SOC and total capacity estimation of LiFePO4 cells. Conditional probabilities over capacity values drive the state estimate, outperforming Joint and Dual estimation baselines.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+
+      <!-- ECC 2021 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/ECC2021.jpg" alt="ECC 2021">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9654838" target="_blank">Improved State of Charge Estimation of Lithium-ion Battery Cells</a></div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>,
+            <a href="https://ieeexplore.ieee.org/author/37085674566" target="_blank">Alia Strandt</a>,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
+            <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank">Fabien Josse</a>
+          </div>
+          <div class="pub-venue">European Control Conference (ECC), 2021</div>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/9654838" target="_blank">Paper</a>
+          </div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>MMAE + EKF combination for SOC estimation of LiFePO4 cells. The combined technique improves accuracy and avoids the individual drawbacks of MMAE or EKF alone.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+
+      <!-- ACC 2021 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/ACC2021.jpg" alt="ACC 2021">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9482734" target="_blank">Online State of Charge Estimation of Lithium-ion Battery Cells: A Multiple Model Adaptive Estimation Approach</a></div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
+            <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank">Fabien Josse</a>
+          </div>
+          <div class="pub-venue">American Control Conference (ACC), 2021</div>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/document/9482734" target="_blank">Paper</a>
+          </div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>Converts nonlinear SOC estimation into a parallel linear problem using MMAE with a bank of Kalman filters. Outperforms EKF alone on LiFePO4 simulation.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+
+      <!-- DSCC 2020 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/DSCC2020.jpg" alt="DSCC 2020">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://asmedigitalcollection.asme.org/DSCC/proceedings-abstract/DSCC2020/84287/V002T33A002/1096580" target="_blank">Sensor and Actuator Intrusion Detection for Cyber-Physical Systems via Adaptive Estimation Algorithm</a></div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>, Yuqin Weng,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+          </div>
+          <div class="pub-venue">Dynamic Systems and Control Conference (DSCC), 2020</div>
+          <div class="pub-links">
+            <a href="https://asmedigitalcollection.asme.org/DSCC/proceedings-abstract/DSCC2020/84287/V002T33A002/1096580" target="_blank">Paper</a>
+          </div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>Bank of Kalman filters detects sensor and actuator intrusions in CPS without knowledge of the intrusion type. Validated on a DC motor speed control simulation.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
+
+      <!-- CDSR 2020 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/CDSR2020.jpg" alt="CDSR 2020">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://avestia.com/CDSR2020_Proceedings/files/papers.html" target="_blank">Accelerated Detection Method for Sensor and Actuator Intrusions in Cyber-Physical Systems Using Multiple Model Estimation Algorithm</a></div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>, Yuqin Weng,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+          </div>
+          <div class="pub-venue">International Conference of Control, Dynamic Systems, and Robotics (CDSR), 2020</div>
+          <div class="pub-links">
+            <a href="https://avestia.com/CDSR2020_Proceedings/files/papers.html" target="_blank">Paper</a>
+          </div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>Fading memory technique applied to the MME algorithm enables significantly faster detection of CPS sensor and actuator intrusion signals. Verified on a DC motor simulation.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Useful Links ── -->
+  <section id="links">
+    <div class="section-title">Useful Links</div>
+    <ul class="links-grid">
+      <li><a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf" target="_blank">Matrix Cookbook</a></li>
+      <li><a href="http://mocha-java.uccs.edu/ECE5550/index.html" target="_blank">ECE5550: Applied Kalman Filtering</a></li>
+      <li><a href="http://mocha-java.uccs.edu/ECE5560/index.html" target="_blank">ECE5560: System Identification</a></li>
+      <li><a href="https://www.youtube.com/c/joshstarmer" target="_blank">StatQuest (YouTube)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1nqCZqDYPp0&list=PLTKMiZHVd_2KJtIXOW0zFhFfBaJJilH51" target="_blank">Intro to Deep Learning — UW</a></li>
+      <li><a href="https://ulhpc-tutorials.readthedocs.io/en/latest/" target="_blank">HPC Tutorial 1</a></li>
+      <li><a href="https://hpc-wiki.info/hpc/HPC_Wiki" target="_blank">HPC Wiki</a></li>
+      <li><a href="https://sassy-glasses-37e.notion.site/a649eaead75a4db7a40c942610aed5bb?v=6bad6d4e8ab94eb494594a87ae72ebca" target="_blank">ML/CV Cheat Sheet</a></li>
+      <li><a href="https://arxiv.org/pdf/2206.13446.pdf" target="_blank">Exercises in Machine Learning</a></li>
+      <li><a href="https://www.pytorch.wiki/" target="_blank">PyTorch Wiki</a></li>
+      <li><a href="https://jupyterlab.readthedocs.io/en/stable/index.html" target="_blank">JupyterLab Docs</a></li>
+      <li><a href="https://stonesoup.readthedocs.io/en/v0.1b9/auto_tutorials/index.html" target="_blank">Multi-Target Tracking (Python)</a></li>
+      <li><a href="http://aima.cs.berkeley.edu/" target="_blank">AI: A Modern Approach</a></li>
+      <li><a href="https://maxpumperla.com/learning_ray/" target="_blank">Learning Ray</a></li>
+      <li><a href="data/red_ord_kf.pdf" target="_blank">Reduced-Order KF Derivation (PDF)</a></li>
+      <li><a href="https://clustrmaps.com/" target="_blank">Clustrmaps</a></li>
+    </ul>
+  </section>
+
+  <!-- ── Visitors Map ── -->
+  <section>
+    <div class="section-title"><a href="https://clustrmaps.com/site/1bn6k">Visitors Map</a></div>
+    <a href="https://clustrmaps.com/site/1bn6k" title="Visit tracker">
+      <img src="//www.clustrmaps.com/map_v2.png?d=Ai9pUsYFlmpnJrMgBOENfgMOz8jPr1uw-AFDbmIT9xk&cl=ffffff" style="max-width:100%;border-radius:6px;" alt="Visitor Map">
+    </a>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <a href="https://gomarquette.com/" target="_blank" class="marquette-link">
+      <img src="images/icons/MARQUETTE.jpg" alt="Marquette University — LET'S GO GOLDEN EAGLES!">
+    </a>
+    <a href="http://jonbarron.info" target="_blank">Template from Jon Barron</a>
+  </footer>
+
+</div><!-- .page -->
 </body>
-
 </html>
