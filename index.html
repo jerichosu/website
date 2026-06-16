@@ -418,6 +418,10 @@
   <section id="news">
     <div class="section-title">News</div>
     <div class="news-list">
+      <div class="news-item">
+        <span class="news-date">Jun 2026</span>
+        <span class="news-text">Paper "Robust State-of-Health Estimation for Lithium-Ion Cells Under Biased SOC Measurements via Extended Kalman Filtering with RTS Smoothing" accepted to <a href="https://icpre.org/" target="_blank">ICPRE 2026</a>!</span>
+      </div>
 	  <div class="news-item">
         <span class="news-date">Apr 2026</span>
         <span class="news-text">Paper "Online State of Health Estimation Using Approximate Weighted Total Least Squares" now accepted to <a href="https://www.ceege.org/" target="_blank">CEEGE 2026</a>!</span>
@@ -527,6 +531,27 @@
   <section id="publications">
     <div class="section-title">Publications</div>
     <div class="pub-list">
+
+      <!-- CEEGE 2026 -->
+      <div class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/soh_awtls.jpg" alt="CEEGE 2026">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Online State of Health Estimation of Lithium-ion Cells Using Approximate Weighted Total Least Squares</div>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>, Zhimin Wei, Luodan Liu, Xiaojing Zhou
+          </div>
+          <div class="pub-venue">International Conference on Electrical Engineering and Green Energy (CEEGE), 2026</div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>A novel approximate weighted total least squares (AWTLS) algorithm for online state-of-health (SOH) estimation of Lithium-ion cells. By reformulating the weighted total least squares problem in a recursive form, AWTLS greatly reduces computation while explicitly accounting for uncertainty in both SOC and current measurements. On real road-charging data it outperforms OLS and WLS and matches WTLS accuracy, making it well suited for online battery-management-system implementation.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <hr class="pub-divider">
 
       <!-- MECC 2025 -->
       <div class="pub-card">
@@ -817,16 +842,40 @@
       <li><a href="https://maxpumperla.com/learning_ray/" target="_blank">Learning Ray</a></li>
       <li><a href="data/red_ord_kf.pdf" target="_blank">Reduced-Order KF Derivation (PDF)</a></li>
 	  <li><a href="data/m11_full_step_by_step_workflow.pdf" target="_blank">Bar-Shalom Sensor Fusion EKF</a></li>
-      <li><a href="https://clustrmaps.com/" target="_blank">Clustrmaps</a></li>
     </ul>
   </section>
 
-  <!-- ── Visitors Map ── -->
+  <!-- ── Visitors ── -->
   <section>
-    <div class="section-title"><a href="https://clustrmaps.com/site/1bn6k">Visitors Map</a></div>
-    <a href="https://clustrmaps.com/site/1bn6k" title="Visit tracker">
-      <img src="//www.clustrmaps.com/map_v2.png?d=Ai9pUsYFlmpnJrMgBOENfgMOz8jPr1uw-AFDbmIT9xk&cl=ffffff" style="max-width:100%;border-radius:6px;" alt="Visitor Map">
-    </a>
+    <div class="section-title">Visitors</div>
+    <!--
+      Visitor counter via Vercount (https://vercount.one) — a busuanzi-compatible,
+      China-accessible, zero-config counter. No account or ID needed: it starts
+      counting automatically the moment this page is deployed, and works for both
+      you and your visitors inside and outside mainland China. (Western visitor-MAP
+      widgets like ClustrMaps / RevolverMaps / Flag Counter are blocked in mainland
+      China, so an on-page world map is not a reliable option here.)
+    -->
+    <script defer src="https://cn.vercount.one/js"></script>
+    <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:baseline;
+                padding:18px 24px;border:1px solid var(--rule);border-radius:8px;
+                background:var(--card);max-width:420px;">
+      <div>
+        <div style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);line-height:1.1;">
+          <span id="busuanzi_value_site_uv">…</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);letter-spacing:.03em;">unique visitors</div>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);line-height:1.1;">
+          <span id="busuanzi_value_site_pv">…</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);letter-spacing:.03em;">total page views</div>
+      </div>
+    </div>
+    <p style="color:var(--muted);font-size:11.5px;margin-top:8px;">
+      Counter by <a href="https://vercount.one" target="_blank" rel="noopener">Vercount</a>
+    </p>
   </section>
 
   <!-- ── Footer ── -->
