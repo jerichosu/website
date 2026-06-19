@@ -848,33 +848,44 @@
   <!-- ── Visitors ── -->
   <section>
     <div class="section-title">Visitors</div>
-    <!--
-      Visitor counter via Vercount (https://vercount.one) — a busuanzi-compatible,
-      China-accessible, zero-config counter. No account or ID needed: it starts
-      counting automatically the moment this page is deployed, and works for both
-      you and your visitors inside and outside mainland China. (Western visitor-MAP
-      widgets like ClustrMaps / RevolverMaps / Flag Counter are blocked in mainland
-      China, so an on-page world map is not a reliable option here.)
-    -->
+
+    <!-- Vercount: lightweight, China-accessible site counter. Reliable baseline that
+         shows for everyone, even where the third-party globe widget is blocked/slow. -->
     <script defer src="https://cn.vercount.one/js"></script>
-    <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:baseline;
-                padding:18px 24px;border:1px solid var(--rule);border-radius:8px;
-                background:var(--card);max-width:420px;">
-      <div>
-        <div style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);line-height:1.1;">
-          <span id="busuanzi_value_site_uv">…</span>
-        </div>
-        <div style="font-size:12px;color:var(--muted);letter-spacing:.03em;">unique visitors</div>
+
+    <div style="display:flex;gap:36px;flex-wrap:wrap;align-items:center;margin-top:6px;">
+
+      <!-- Rotating-globe visitor map (MapMyVisitors).
+           The globe sizes itself to THIS wrapper's width, so the width below sets the
+           globe diameter; max-width:100% keeps it inside the column on small screens.
+           It's DOM-based (no WebGL), so it renders on virtually all browsers/devices. -->
+      <div style="width:210px;max-width:100%;flex:0 0 auto;">
+        <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=n9he1nNgcqR5_h28qvUNUvviwGsijrfQI8AidWZTEHY"></script>
       </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);line-height:1.1;">
-          <span id="busuanzi_value_site_pv">…</span>
+
+      <!-- Always-visible counter -->
+      <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:baseline;
+                  padding:18px 24px;border:1px solid var(--rule);border-radius:8px;
+                  background:var(--card);flex:1 1 240px;min-width:0;">
+        <div>
+          <div style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);line-height:1.1;">
+            <span id="busuanzi_value_site_uv">…</span>
+          </div>
+          <div style="font-size:12px;color:var(--muted);letter-spacing:.03em;">unique visitors</div>
         </div>
-        <div style="font-size:12px;color:var(--muted);letter-spacing:.03em;">total page views</div>
+        <div>
+          <div style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);line-height:1.1;">
+            <span id="busuanzi_value_site_pv">…</span>
+          </div>
+          <div style="font-size:12px;color:var(--muted);letter-spacing:.03em;">total page views</div>
+        </div>
       </div>
+
     </div>
-    <p style="color:var(--muted);font-size:11.5px;margin-top:8px;">
-      Counter by <a href="https://vercount.one" target="_blank" rel="noopener">Vercount</a>
+
+    <p style="color:var(--muted);font-size:11.5px;margin-top:10px;">
+      Map by <a href="https://mapmyvisitors.com/" target="_blank" rel="noopener">MapMyVisitors</a>
+      &nbsp;·&nbsp; counter by <a href="https://vercount.one" target="_blank" rel="noopener">Vercount</a>
     </p>
   </section>
 
