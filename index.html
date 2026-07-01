@@ -350,6 +350,7 @@
     .hero-text { animation: fadeUp .55s ease both; }
     .hero-img  { animation: fadeUp .55s .12s ease both; }
   </style>
+  <link rel="stylesheet" href="preview-effects.css?v=imageback1">
 </head>
 <body>
 
@@ -402,8 +403,8 @@
         <a href="http://jiayisu.com/bookshelf" target="_blank">📚 Bookshelf</a>
       </div>
     </div>
-    <div class="hero-img">
-      <img src="images/my_images/image5.jpg" alt="Jiayi Su">
+    <div class="hero-img hero-runner" data-runner-particles>
+      <img class="runner-source" src="images/my_images/image5.jpg" alt="Jiayi Su running">
     </div>
   </div>
 
@@ -413,6 +414,36 @@
     Paul Erdős → L. Bruce Richmond → John W. Helton Jr → Robert E. Skelton → Edwin E. Yaz → Jiayi Su
     &nbsp;(<a href="https://en.wikipedia.org/wiki/Erd%C5%91s_number" target="_blank">what's this?</a>)
   </div>
+
+  <!-- ── Current Focus ── -->
+  <section id="focus" class="focus-panel" aria-label="Current focus">
+    <div class="section-title">Current Focus</div>
+    <div class="focus-grid">
+      <div class="focus-copy">
+        <p class="focus-kicker">ESTIMATION STACK / LIVE NOTES</p>
+        <h2>Battery intelligence, sensor fusion, and efficient filters.</h2>
+        <p>
+          A compact view of the work behind the publications: robust SOC/SOH estimation,
+          reduced-order filtering, and perception systems that can run under real constraints.
+        </p>
+      </div>
+      <div class="focus-terminal" data-focus-terminal>
+        <div class="term-head"><i></i><i></i><i></i><span>jiayi@estimator</span></div>
+        <pre class="focus-code">$ fusion.run --profile current
+load cell data ............. ok
+sync sensors ............... ok
+estimate soc / soh ......... active
+reduce state dimension ..... active
+validate residuals ......... watch
+publish artifacts .......... ready</pre>
+        <div class="focus-meter">
+          <span>confidence</span>
+          <b><i></i></b>
+          <em>92%</em>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ── News ── -->
   <section id="news">
@@ -846,7 +877,7 @@
   </section>
 
   <!-- ── Visitors ── -->
-  <section>
+  <section id="visitors" class="telemetry">
     <div class="section-title">Visitors</div>
 
     <!-- Vercount: lightweight, China-accessible site counter. Reliable baseline that
@@ -898,5 +929,7 @@
   </footer>
 
 </div><!-- .page -->
+<script src="runner-particle-data.js?v=imageback1"></script>
+<script src="preview-particles.js?v=imageback1"></script>
 </body>
 </html>
