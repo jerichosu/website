@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
   <title>Jiayi Su</title>
   <link rel="icon" type="image/png" href="images/icons/seal_icons.png">
   <style>
@@ -29,14 +30,18 @@
   <!-- MapMyVisitors: loading globe.js?d=<token> records this visit (location/time/referrer)
        in your MapMyVisitors dashboard + globe. Hidden here; the request is what counts. -->
   <div class="hidden-tracker" aria-hidden="true">
-    <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=n9he1nNgcqR5_h28qvUNUvviwGsijrfQI8AidWZTEHY"></script>
+    <script type="text/javascript" id="mmvst_globe" src="https://mapmyvisitors.com/globe.js?d=n9he1nNgcqR5_h28qvUNUvviwGsijrfQI8AidWZTEHY"></script>
   </div>
 
   <script>
     (function(){
       var p = new URLSearchParams(location.search).get('f') || '';
-      // SECURITY: only allow same-site relative paths — block absolute, scheme, and //host URLs
-      var ok = p && !/^(https?:)?\/\//i.test(p) && !/^[a-zA-Z][\w+.-]*:/.test(p);
+      // SECURITY: same-site relative paths only — block absolute, scheme, //host, and path traversal
+      var ok = p
+        && !/^(https?:)?\/\//i.test(p)
+        && !/^[a-zA-Z][\w+.-]*:/.test(p)
+        && !p.includes('..')
+        && !p.includes('\\');
       var f = document.getElementById('view');
       // Opened without a valid ?f= (e.g. someone visits go.html directly) → just go home.
       if(!ok){ location.replace('/'); return; }

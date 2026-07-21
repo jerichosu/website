@@ -1,5 +1,5 @@
-This is the source code 'stolen' from Jon Barron's public academic website: https://jonbarron.info/. 
+# Jiayi Su — personal academic website
 
-You are welcome to clone this code for your own personal use, just please attribute the source to the original website (https://jonbarron.info/). 
+Source adapted from [Jon Barron's academic website](https://jonbarron.info/). Please attribute the original template if you reuse this code.
 
-This repo still contains some redundant pages from Jon Barron which I will need to remove/modify in the future, just let you know!
+Live site: [jiayisu.com](https://jiayisu.com/)

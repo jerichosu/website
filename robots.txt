@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /go.html
+Disallow: /mipnerf/
+
+Sitemap: https://jiayisu.com/sitemap.xml

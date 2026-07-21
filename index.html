@@ -4,380 +4,92 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Jiayi Su, PhD</title>
   <meta name="author" content="Jiayi Su">
+  <meta name="description" content="Jiayi Su, PhD — Project Manager at HGTech. Research in state estimation, sensor fusion, battery SOC/SOH, and computer vision.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://jiayisu.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jiayisu.com/">
+  <meta property="og:title" content="Jiayi Su, PhD">
+  <meta property="og:description" content="Project Manager at HGTech. Research in state estimation, sensor fusion, battery SOC/SOH, and computer vision.">
+  <meta property="og:image" content="https://jiayisu.com/images/my_images/image5.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jiayi Su, PhD">
+  <meta name="twitter:description" content="Project Manager at HGTech. Research in state estimation, sensor fusion, battery SOC/SOH, and computer vision.">
+  <meta name="twitter:image" content="https://jiayisu.com/images/my_images/image5.jpg">
   <link rel="icon" type="image/png" href="images/icons/seal_icons.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/site.css?v=20260721-scene-color">
+  <meta name="theme-color" content="#faf9f7">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jiayi Su",
+    "alternateName": "苏嘉懿",
+    "url": "https://jiayisu.com/",
+    "image": "https://jiayisu.com/images/my_images/image5.jpg",
+    "jobTitle": "Project Manager",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "HGTech",
+      "url": "https://www.hgtech.com.cn/"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Marquette University"
+    },
+    "sameAs": [
+      "https://scholar.google.com/citations?user=0LrQJ68AAAAJ&hl=en",
+      "https://github.com/jerichosu",
+      "https://www.linkedin.com/in/jiayi-su-8987b554/",
+      "https://www.researchgate.net/profile/Jiayi-Su-4",
+      "https://ieeexplore.ieee.org/author/37088920457"
+    ],
+    "email": "mailto:jerry.su@marquette.edu",
+    "knowsAbout": [
+      "State estimation",
+      "Sensor fusion",
+      "Battery SOC/SOH",
+      "Computer vision",
+      "Kalman filtering"
+    ]
+  }
+  </script>
 
-    :root {
-      --ink:    #1a1a1a;
-      --mid:    #555;
-      --muted:  #888;
-      --rule:   #e0dbd3;
-      --bg:     #faf9f7;
-      --card:   #ffffff;
-      --accent: #1c4f8a;
-      --hover:  #c2621e;
-      --tag-bg: #eef2f8;
-      --max:    840px;
-      --serif:  'EB Garamond', Georgia, serif;
-      --sans:   'DM Sans', Helvetica, sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 15px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Layout ── */
-    .page {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
-
-    /* ── Nav ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250,249,247,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--rule);
-    }
-    nav .inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 52px;
-      gap: 12px;
-    }
-    nav .logo {
-      font-family: var(--serif);
-      font-size: 17px;
-      color: var(--ink);
-      text-decoration: none;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    nav .links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    nav .links a {
-      font-size: 13px;
-      color: var(--mid);
-      text-decoration: none;
-      letter-spacing: .02em;
-      transition: color .15s;
-    }
-    nav .links a:hover { color: var(--hover); }
-
-    /* ── Hero ── */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: start;
-      padding: 56px 0 40px;
-      border-bottom: 1px solid var(--rule);
-    }
-    .hero-text h1 {
-      font-family: var(--serif);
-      font-size: clamp(28px, 5vw, 40px);
-      font-weight: 600;
-      line-height: 1.2;
-      color: var(--ink);
-    }
-    .hero-text .subtitle {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 18px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-    .hero-text p {
-      margin-top: 18px;
-      font-size: 15px;
-      color: var(--mid);
-      max-width: 520px;
-    }
-    .hero-links {
-      margin-top: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .hero-links a {
-      display: inline-block;
-      padding: 6px 14px;
-      border: 1px solid var(--rule);
-      border-radius: 40px;
-      font-size: 13px;
-      color: var(--accent);
-      text-decoration: none;
-      background: var(--card);
-      transition: border-color .15s, background .15s, color .15s;
-    }
-    .hero-links a:hover {
-      border-color: var(--hover);
-      color: var(--hover);
-      background: #fff8f4;
-    }
-    .hero-img {
-      width: 180px;
-      flex-shrink: 0;
-    }
-    .hero-img img {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
-      box-shadow: 0 4px 24px rgba(0,0,0,.10);
-    }
-    .expertise {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .exp-item { display: flex; gap: 12px; align-items: flex-start; }
-    .exp-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      white-space: nowrap;
-      padding-top: 1px;
-      min-width: 160px;
-    }
-    .exp-text { font-size: 13.5px; color: var(--mid); }
-
-    /* ── Erdos ── */
-    .erdos {
-      margin: 28px 0;
-      padding: 16px 20px;
-      background: var(--tag-bg);
-      border-left: 3px solid var(--accent);
-      border-radius: 0 6px 6px 0;
-      font-size: 13.5px;
-      color: var(--mid);
-    }
-    .erdos strong { color: var(--ink); }
-
-    /* ── Section ── */
-    section { margin-top: 56px; }
-    .section-title {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--ink);
-      border-bottom: 1.5px solid var(--ink);
-      padding-bottom: 6px;
-      margin-bottom: 24px;
-    }
-
-    /* ── News ── */
-    .news-list { display: flex; flex-direction: column; gap: 10px; }
-    .news-item { display: flex; gap: 14px; align-items: baseline; }
-    .news-date {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--accent);
-      white-space: nowrap;
-      min-width: 70px;
-    }
-    .news-text { font-size: 14px; color: var(--mid); line-height: 1.6; }
-    .news-text a { color: var(--accent); }
-    .news-text a:hover { color: var(--hover); }
-
-    /* ── Research / Publications cards ── */
-    .pub-list { display: flex; flex-direction: column; gap: 32px; }
-    .pub-card {
-      display: flex;
-      flex-direction: row;
-      gap: 24px;
-      align-items: flex-start;
-    }
-    .pub-img {
-      border-radius: 6px;
-      overflow: hidden;
-      background: #f0eeeb;
-      flex-shrink: 0;
-      width: 200px;
-    }
-    .pub-img img, .pub-img video {
-      width: 200px;
-      height: auto;
-      display: block;
-    }
-    .pub-body {}
-    .pub-title {
-      font-family: var(--serif);
-      font-size: 15.5px;
-      font-weight: 600;
-      line-height: 1.4;
-      color: var(--ink);
-    }
-    .pub-title a { color: var(--ink); text-decoration: none; }
-    .pub-title a:hover { color: var(--hover); }
-    .pub-authors { margin-top: 6px; font-size: 13px; color: var(--mid); }
-    .pub-authors a { color: var(--mid); text-decoration: none; }
-    .pub-authors a:hover { color: var(--hover); }
-    .pub-venue { margin-top: 4px; font-size: 13px; font-style: italic; color: var(--muted); }
-    .pub-links { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px; }
-    .pub-links a {
-      font-size: 12px;
-      color: var(--accent);
-      text-decoration: none;
-      border: 1px solid var(--tag-bg);
-      background: var(--tag-bg);
-      padding: 2px 10px;
-      border-radius: 30px;
-      transition: background .15s, color .15s;
-    }
-    .pub-links a:hover { background: #dde6f3; color: var(--accent); }
-    .pub-abstract {
-      margin-top: 10px;
-      font-size: 13px;
-      color: var(--mid);
-      line-height: 1.65;
-    }
-    .pub-abstract details > summary {
-      cursor: pointer;
-      color: var(--accent);
-      font-size: 12.5px;
-      list-style: none;
-      user-select: none;
-    }
-    .pub-abstract details > summary::-webkit-details-marker { display: none; }
-    .pub-abstract details > summary::before { content: '+ '; }
-    .pub-abstract details[open] > summary::before { content: '− '; }
-    .pub-abstract details p { margin-top: 8px; }
-
-    /* ── Links section ── */
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 10px;
-      list-style: none;
-    }
-    .links-grid li a {
-      display: block;
-      padding: 10px 14px;
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      font-size: 13.5px;
-      color: var(--accent);
-      text-decoration: none;
-      background: var(--card);
-      line-height: 1.4;
-      transition: border-color .15s, background .15s;
-    }
-    .links-grid li a:hover { border-color: var(--hover); background: #fff8f4; color: var(--hover); }
-
-    /* ── Footer ── */
-    footer {
-      margin-top: 72px;
-      padding-top: 24px;
-      border-top: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    footer a { color: var(--muted); font-size: 13px; text-decoration: none; }
-    footer a:hover { color: var(--hover); }
-    .marquette-link img { height: 36px; display: block; }
-
-    /* ── Divider ── */
-    .pub-divider {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 0;
-    }
-
-    /* ── Global links ── */
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--hover); }
-
-    /* ── MOBILE ── */
-    @media (max-width: 620px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 36px 0 28px;
-      }
-      .hero-img {
-        width: 130px;
-        order: -1;
-      }
-      .exp-label { min-width: 120px; }
-      .pub-card {
-        flex-direction: column;
-      }
-      .pub-img {
-        width: 100%;
-      }
-      .pub-img img, .pub-img video {
-        width: 100%;
-        height: auto;
-      }
-      nav .links { gap: 12px; }
-      nav .links a { font-size: 12px; }
-    }
-
-    @media (max-width: 420px) {
-      nav .links .hide-xs { display: none; }
-    }
-
-    /* ── Animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-text { animation: fadeUp .55s ease both; }
-    .hero-img  { animation: fadeUp .55s .12s ease both; }
-  </style>
-  <link rel="stylesheet" href="preview-effects.css?v=imageback1">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ── Navigation ── -->
-<nav>
+<nav id="site-nav" aria-label="Primary">
   <div class="inner">
-    <a class="logo" href="#">Jiayi Su, PhD &thinsp;·&thinsp; 苏嘉懿</a>
-    <div class="links">
+    <a class="logo" href="/">Jiayi Su, PhD &thinsp;·&thinsp; <span lang="zh">苏嘉懿</span></a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+    </button>
+    <div class="links" id="nav-links">
+      <a href="#focus">Focus</a>
       <a href="#news">News</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
-      <a href="#links" class="hide-xs">Links</a>
+      <a href="#links">Links</a>
     </div>
   </div>
 </nav>
 
-<div class="page">
+<main id="main" class="page">
 
   <!-- ── Hero ── -->
   <div class="hero">
     <div class="hero-text">
       <h1>Jiayi Su, PhD</h1>
-      <div class="subtitle">苏嘉懿</div>
+      <div class="subtitle" lang="zh">苏嘉懿</div>
       <p>
-        Senior Algorithm Engineer at <a href="https://www.farasis-energy.com/en/" target="_blank">Farasis Energy</a>.
-        PhD in Electrical &amp; Computer Engineering from <a href="https://www.marquette.edu/" target="_blank">Marquette University</a>,
-        advised by <a href="https://www.marquette.edu/electrical-computer-engineering/directory/edwin-yaz.php" target="_blank">Dr. Edwin Yaz</a>
+        Project Manager at <a href="https://www.hgtech.com.cn/" target="_blank" rel="noopener noreferrer">HGTech</a>.
+        PhD in Electrical &amp; Computer Engineering from <a href="https://www.marquette.edu/" target="_blank" rel="noopener noreferrer">Marquette University</a>,
+        advised by <a href="https://www.marquette.edu/electrical-computer-engineering/directory/edwin-yaz.php" target="_blank" rel="noopener noreferrer">Dr. Edwin Yaz</a>
         in the MACE Group.
       </p>
 
@@ -393,18 +105,18 @@
       </div>
 
       <div class="hero-links">
-        <a href="data/email.txt" target="_blank">✉ Email</a>
-        <a href="data/jiayi_resume_v3.pdf" target="_blank">Resume</a>
-        <a href="https://scholar.google.com/citations?user=0LrQJ68AAAAJ&hl=en" target="_blank">Google Scholar</a>
-        <a href="https://github.com/jerichosu" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/jiayi-su-8987b554/" target="_blank">LinkedIn</a>
-        <a href="https://www.researchgate.net/profile/Jiayi-Su-4" target="_blank">ResearchGate</a>
-        <a href="https://ieeexplore.ieee.org/author/37088920457" target="_blank">IEEE Xplore</a>
-        <a href="http://jiayisu.com/bookshelf" target="_blank">📚 Bookshelf</a>
+        <a href="mailto:jerry.su@marquette.edu" aria-label="Email Jiayi Su">Email</a>
+        <a href="data/jiayi_resume_v3.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="https://scholar.google.com/citations?user=0LrQJ68AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://github.com/jerichosu" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/jiayi-su-8987b554/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.researchgate.net/profile/Jiayi-Su-4" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+        <a href="https://ieeexplore.ieee.org/author/37088920457" target="_blank" rel="noopener noreferrer">IEEE Xplore</a>
+        <a href="/bookshelf/" target="_blank" rel="noopener noreferrer" aria-label="Bookshelf">Bookshelf</a>
       </div>
     </div>
     <div class="hero-img hero-runner" data-runner-particles>
-      <img class="runner-source" src="images/my_images/image5.jpg" alt="Jiayi Su running">
+      <img class="runner-source" src="images/my_images/image5.jpg" alt="Jiayi Su running" width="640" height="800" fetchpriority="high" decoding="async">
     </div>
   </div>
 
@@ -412,22 +124,22 @@
   <div class="erdos">
     <strong>Erdős Number: 5</strong> &nbsp;—&nbsp;
     Paul Erdős → L. Bruce Richmond → John W. Helton Jr → Robert E. Skelton → Edwin E. Yaz → Jiayi Su
-    &nbsp;(<a href="https://en.wikipedia.org/wiki/Erd%C5%91s_number" target="_blank">what's this?</a>)
+    &nbsp;(<a href="https://en.wikipedia.org/wiki/Erd%C5%91s_number" target="_blank" rel="noopener noreferrer">what's this?</a>)
   </div>
 
   <!-- ── Current Focus ── -->
   <section id="focus" class="focus-panel" aria-label="Current focus">
-    <div class="section-title">Current Focus</div>
+    <h2 class="section-title">Current Focus</h2>
     <div class="focus-grid">
       <div class="focus-copy">
         <p class="focus-kicker">ESTIMATION STACK / LIVE NOTES</p>
-        <h2>Battery intelligence, sensor fusion, and efficient filters.</h2>
+        <p class="focus-lead">Battery intelligence, sensor fusion, and efficient filters.</p>
         <p>
           A compact view of the work behind the publications: robust SOC/SOH estimation,
           reduced-order filtering, and perception systems that can run under real constraints.
         </p>
       </div>
-      <div class="focus-terminal" data-focus-terminal>
+      <div class="focus-terminal" data-focus-terminal aria-hidden="true">
         <div class="term-head"><i></i><i></i><i></i><span>jiayi@estimator</span></div>
         <pre class="focus-code">$ fusion.run --profile current
 load cell data ............. ok
@@ -447,129 +159,153 @@ publish artifacts .......... ready</pre>
 
   <!-- ── News ── -->
   <section id="news">
-    <div class="section-title">News</div>
+    <h2 class="section-title">News</h2>
     <div class="news-list">
       <div class="news-item">
         <span class="news-date">Jun 2026</span>
-        <span class="news-text">Paper "Robust State-of-Health Estimation for Lithium-Ion Cells Under Biased SOC Measurements via Extended Kalman Filtering with RTS Smoothing" accepted to <a href="https://icpre.org/" target="_blank">ICPRE 2026</a>!</span>
+        <span class="news-text">Paper "Robust State-of-Health Estimation for Lithium-Ion Cells Under Biased SOC Measurements via Extended Kalman Filtering with RTS Smoothing" accepted to <a href="https://icpre.org/" target="_blank" rel="noopener noreferrer">ICPRE 2026</a>!</span>
       </div>
-	  <div class="news-item">
+      <div class="news-item">
         <span class="news-date">Apr 2026</span>
-        <span class="news-text">Paper "Online State of Health Estimation Using Approximate Weighted Total Least Squares" now accepted to <a href="https://www.ceege.org/" target="_blank">CEEGE 2026</a>!</span>
+        <span class="news-text">Paper "Online State of Health Estimation Using Approximate Weighted Total Least Squares" accepted to <a href="https://www.ceege.org/" target="_blank" rel="noopener noreferrer">CEEGE 2026</a>!</span>
       </div>
       <div class="news-item">
         <span class="news-date">Jan 2026</span>
-        <span class="news-text">Paper "Online State of Health Estimation Using Approximate Weighted Total Least Squares" — coming soon.</span>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Jan 2026</span>
-        <span class="news-text">MECC 2025 paper <a href="https://www.sciencedirect.com/science/article/pii/S2405896325029404?via%3Dihub" target="_blank">"PMSM Speed and Position Estimation Using Nonlinear Reduced-Order H∞ Filter"</a> is now available.</span>
+        <span class="news-text">MECC 2025 paper <a href="https://www.sciencedirect.com/science/article/pii/S2405896325029404?via%3Dihub" target="_blank" rel="noopener noreferrer">"PMSM Speed and Position Estimation Using Nonlinear Reduced-Order H∞ Filter"</a> is now available.</span>
       </div>
       <div class="news-item">
         <span class="news-date">Jun 2025</span>
-        <span class="news-text">Paper on PMSM H∞ filter accepted to <a href="https://mecc2025.a2c2.org/" target="_blank">MECC 2025</a>.</span>
+        <span class="news-text">Paper on PMSM H∞ filter accepted to <a href="https://mecc2025.a2c2.org/" target="_blank" rel="noopener noreferrer">MECC 2025</a>.</span>
       </div>
       <div class="news-item">
         <span class="news-date">Oct 2024</span>
-        <span class="news-text"><a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank">MECC 2024 paper</a> is now available.</span>
+        <span class="news-text">
+        <a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank" rel="noopener noreferrer">MECC 2024 paper</a> is now available.</span>
       </div>
-      <div class="news-item">
+      <div class="news-item is-archived">
         <span class="news-date">Jul 2024</span>
-        <span class="news-text">Paper on Reduced-Order EKF for PMSM accepted to <a href="https://mecc2024.a2c2.org/" target="_blank">MECC 2024</a>.</span>
+        <span class="news-text">Paper on Reduced-Order EKF for PMSM accepted to <a href="https://mecc2024.a2c2.org/" target="_blank" rel="noopener noreferrer">MECC 2024</a>.</span>
       </div>
-      <div class="news-item">
+      <div class="news-item is-archived">
         <span class="news-date">Jun 2024</span>
         <span class="news-text">🎓 Defended doctoral dissertation and received PhD degree!</span>
       </div>
-      <div class="news-item">
+      <div class="news-item is-archived">
         <span class="news-date">Jun 2024</span>
-        <span class="news-text">Multi-Object Tracking paper accepted to <a href="https://ccta2024.ieeecss.org/" target="_blank">CCTA 2024</a>.</span>
+        <span class="news-text">Multi-Object Tracking paper accepted to <a href="https://ccta2024.ieeecss.org/" target="_blank" rel="noopener noreferrer">CCTA 2024</a>.</span>
       </div>
-      <div class="news-item">
+      <div class="news-item is-archived">
         <span class="news-date">May 2024</span>
-        <span class="news-text">Reduced-order H∞ filter paper accepted to <a href="https://www.iecon-2024.org/" target="_blank">IECON 2024</a>.</span>
+        <span class="news-text">Reduced-order H∞ filter paper accepted to <a href="https://www.iecon-2024.org/" target="_blank" rel="noopener noreferrer">IECON 2024</a>.</span>
       </div>
-      <div class="news-item">
+      <div class="news-item is-archived">
         <span class="news-date">Dec 2022</span>
-        <span class="news-text"><a href="https://ieeexplore.ieee.org/document/9965999" target="_blank">CCTA 2022 paper</a> is now available.</span>
+        <span class="news-text">
+        <a href="https://ieeexplore.ieee.org/document/9965999" target="_blank" rel="noopener noreferrer">CCTA 2022 paper</a> is now available.</span>
       </div>
-      <div class="news-item">
+      <div class="news-item is-archived">
         <span class="news-date">Nov 2022</span>
-        <span class="news-text"><a href="https://ieeexplore.ieee.org/document/9959393" target="_blank">AVSS 2022 paper</a> is now available.</span>
+        <span class="news-text">
+        <a href="https://ieeexplore.ieee.org/document/9959393" target="_blank" rel="noopener noreferrer">AVSS 2022 paper</a> is now available.</span>
       </div>
+      <button type="button" class="news-more" id="news-more" aria-expanded="false">Show earlier news</button>
     </div>
   </section>
 
   <!-- ── Research ── -->
   <section id="research">
-    <div class="section-title">Research</div>
+    <h2 class="section-title">Research</h2>
     <p style="color:var(--mid);font-size:14.5px;margin-bottom:24px;">
       My research bridges deep learning–based computer vision (video analysis, multi-object tracking) and distributed estimation theory
       (SOC/SOH estimation, Kalman filter variants, multi-target tracking in sensor networks).
     </p>
 
     <div class="pub-list">
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/reduced_ekf.jpg" alt="Reduced-Order Filter">
+          <img src="images/publication_image/reduced_ekf.jpg" alt="Reduced-Order Filter" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title">Novel Reduced-Order Non-Linear Filter with Sensor Failures</div>
+          <h3 class="pub-title">Novel Reduced-Order Non-Linear Filter with Sensor Failures</h3>
           <div class="pub-authors"><strong>Jiayi Su</strong></div>
           <div class="pub-venue">Ongoing project</div>
           <div class="pub-abstract">
             A novel reduced-order non-linear filter for intermittent sensor measurement, developed for non-linear system state estimation.
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/imu.jpg" alt="IMU Estimation">
+          <img src="images/publication_image/imu.jpg" alt="IMU Estimation" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title">Angle Estimation Using 6-DoF IMU via Robust Filter</div>
+          <h3 class="pub-title">Angle Estimation Using 6-DoF IMU via Robust Filter</h3>
           <div class="pub-authors"><strong>Jiayi Su</strong></div>
           <div class="pub-venue">Ongoing project</div>
           <div class="pub-abstract">
             A robust sensor fusion technique for roll and pitch angle estimation using a 6-DoF inertial measurement unit.
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <video autoplay loop muted playsinline>
-            <source src="images/publication_image/voids_mandate.mp4" type="video/mp4">
+          <video class="lazy-media" loop muted playsinline preload="none" data-autoplay-inview>
+            <source data-src="images/publication_image/voids_mandate.mp4" type="video/mp4">
           </video>
         </div>
         <div class="pub-body">
-          <div class="pub-title">Real-Time Face Mask Detection</div>
+          <h3 class="pub-title">Real-Time Face Mask Detection</h3>
           <div class="pub-authors"><strong>Jiayi Su</strong></div>
           <div class="pub-venue">Project</div>
           <div class="pub-links">
-            <a href="https://github.com/jerichosu/yolox_face_mask_detection" target="_blank">GitHub</a>
+            <a href="https://github.com/jerichosu/yolox_face_mask_detection" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
           <div class="pub-abstract">
-            Applying <a href="https://arxiv.org/abs/2107.08430" target="_blank">YOLOX</a> to detect face masks in real time from live video streams.
+            Applying <a href="https://arxiv.org/abs/2107.08430" target="_blank" rel="noopener noreferrer">YOLOX</a> to detect face masks in real time from live video streams.
           </div>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 
   <!-- ── Publications ── -->
   <section id="publications">
-    <div class="section-title">Publications</div>
+    <h2 class="section-title">Publications</h2>
     <div class="pub-list">
 
-      <!-- CEEGE 2026 -->
-      <div class="pub-card">
+      <!-- ICPRE 2026 -->
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/soh_awtls.jpg" alt="CEEGE 2026">
+          <img src="images/publication_image/soh_awtls.jpg" alt="ICPRE 2026" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title">Online State of Health Estimation of Lithium-ion Cells Using Approximate Weighted Total Least Squares</div>
+          <h3 class="pub-title">Robust State-of-Health Estimation for Lithium-Ion Cells Under Biased SOC Measurements via Extended Kalman Filtering with RTS Smoothing</h3>
+          <div class="pub-authors">
+            <strong>Jiayi Su</strong>
+          </div>
+          <div class="pub-venue">International Conference on Power and Renewable Energy (ICPRE), 2026</div>
+          <div class="pub-links">
+            <a href="https://icpre.org/" target="_blank" rel="noopener noreferrer">Conference</a>
+          </div>
+          <div class="pub-abstract">
+            <details>
+              <summary>Abstract</summary>
+              <p>A robust SOH estimation pipeline for lithium-ion cells that remains reliable under biased SOC measurements, combining extended Kalman filtering with RTS smoothing for improved accuracy under real-world measurement imperfections.</p>
+            </details>
+          </div>
+        </div>
+      </article>
+      <hr class="pub-divider">
+
+      <!-- CEEGE 2026 -->
+      <article class="pub-card">
+        <div class="pub-img">
+          <img src="images/publication_image/soh_awtls.jpg" alt="CEEGE 2026" loading="lazy" decoding="async">
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title">Online State of Health Estimation of Lithium-ion Cells Using Approximate Weighted Total Least Squares</h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>, Zhimin Wei, Luodan Liu, Xiaojing Zhou
           </div>
@@ -581,24 +317,24 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
 
       <!-- MECC 2025 -->
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/mecc2025.jpg" alt="MECC 2025">
+          <img src="images/publication_image/mecc2025.jpg" alt="MECC 2025" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title">Permanent Magnet Synchronous Motor Speed and Position Estimation Using Nonlinear Reduced-Order H∞ Filter with Dynamic Uncertainties</div>
+          <h3 class="pub-title">Permanent Magnet Synchronous Motor Speed and Position Estimation Using Nonlinear Reduced-Order H∞ Filter with Dynamic Uncertainties</h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>,
-            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank" rel="noopener noreferrer">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank" rel="noopener noreferrer">Edwin Yaz</a>
           </div>
           <div class="pub-venue">IFAC-PapersOnline / MECC, 2025</div>
           <div class="pub-links">
-            <a href="https://www.sciencedirect.com/science/article/pii/S2405896325029404?via%3Dihub" target="_blank">Paper</a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S2405896325029404?via%3Dihub" target="_blank" rel="noopener noreferrer">Paper</a>
           </div>
           <div class="pub-abstract">
             <details>
@@ -607,24 +343,24 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
 
       <!-- MECC 2024 -->
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/mecc2024.jpg" alt="MECC 2024">
+          <img src="images/publication_image/mecc2024.jpg" alt="MECC 2024" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank">Permanent Magnet Synchronous Motor Speed and Position Estimation Using Reduced-Order Extended Kalman Filter</a></div>
+          <h3 class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank" rel="noopener noreferrer">Permanent Magnet Synchronous Motor Speed and Position Estimation Using Reduced-Order Extended Kalman Filter</a></h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>,
-            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank" rel="noopener noreferrer">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank" rel="noopener noreferrer">Edwin Yaz</a>
           </div>
           <div class="pub-venue">IFAC-PapersOnline / MECC, 2024</div>
           <div class="pub-links">
-            <a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank">Paper</a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank" rel="noopener noreferrer">Paper</a>
           </div>
           <div class="pub-abstract">
             <details>
@@ -633,26 +369,26 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
 
       <!-- CCTA 2024 -->
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <video autoplay loop muted playsinline>
-            <source src="images/publication_image/tracking_demo.mp4" type="video/mp4">
+          <video class="lazy-media" loop muted playsinline preload="none" data-autoplay-inview>
+            <source data-src="images/publication_image/tracking_demo.mp4" type="video/mp4">
           </video>
         </div>
         <div class="pub-body">
-          <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10666653" target="_blank">Multi-Object Tracking Using Video Sequences with Improved Performance and Reduced Computation Cost</a></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10666653" target="_blank" rel="noopener noreferrer">Multi-Object Tracking Using Video Sequences with Improved Performance and Reduced Computation Cost</a></h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>,
-            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank" rel="noopener noreferrer">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank" rel="noopener noreferrer">Edwin Yaz</a>
           </div>
           <div class="pub-venue">Conference on Control Technology and Applications (CCTA), 2024</div>
           <div class="pub-links">
-            <a href="https://ieeexplore.ieee.org/abstract/document/10666653" target="_blank">Paper</a>
+            <a href="https://ieeexplore.ieee.org/abstract/document/10666653" target="_blank" rel="noopener noreferrer">Paper</a>
           </div>
           <div class="pub-abstract">
             <details>
@@ -661,20 +397,20 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
 
       <!-- IECON 2024 -->
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/iecon_figure.jpg" alt="IECON 2024">
+          <img src="images/publication_image/iecon_figure.jpg" alt="IECON 2024" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title">Reduced-order H∞ Filter for Linear Systems</div>
+          <h3 class="pub-title">Reduced-order H∞ Filter for Linear Systems</h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>,
-            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank" rel="noopener noreferrer">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank" rel="noopener noreferrer">Edwin Yaz</a>
           </div>
           <div class="pub-venue">IEEE IECON 2024</div>
           <div class="pub-abstract">
@@ -684,28 +420,28 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
 
       <!-- AVSS 2022 -->
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/video02.gif" alt="AVSS 2022">
+          <img src="images/publication_image/video02.gif" alt="AVSS 2022 violence detection demo" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9959393" target="_blank">Violence Detection using 3D Convolutional Neural Networks</a></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/document/9959393" target="_blank" rel="noopener noreferrer">Violence Detection using 3D Convolutional Neural Networks</a></h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>,
-            <a href="https://ieeexplore.ieee.org/author/37089615285" target="_blank">Paris Her</a>,
-            <a href="https://ieeexplore.ieee.org/author/37089615458" target="_blank">Erik Clemens</a>,
-            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-            <a href="https://ieeexplore.ieee.org/author/37400201600" target="_blank">Henry Medeiros</a>
+            <a href="https://ieeexplore.ieee.org/author/37089615285" target="_blank" rel="noopener noreferrer">Paris Her</a>,
+            <a href="https://ieeexplore.ieee.org/author/37089615458" target="_blank" rel="noopener noreferrer">Erik Clemens</a>,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank" rel="noopener noreferrer">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank" rel="noopener noreferrer">Edwin Yaz</a>,
+            <a href="https://ieeexplore.ieee.org/author/37400201600" target="_blank" rel="noopener noreferrer">Henry Medeiros</a>
           </div>
           <div class="pub-venue">IEEE AVSS 2022</div>
           <div class="pub-links">
-            <a href="https://ieeexplore.ieee.org/document/9959393" target="_blank">Paper</a>
-            <a href="https://github.com/jerichosu/X3D" target="_blank">GitHub</a>
+            <a href="https://ieeexplore.ieee.org/document/9959393" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a href="https://github.com/jerichosu/X3D" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
           <div class="pub-abstract">
             <details>
@@ -714,25 +450,25 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
 
       <!-- CCTA 2022 -->
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/ccta.png" alt="CCTA 2022">
+          <img src="images/publication_image/ccta.png" alt="CCTA 2022" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9965999" target="_blank">Simultaneous State of Charge and Total Capacity Estimation of Lithium-ion Cells Using Multiple Model Adaptive Estimation</a></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/document/9965999" target="_blank" rel="noopener noreferrer">Simultaneous State of Charge and Total Capacity Estimation of Lithium-ion Cells Using Multiple Model Adaptive Estimation</a></h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>,
-            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-            <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank">Fabien Josse</a>
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank" rel="noopener noreferrer">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank" rel="noopener noreferrer">Edwin Yaz</a>,
+            <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank" rel="noopener noreferrer">Fabien Josse</a>
           </div>
           <div class="pub-venue">Conference on Control Technology and Applications (CCTA), 2022</div>
           <div class="pub-links">
-            <a href="https://ieeexplore.ieee.org/document/9965999" target="_blank">Paper</a>
+            <a href="https://ieeexplore.ieee.org/document/9965999" target="_blank" rel="noopener noreferrer">Paper</a>
           </div>
           <div class="pub-abstract">
             <details>
@@ -741,26 +477,26 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
 
       <!-- ECC 2021 -->
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/ECC2021.jpg" alt="ECC 2021">
+          <img src="images/publication_image/ECC2021.jpg" alt="ECC 2021" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9654838" target="_blank">Improved State of Charge Estimation of Lithium-ion Battery Cells</a></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9654838" target="_blank" rel="noopener noreferrer">Improved State of Charge Estimation of Lithium-ion Battery Cells</a></h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>,
-            <a href="https://ieeexplore.ieee.org/author/37085674566" target="_blank">Alia Strandt</a>,
-            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-            <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank">Fabien Josse</a>
+            <a href="https://ieeexplore.ieee.org/author/37085674566" target="_blank" rel="noopener noreferrer">Alia Strandt</a>,
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank" rel="noopener noreferrer">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank" rel="noopener noreferrer">Edwin Yaz</a>,
+            <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank" rel="noopener noreferrer">Fabien Josse</a>
           </div>
           <div class="pub-venue">European Control Conference (ECC), 2021</div>
           <div class="pub-links">
-            <a href="https://ieeexplore.ieee.org/abstract/document/9654838" target="_blank">Paper</a>
+            <a href="https://ieeexplore.ieee.org/abstract/document/9654838" target="_blank" rel="noopener noreferrer">Paper</a>
           </div>
           <div class="pub-abstract">
             <details>
@@ -769,25 +505,25 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
 
       <!-- ACC 2021 -->
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/ACC2021.jpg" alt="ACC 2021">
+          <img src="images/publication_image/ACC2021.jpg" alt="ACC 2021" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9482734" target="_blank">Online State of Charge Estimation of Lithium-ion Battery Cells: A Multiple Model Adaptive Estimation Approach</a></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/document/9482734" target="_blank" rel="noopener noreferrer">Online State of Charge Estimation of Lithium-ion Battery Cells: A Multiple Model Adaptive Estimation Approach</a></h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>,
-            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>,
-            <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank">Fabien Josse</a>
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank" rel="noopener noreferrer">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank" rel="noopener noreferrer">Edwin Yaz</a>,
+            <a href="https://ieeexplore.ieee.org/author/37374274200" target="_blank" rel="noopener noreferrer">Fabien Josse</a>
           </div>
           <div class="pub-venue">American Control Conference (ACC), 2021</div>
           <div class="pub-links">
-            <a href="https://ieeexplore.ieee.org/document/9482734" target="_blank">Paper</a>
+            <a href="https://ieeexplore.ieee.org/document/9482734" target="_blank" rel="noopener noreferrer">Paper</a>
           </div>
           <div class="pub-abstract">
             <details>
@@ -796,24 +532,24 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
 
       <!-- DSCC 2020 -->
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/DSCC2020.jpg" alt="DSCC 2020">
+          <img src="images/publication_image/DSCC2020.jpg" alt="DSCC 2020" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title"><a href="https://asmedigitalcollection.asme.org/DSCC/proceedings-abstract/DSCC2020/84287/V002T33A002/1096580" target="_blank">Sensor and Actuator Intrusion Detection for Cyber-Physical Systems via Adaptive Estimation Algorithm</a></div>
+          <h3 class="pub-title"><a href="https://asmedigitalcollection.asme.org/DSCC/proceedings-abstract/DSCC2020/84287/V002T33A002/1096580" target="_blank" rel="noopener noreferrer">Sensor and Actuator Intrusion Detection for Cyber-Physical Systems via Adaptive Estimation Algorithm</a></h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>, Yuqin Weng,
-            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank" rel="noopener noreferrer">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank" rel="noopener noreferrer">Edwin Yaz</a>
           </div>
           <div class="pub-venue">Dynamic Systems and Control Conference (DSCC), 2020</div>
           <div class="pub-links">
-            <a href="https://asmedigitalcollection.asme.org/DSCC/proceedings-abstract/DSCC2020/84287/V002T33A002/1096580" target="_blank">Paper</a>
+            <a href="https://asmedigitalcollection.asme.org/DSCC/proceedings-abstract/DSCC2020/84287/V002T33A002/1096580" target="_blank" rel="noopener noreferrer">Paper</a>
           </div>
           <div class="pub-abstract">
             <details>
@@ -822,24 +558,24 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
       <hr class="pub-divider">
 
       <!-- CDSR 2020 -->
-      <div class="pub-card">
+      <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/CDSR2020.jpg" alt="CDSR 2020">
+          <img src="images/publication_image/CDSR2020.jpg" alt="CDSR 2020" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <div class="pub-title"><a href="https://avestia.com/CDSR2020_Proceedings/files/papers.html" target="_blank">Accelerated Detection Method for Sensor and Actuator Intrusions in Cyber-Physical Systems Using Multiple Model Estimation Algorithm</a></div>
+          <h3 class="pub-title"><a href="https://avestia.com/CDSR2020_Proceedings/files/papers.html" target="_blank" rel="noopener noreferrer">Accelerated Detection Method for Sensor and Actuator Intrusions in Cyber-Physical Systems Using Multiple Model Estimation Algorithm</a></h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>, Yuqin Weng,
-            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank">Susan Schneider</a>,
-            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank">Edwin Yaz</a>
+            <a href="https://ieeexplore.ieee.org/author/37553832900" target="_blank" rel="noopener noreferrer">Susan Schneider</a>,
+            <a href="https://ieeexplore.ieee.org/author/37299105800" target="_blank" rel="noopener noreferrer">Edwin Yaz</a>
           </div>
           <div class="pub-venue">International Conference of Control, Dynamic Systems, and Robotics (CDSR), 2020</div>
           <div class="pub-links">
-            <a href="https://avestia.com/CDSR2020_Proceedings/files/papers.html" target="_blank">Paper</a>
+            <a href="https://avestia.com/CDSR2020_Proceedings/files/papers.html" target="_blank" rel="noopener noreferrer">Paper</a>
           </div>
           <div class="pub-abstract">
             <details>
@@ -848,88 +584,84 @@ publish artifacts .......... ready</pre>
             </details>
           </div>
         </div>
-      </div>
+      </article>
 
     </div>
   </section>
 
   <!-- ── Useful Links ── -->
   <section id="links">
-    <div class="section-title">Useful Links</div>
+    <h2 class="section-title">Useful Links</h2>
     <ul class="links-grid">
-      <li><a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf" target="_blank">Matrix Cookbook</a></li>
-      <li><a href="http://mocha-java.uccs.edu/ECE5550/index.html" target="_blank">ECE5550: Applied Kalman Filtering</a></li>
-      <li><a href="http://mocha-java.uccs.edu/ECE5560/index.html" target="_blank">ECE5560: System Identification</a></li>
-      <li><a href="https://www.youtube.com/c/joshstarmer" target="_blank">StatQuest (YouTube)</a></li>
-      <li><a href="https://www.youtube.com/watch?v=1nqCZqDYPp0&list=PLTKMiZHVd_2KJtIXOW0zFhFfBaJJilH51" target="_blank">Intro to Deep Learning — UW</a></li>
-      <li><a href="https://ulhpc-tutorials.readthedocs.io/en/latest/" target="_blank">HPC Tutorial 1</a></li>
-      <li><a href="https://hpc-wiki.info/hpc/HPC_Wiki" target="_blank">HPC Wiki</a></li>
-      <li><a href="https://sassy-glasses-37e.notion.site/a649eaead75a4db7a40c942610aed5bb?v=6bad6d4e8ab94eb494594a87ae72ebca" target="_blank">ML/CV Cheat Sheet</a></li>
-      <li><a href="https://arxiv.org/pdf/2206.13446.pdf" target="_blank">Exercises in Machine Learning</a></li>
-      <li><a href="https://www.pytorch.wiki/" target="_blank">PyTorch Wiki</a></li>
-      <li><a href="https://jupyterlab.readthedocs.io/en/stable/index.html" target="_blank">JupyterLab Docs</a></li>
-      <li><a href="https://stonesoup.readthedocs.io/en/v0.1b9/auto_tutorials/index.html" target="_blank">Multi-Target Tracking (Python)</a></li>
-      <li><a href="http://aima.cs.berkeley.edu/" target="_blank">AI: A Modern Approach</a></li>
-      <li><a href="https://maxpumperla.com/learning_ray/" target="_blank">Learning Ray</a></li>
-      <li><a href="data/red_ord_kf.pdf" target="_blank">Reduced-Order KF Derivation (PDF)</a></li>
-	  <li><a href="data/m11_full_step_by_step_workflow.pdf" target="_blank">Bar-Shalom Sensor Fusion EKF</a></li>
+      <li><a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf" target="_blank" rel="noopener noreferrer">Matrix Cookbook</a></li>
+      <li><a href="http://mocha-java.uccs.edu/ECE5550/index.html" target="_blank" rel="noopener noreferrer">ECE5550: Applied Kalman Filtering</a></li>
+      <li><a href="http://mocha-java.uccs.edu/ECE5560/index.html" target="_blank" rel="noopener noreferrer">ECE5560: System Identification</a></li>
+      <li><a href="https://www.youtube.com/c/joshstarmer" target="_blank" rel="noopener noreferrer">StatQuest (YouTube)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1nqCZqDYPp0&list=PLTKMiZHVd_2KJtIXOW0zFhFfBaJJilH51" target="_blank" rel="noopener noreferrer">Intro to Deep Learning — UW</a></li>
+      <li><a href="https://ulhpc-tutorials.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">HPC Tutorial 1</a></li>
+      <li><a href="https://hpc-wiki.info/hpc/HPC_Wiki" target="_blank" rel="noopener noreferrer">HPC Wiki</a></li>
+      <li><a href="https://sassy-glasses-37e.notion.site/a649eaead75a4db7a40c942610aed5bb?v=6bad6d4e8ab94eb494594a87ae72ebca" target="_blank" rel="noopener noreferrer">ML/CV Cheat Sheet</a></li>
+      <li><a href="https://arxiv.org/pdf/2206.13446.pdf" target="_blank" rel="noopener noreferrer">Exercises in Machine Learning</a></li>
+      <li><a href="https://www.pytorch.wiki/" target="_blank" rel="noopener noreferrer">PyTorch Wiki</a></li>
+      <li><a href="https://jupyterlab.readthedocs.io/en/stable/index.html" target="_blank" rel="noopener noreferrer">JupyterLab Docs</a></li>
+      <li><a href="https://stonesoup.readthedocs.io/en/v0.1b9/auto_tutorials/index.html" target="_blank" rel="noopener noreferrer">Multi-Target Tracking (Python)</a></li>
+      <li><a href="https://aima.cs.berkeley.edu/" target="_blank" rel="noopener noreferrer">AI: A Modern Approach</a></li>
+      <li><a href="https://maxpumperla.com/learning_ray/" target="_blank" rel="noopener noreferrer">Learning Ray</a></li>
+      <li><a href="data/red_ord_kf.pdf" target="_blank" rel="noopener noreferrer">Reduced-Order KF Derivation (PDF)</a></li>
+      <li><a href="data/m11_full_step_by_step_workflow.pdf" target="_blank" rel="noopener noreferrer">Bar-Shalom Sensor Fusion EKF</a></li>
     </ul>
   </section>
 
   <!-- ── Visitors ── -->
   <section id="visitors" class="telemetry">
-    <div class="section-title">Visitors</div>
+    <h2 class="section-title">Visitors</h2>
 
-    <!-- Vercount: lightweight, China-accessible site counter. Reliable baseline that
-         shows for everyone, even where the third-party globe widget is blocked/slow. -->
+    <!-- Vercount: lightweight, China-accessible site counter. -->
     <script defer src="https://cn.vercount.one/js"></script>
 
-    <div style="display:flex;gap:36px;flex-wrap:wrap;align-items:center;margin-top:6px;">
-
-      <!-- Rotating-globe visitor map (MapMyVisitors).
-           The globe sizes itself to THIS wrapper's width, so the width below sets the
-           globe diameter; max-width:100% keeps it inside the column on small screens.
-           It's DOM-based (no WebGL), so it renders on virtually all browsers/devices. -->
-      <div style="width:210px;max-width:100%;flex:0 0 auto;">
-        <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=n9he1nNgcqR5_h28qvUNUvviwGsijrfQI8AidWZTEHY"></script>
-      </div>
-
-      <!-- Always-visible counter -->
-      <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:baseline;
-                  padding:18px 24px;border:1px solid var(--rule);border-radius:8px;
-                  background:var(--card);flex:1 1 240px;min-width:0;">
-        <div>
-          <div style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);line-height:1.1;">
-            <span id="busuanzi_value_site_uv">…</span>
-          </div>
-          <div style="font-size:12px;color:var(--muted);letter-spacing:.03em;">unique visitors</div>
-        </div>
-        <div>
-          <div style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);line-height:1.1;">
-            <span id="busuanzi_value_site_pv">…</span>
-          </div>
-          <div style="font-size:12px;color:var(--muted);letter-spacing:.03em;">total page views</div>
+    <div class="visitor-grid">
+      <div class="visitor-signal" aria-hidden="true">
+        <div class="visitor-signal-label">VISITOR SIGNAL</div>
+        <div class="visitor-signal-map">
+          <i style="--x:23%;--y:38%;--d:.1s"></i>
+          <i style="--x:42%;--y:31%;--d:.4s"></i>
+          <i style="--x:57%;--y:48%;--d:.7s"></i>
+          <i style="--x:73%;--y:35%;--d:.2s"></i>
+          <i style="--x:31%;--y:63%;--d:.9s"></i>
         </div>
       </div>
 
+      <div class="visitor-metrics">
+        <div>
+          <div class="visitor-number">
+            <span id="busuanzi_value_site_uv" aria-live="polite">…</span>
+          </div>
+          <div class="visitor-label">unique visitors</div>
+        </div>
+        <div>
+          <div class="visitor-number">
+            <span id="busuanzi_value_site_pv" aria-live="polite">…</span>
+          </div>
+          <div class="visitor-label">total page views</div>
+        </div>
+      </div>
     </div>
 
-    <p style="color:var(--muted);font-size:11.5px;margin-top:10px;">
-      Map by <a href="https://mapmyvisitors.com/" target="_blank" rel="noopener">MapMyVisitors</a>
-      &nbsp;·&nbsp; counter by <a href="https://vercount.one" target="_blank" rel="noopener">Vercount</a>
+    <p class="visitor-credit">
+      Counter by <a href="https://vercount.one" target="_blank" rel="noopener noreferrer">Vercount</a>
     </p>
   </section>
 
   <!-- ── Footer ── -->
   <footer>
-    <a href="https://gomarquette.com/" target="_blank" class="marquette-link">
+    <a href="https://gomarquette.com/" target="_blank" class="marquette-link" rel="noopener noreferrer">
       <img src="images/icons/MARQUETTE.jpg" alt="Marquette University — LET'S GO GOLDEN EAGLES!">
     </a>
-    <a href="http://jonbarron.info" target="_blank">Template from Jon Barron</a>
+    <a href="https://jonbarron.info" target="_blank" rel="noopener noreferrer">Template from Jon Barron</a>
   </footer>
 
-</div><!-- .page -->
-<script src="runner-particle-data.js?v=imageback1"></script>
-<script src="preview-particles.js?v=imageback1"></script>
+</main><!-- .page -->
+<script src="runner-particle-data.js?v=original"></script>
+<script src="preview-particles.js?v=20260721-scene-color"></script>
 </body>
 </html>
