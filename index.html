@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=20260722-mobile-layout">
+  <link rel="stylesheet" href="css/site.css?v=20260918-research-focus">
   <meta name="theme-color" content="#faf9f7">
   <script type="application/ld+json">
   {
@@ -127,31 +127,31 @@
     &nbsp;(<a href="https://en.wikipedia.org/wiki/Erd%C5%91s_number" target="_blank" rel="noopener noreferrer">what's this?</a>)
   </div>
 
-  <!-- ── Current Focus ── -->
-  <section id="focus" class="focus-panel" aria-label="Current focus">
-    <h2 class="section-title">Current Focus</h2>
+  <!-- ── Current Research ── -->
+  <section id="focus" class="focus-panel" aria-labelledby="focus-title">
+    <h2 class="section-title" id="focus-title">Current Research</h2>
+    <p class="focus-intro">I develop state-estimation methods for batteries and electromechanical systems, with an emphasis on measurement uncertainty, model mismatch, and computational efficiency.</p>
     <div class="focus-grid">
-      <div class="focus-copy">
-        <p class="focus-kicker">ESTIMATION STACK / LIVE NOTES</p>
-        <p class="focus-lead">Battery intelligence, sensor fusion, and efficient filters.</p>
-        <p>
-          A compact view of the work behind the publications: robust SOC/SOH estimation,
-          reduced-order filtering, and perception systems that can run under real constraints.
-        </p>
+      <div class="focus-topic">
+        <h3>Battery state estimation</h3>
+        <p>Online state-of-health estimation for lithium-ion cells under measurement uncertainty and biased state-of-charge measurements.</p>
+        <div class="focus-links" aria-label="Battery state estimation papers">
+          <a href="#paper-ceege-2026">CEEGE 2026</a>
+          <a href="#paper-icpre-2026">ICPRE 2026</a>
+        </div>
       </div>
-      <div class="focus-terminal" data-focus-terminal aria-hidden="true">
-        <div class="term-head"><i></i><i></i><i></i><span>jiayi@estimator</span></div>
-        <pre class="focus-code">$ fusion.run --profile current
-load cell data ............. ok
-sync sensors ............... ok
-estimate soc / soh ......... active
-reduce state dimension ..... active
-validate residuals ......... watch
-publish artifacts .......... ready</pre>
-        <div class="focus-meter">
-          <span>confidence</span>
-          <b><i></i></b>
-          <em>92%</em>
+      <div class="focus-topic">
+        <h3>Multimodal sensor fusion</h3>
+        <p>Voltage–strain fusion for state-of-charge estimation, including its information gain, sensitivity to model mismatch, and mismatch detection.</p>
+        <div class="focus-links" aria-label="Multimodal sensor fusion papers">
+          <a href="#paper-iecon-2026">IECON 2026</a>
+        </div>
+      </div>
+      <div class="focus-topic">
+        <h3>Reduced-order filtering</h3>
+        <p>Computationally efficient nonlinear filters for motor speed and position estimation in the presence of model uncertainty.</p>
+        <div class="focus-links" aria-label="Reduced-order filtering papers">
+          <a href="#paper-mecc-2025">MECC 2025</a>
         </div>
       </div>
     </div>
@@ -162,22 +162,30 @@ publish artifacts .......... ready</pre>
     <h2 class="section-title">News</h2>
     <div class="news-list">
       <div class="news-item">
+        <span class="news-date">Sep 2026</span>
+        <span class="news-text">Research update: <a href="#paper-iecon-2026">"Voltage-Strain Fusion for Lithium-ion cells State-of-Charge Estimation: Optimality, Fragility, and Mismatch Detection"</a> has been accepted to <a href="https://www.iecon2026.org/" target="_blank" rel="noopener noreferrer">IECON 2026</a>!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Aug 2026</span>
+        <span class="news-text">Our CEEGE 2026 paper, <a href="https://doi.org/10.1109/CEEGE70076.2026.11637656" target="_blank" rel="noopener noreferrer">"Online State of Health Estimation of Lithium-ion Cells Using Approximate Weighted Total Least Squares"</a>, is now available in IEEE Xplore.</span>
+      </div>
+      <div class="news-item">
         <span class="news-date">Jun 2026</span>
-        <span class="news-text">Paper "Robust State-of-Health Estimation for Lithium-Ion Cells Under Biased SOC Measurements via Extended Kalman Filtering with RTS Smoothing" accepted to <a href="https://icpre.org/" target="_blank" rel="noopener noreferrer">ICPRE 2026</a>!</span>
+        <span class="news-text">Paper <a href="#paper-icpre-2026">"Robust State-of-Health Estimation for Lithium-Ion Cells Under Biased SOC Measurements via Extended Kalman Filtering with RTS Smoothing"</a> accepted to <a href="https://icpre.org/" target="_blank" rel="noopener noreferrer">ICPRE 2026</a>!</span>
       </div>
       <div class="news-item">
         <span class="news-date">Apr 2026</span>
-        <span class="news-text">Paper "Online State of Health Estimation Using Approximate Weighted Total Least Squares" accepted to <a href="https://www.ceege.org/" target="_blank" rel="noopener noreferrer">CEEGE 2026</a>!</span>
+        <span class="news-text">Paper <a href="#paper-ceege-2026">"Online State of Health Estimation of Lithium-ion Cells Using Approximate Weighted Total Least Squares"</a> accepted to <a href="https://www.ceege.org/" target="_blank" rel="noopener noreferrer">CEEGE 2026</a>!</span>
       </div>
       <div class="news-item">
         <span class="news-date">Jan 2026</span>
         <span class="news-text">MECC 2025 paper <a href="https://www.sciencedirect.com/science/article/pii/S2405896325029404?via%3Dihub" target="_blank" rel="noopener noreferrer">"PMSM Speed and Position Estimation Using Nonlinear Reduced-Order H∞ Filter"</a> is now available.</span>
       </div>
-      <div class="news-item">
+      <div class="news-item is-archived">
         <span class="news-date">Jun 2025</span>
         <span class="news-text">Paper on PMSM H∞ filter accepted to <a href="https://mecc2025.a2c2.org/" target="_blank" rel="noopener noreferrer">MECC 2025</a>.</span>
       </div>
-      <div class="news-item">
+      <div class="news-item is-archived">
         <span class="news-date">Oct 2024</span>
         <span class="news-text">
         <a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank" rel="noopener noreferrer">MECC 2024 paper</a> is now available.</span>
@@ -223,7 +231,7 @@ publish artifacts .......... ready</pre>
     <div class="pub-list">
       <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/reduced_ekf.jpg" alt="Reduced-Order Filter" loading="lazy" decoding="async">
+          <img src="images/publication_image/reduced_ekf.jpg" alt="Reduced-Order Filter" width="560" height="420" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title">Novel Reduced-Order Non-Linear Filter with Sensor Failures</h3>
@@ -237,7 +245,7 @@ publish artifacts .......... ready</pre>
       <hr class="pub-divider">
       <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/imu.jpg" alt="IMU Estimation" loading="lazy" decoding="async">
+          <img src="images/publication_image/imu.jpg" alt="IMU Estimation" width="969" height="754" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title">Angle Estimation Using 6-DoF IMU via Robust Filter</h3>
@@ -275,20 +283,44 @@ publish artifacts .......... ready</pre>
     <h2 class="section-title">Publications</h2>
     <div class="pub-list">
 
-      <!-- ICPRE 2026 -->
-      <article class="pub-card">
+      <!-- IECON 2026 -->
+      <article class="pub-card" id="paper-iecon-2026">
         <div class="pub-img">
-          <img src="images/publication_image/soh_awtls.jpg" alt="ICPRE 2026" loading="lazy" decoding="async">
+          <img src="images/publication_image/voltage-strain-fusion.svg" alt="Schematic: voltage and strain measurements feed SOC estimation and mismatch monitoring" width="400" height="260" loading="lazy" decoding="async">
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title">Voltage-Strain Fusion for Lithium-ion cells State-of-Charge Estimation: Optimality, Fragility, and Mismatch Detection</h3>
+          <div class="pub-authors"><strong>Jiayi Su</strong>, Luodan Liu, Zhimin Wei, Chunping Luo</div>
+          <div class="pub-venue">IEEE IECON, 2026 <span class="pub-status pub-status--accepted">Accepted</span></div>
+          <div class="pub-links">
+            <a href="https://www.iecon2026.org/" target="_blank" rel="noopener noreferrer">Conference</a>
+          </div>
+          <p class="pub-note">Proceedings link forthcoming.</p>
+          <div class="pub-abstract">
+            <details>
+              <summary>Research summary</summary>
+              <p>A simulation study of voltage–strain fusion for lithium-ion cell state-of-charge estimation, with particular attention to the flat voltage plateau of LFP cells. The work characterizes the information gain and optimality of fusion under correctly specified models, examines its sensitivity to strain-model mismatch, and evaluates a monitored parallel estimator that detects mismatch while preserving a voltage-only fallback.</p>
+            </details>
+          </div>
+        </div>
+      </article>
+      <hr class="pub-divider">
+
+      <!-- ICPRE 2026 -->
+      <article class="pub-card" id="paper-icpre-2026">
+        <div class="pub-img">
+          <img src="images/publication_image/soh_awtls.jpg" alt="ICPRE 2026" width="3117" height="2108" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title">Robust State-of-Health Estimation for Lithium-Ion Cells Under Biased SOC Measurements via Extended Kalman Filtering with RTS Smoothing</h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>
           </div>
-          <div class="pub-venue">International Conference on Power and Renewable Energy (ICPRE), 2026</div>
+          <div class="pub-venue">International Conference on Power and Renewable Energy (ICPRE), 2026 <span class="pub-status pub-status--accepted">Accepted</span></div>
           <div class="pub-links">
             <a href="https://icpre.org/" target="_blank" rel="noopener noreferrer">Conference</a>
           </div>
+          <p class="pub-note">Proceedings link forthcoming.</p>
           <div class="pub-abstract">
             <details>
               <summary>Abstract</summary>
@@ -300,16 +332,21 @@ publish artifacts .......... ready</pre>
       <hr class="pub-divider">
 
       <!-- CEEGE 2026 -->
-      <article class="pub-card">
+      <article class="pub-card" id="paper-ceege-2026">
         <div class="pub-img">
-          <img src="images/publication_image/soh_awtls.jpg" alt="CEEGE 2026" loading="lazy" decoding="async">
+          <img src="images/publication_image/soh_awtls.jpg" alt="CEEGE 2026" width="3117" height="2108" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
-          <h3 class="pub-title">Online State of Health Estimation of Lithium-ion Cells Using Approximate Weighted Total Least Squares</h3>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/document/11637656" target="_blank" rel="noopener noreferrer">Online State of Health Estimation of Lithium-ion Cells Using Approximate Weighted Total Least Squares</a></h3>
           <div class="pub-authors">
             <strong>Jiayi Su</strong>, Zhimin Wei, Luodan Liu, Xiaojing Zhou
           </div>
-          <div class="pub-venue">International Conference on Electrical Engineering and Green Energy (CEEGE), 2026</div>
+          <div class="pub-venue">2026 9th International Conference on Electrical Engineering and Green Energy (CEEGE), pp. 165–170 <span class="pub-status pub-status--published">Published</span></div>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/document/11637656" target="_blank" rel="noopener noreferrer">IEEE Xplore</a>
+            <a href="https://doi.org/10.1109/CEEGE70076.2026.11637656" target="_blank" rel="noopener noreferrer">DOI</a>
+            <a href="data/su2026awtls.bib" download>BibTeX</a>
+          </div>
           <div class="pub-abstract">
             <details>
               <summary>Abstract</summary>
@@ -321,9 +358,9 @@ publish artifacts .......... ready</pre>
       <hr class="pub-divider">
 
       <!-- MECC 2025 -->
-      <article class="pub-card">
+      <article class="pub-card" id="paper-mecc-2025">
         <div class="pub-img">
-          <img src="images/publication_image/mecc2025.jpg" alt="MECC 2025" loading="lazy" decoding="async">
+          <img src="images/publication_image/mecc2025.jpg" alt="MECC 2025" width="4800" height="2633" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title">Permanent Magnet Synchronous Motor Speed and Position Estimation Using Nonlinear Reduced-Order H∞ Filter with Dynamic Uncertainties</h3>
@@ -349,7 +386,7 @@ publish artifacts .......... ready</pre>
       <!-- MECC 2024 -->
       <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/mecc2024.jpg" alt="MECC 2024" loading="lazy" decoding="async">
+          <img src="images/publication_image/mecc2024.jpg" alt="MECC 2024" width="956" height="814" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S2405896325000655" target="_blank" rel="noopener noreferrer">Permanent Magnet Synchronous Motor Speed and Position Estimation Using Reduced-Order Extended Kalman Filter</a></h3>
@@ -403,7 +440,7 @@ publish artifacts .......... ready</pre>
       <!-- IECON 2024 -->
       <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/iecon_figure.jpg" alt="IECON 2024" loading="lazy" decoding="async">
+          <img src="images/publication_image/iecon_figure.jpg" alt="IECON 2024" width="1920" height="963" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title">Reduced-order H∞ Filter for Linear Systems</h3>
@@ -426,7 +463,7 @@ publish artifacts .......... ready</pre>
       <!-- AVSS 2022 -->
       <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/video02.gif" alt="AVSS 2022 violence detection demo" loading="lazy" decoding="async">
+          <img src="images/publication_image/video02.gif" alt="AVSS 2022 violence detection demo" width="640" height="360" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/document/9959393" target="_blank" rel="noopener noreferrer">Violence Detection using 3D Convolutional Neural Networks</a></h3>
@@ -456,7 +493,7 @@ publish artifacts .......... ready</pre>
       <!-- CCTA 2022 -->
       <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/ccta.png" alt="CCTA 2022" loading="lazy" decoding="async">
+          <img src="images/publication_image/ccta.png" alt="CCTA 2022" width="700" height="1007" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/document/9965999" target="_blank" rel="noopener noreferrer">Simultaneous State of Charge and Total Capacity Estimation of Lithium-ion Cells Using Multiple Model Adaptive Estimation</a></h3>
@@ -483,7 +520,7 @@ publish artifacts .......... ready</pre>
       <!-- ECC 2021 -->
       <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/ECC2021.jpg" alt="ECC 2021" loading="lazy" decoding="async">
+          <img src="images/publication_image/ECC2021.jpg" alt="ECC 2021" width="478" height="504" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9654838" target="_blank" rel="noopener noreferrer">Improved State of Charge Estimation of Lithium-ion Battery Cells</a></h3>
@@ -511,7 +548,7 @@ publish artifacts .......... ready</pre>
       <!-- ACC 2021 -->
       <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/ACC2021.jpg" alt="ACC 2021" loading="lazy" decoding="async">
+          <img src="images/publication_image/ACC2021.jpg" alt="ACC 2021" width="475" height="514" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/document/9482734" target="_blank" rel="noopener noreferrer">Online State of Charge Estimation of Lithium-ion Battery Cells: A Multiple Model Adaptive Estimation Approach</a></h3>
@@ -538,7 +575,7 @@ publish artifacts .......... ready</pre>
       <!-- DSCC 2020 -->
       <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/DSCC2020.jpg" alt="DSCC 2020" loading="lazy" decoding="async">
+          <img src="images/publication_image/DSCC2020.jpg" alt="DSCC 2020" width="709" height="405" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://asmedigitalcollection.asme.org/DSCC/proceedings-abstract/DSCC2020/84287/V002T33A002/1096580" target="_blank" rel="noopener noreferrer">Sensor and Actuator Intrusion Detection for Cyber-Physical Systems via Adaptive Estimation Algorithm</a></h3>
@@ -564,7 +601,7 @@ publish artifacts .......... ready</pre>
       <!-- CDSR 2020 -->
       <article class="pub-card">
         <div class="pub-img">
-          <img src="images/publication_image/CDSR2020.jpg" alt="CDSR 2020" loading="lazy" decoding="async">
+          <img src="images/publication_image/CDSR2020.jpg" alt="CDSR 2020" width="702" height="401" loading="lazy" decoding="async">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://avestia.com/CDSR2020_Proceedings/files/papers.html" target="_blank" rel="noopener noreferrer">Accelerated Detection Method for Sensor and Actuator Intrusions in Cyber-Physical Systems Using Multiple Model Estimation Algorithm</a></h3>
@@ -616,40 +653,21 @@ publish artifacts .......... ready</pre>
   <section id="visitors" class="telemetry">
     <h2 class="section-title">Visitors</h2>
 
-    <!-- Vercount: lightweight, China-accessible site counter. -->
-    <script defer src="https://cn.vercount.one/js"></script>
-
     <div class="visitor-grid">
-      <div class="visitor-signal" aria-hidden="true">
-        <div class="visitor-signal-label">VISITOR SIGNAL</div>
-        <div class="visitor-signal-map">
-          <i style="--x:23%;--y:38%;--d:.1s"></i>
-          <i style="--x:42%;--y:31%;--d:.4s"></i>
-          <i style="--x:57%;--y:48%;--d:.7s"></i>
-          <i style="--x:73%;--y:35%;--d:.2s"></i>
-          <i style="--x:31%;--y:63%;--d:.9s"></i>
-        </div>
+      <div class="visitor-map" role="group" aria-label="MapMyVisitors world visitor map">
+        <!-- Integer source width avoids fractional-width image errors; CSS handles resizing. -->
+        <script async id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=b8c6cd&amp;w=600&amp;t=tt&amp;d=vNB6FmoM3iMDfhXOJm-Rz_FuI4AEonDQgADEi1hspKQ&amp;co=f4efe6&amp;cmo=164f8b&amp;cmn=f0652e&amp;ct=555555"></script>
+        <noscript>
+          <a href="https://mapmyvisitors.com/web/1c5nr" target="_blank" rel="noopener noreferrer"><img src="https://mapmyvisitors.com/map.png?d=vNB6FmoM3iMDfhXOJm-Rz_FuI4AEonDQgADEi1hspKQ&amp;cl=b8c6cd&amp;co=f4efe6" alt="MapMyVisitors visitor map — open detailed statistics"></a>
+        </noscript>
       </div>
-
-      <div class="visitor-metrics">
-        <div>
-          <div class="visitor-number">
-            <span id="busuanzi_value_site_uv" aria-live="polite">…</span>
-          </div>
-          <div class="visitor-label">unique visitors</div>
-        </div>
-        <div>
-          <div class="visitor-number">
-            <span id="busuanzi_value_site_pv" aria-live="polite">…</span>
-          </div>
-          <div class="visitor-label">total page views</div>
-        </div>
+      <div class="visitor-info">
+        <p class="visitor-kicker">HELLO, WORLD</p>
+        <p>Thanks for stopping by. Explore where visitors to this site are reading from.</p>
+        <a class="visitor-stats-link" href="https://mapmyvisitors.com/web/1c5nr" target="_blank" rel="noopener noreferrer">View visitor statistics ↗</a>
+        <p class="visitor-note">Map and page views provided by MapMyVisitors. If the map is unavailable, the statistics page remains accessible via the link above.</p>
       </div>
     </div>
-
-    <p class="visitor-credit">
-      Counter by <a href="https://vercount.one" target="_blank" rel="noopener noreferrer">Vercount</a>
-    </p>
   </section>
 
   <!-- ── Footer ── -->

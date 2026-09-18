@@ -257,6 +257,25 @@
     }
     .pub-title a { color: var(--ink); text-decoration: none; }
     .pub-title a:hover { color: var(--hover); }
+    .pub-body { min-width: 0; flex: 1; }
+    .pub-card[id] { scroll-margin-top: 84px; }
+    .pub-status {
+      display: inline-block;
+      margin: 5px 0 0 5px;
+      padding: 1px 8px;
+      border: 1px solid currentColor;
+      border-radius: 20px;
+      font-family: var(--sans);
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: .03em;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .pub-status--accepted { color: #7b531e; background: #f7eedc; }
+    .pub-status--published { color: #276049; background: #eaf3ed; }
+    .pub-note { margin-top: 8px; color: var(--mid); font-size: 11.5px; }
     .pub-authors { margin-top: 6px; font-size: 13px; color: var(--mid); }
     .pub-authors a { color: var(--mid); text-decoration: none; }
     .pub-authors a:hover { color: var(--hover); }
@@ -677,7 +696,7 @@
       white-space: nowrap;
     }
     
-    #focus .section-title::before { content: "SECTION 00 / ACTIVE STACK"; }
+    #focus .section-title::before { content: "RESEARCH DIRECTIONS"; }
     #news .section-title::before { content: "SECTION 01 / UPDATE LOG"; }
     #research .section-title::before { content: "SECTION 02 / RESEARCH MAP"; }
     #publications .section-title::before { content: "SECTION 03 / PUBLICATION ARCHIVE"; }
@@ -807,139 +826,73 @@
     .focus-panel {
       margin-top: 44px;
     }
-    
-    .focus-grid {
-      display: grid;
-      grid-template-columns: minmax(0, .9fr) minmax(320px, .72fr);
-      gap: 28px;
-      align-items: stretch;
-      padding: 22px 0 8px;
-    }
-    
-    .focus-copy {
-      padding: 24px 0;
-    }
-    
-    .focus-kicker {
-      margin: 0 0 12px;
-      color: var(--hover);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .13em;
-    }
-    
-    .focus-copy .focus-lead {
-      max-width: 620px;
-      color: var(--ink);
-      font-family: var(--serif);
-      font-size: clamp(28px, 3.6vw, 42px);
-      line-height: 1.05;
-      letter-spacing: -.01em;
-    }
-    
-    .focus-copy p:last-child {
-      max-width: 620px;
-      margin-top: 18px;
+
+    .focus-intro {
+      max-width: 780px;
+      margin-bottom: 28px;
       color: var(--mid);
       font-size: 15px;
+      line-height: 1.75;
     }
-    
-    .focus-terminal {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(216, 207, 191, .92);
-      border-radius: 10px;
-      background:
-        linear-gradient(rgba(216, 207, 191, .18) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(216, 207, 191, .18) 1px, transparent 1px),
-        rgba(255, 250, 242, .72);
-      background-size: 28px 28px, 28px 28px, auto;
-      box-shadow: 0 22px 72px -58px rgba(26, 23, 20, .5);
-    }
-    
-    .focus-terminal::after {
-      content: "";
-      position: absolute;
-      inset: auto 26px 20px auto;
-      width: 72px;
-      height: 72px;
-      border-right: 1px solid rgba(240, 101, 46, .48);
-      border-bottom: 1px solid rgba(240, 101, 46, .48);
-      opacity: .75;
-      pointer-events: none;
-    }
-    
-    .term-head {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 16px;
-      border-bottom: 1px solid rgba(216, 207, 191, .86);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 11px;
-      color: #766b5f;
-    }
-    
-    .term-head i {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #c8bfb1;
-    }
-    
-    .term-head i:first-child {
-      background: var(--hover);
-    }
-    
-    .focus-code {
-      margin: 0;
-      padding: 20px 20px 18px;
-      color: #3d3934;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 12px;
-      line-height: 1.8;
-      white-space: pre-wrap;
-    }
-    
-    .focus-meter {
+
+    .focus-grid {
       display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 12px;
-      align-items: center;
-      padding: 0 20px 22px;
-      color: #766b5f;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 11px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
     }
-    
-    .focus-meter b {
-      height: 9px;
-      overflow: hidden;
-      border: 1px solid rgba(26, 23, 20, .28);
-      border-radius: 999px;
-      background: rgba(244, 239, 230, .72);
+
+    .focus-topic {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding-left: 24px;
+      border-left: 1px solid var(--rule);
     }
-    
-    .focus-meter i {
-      display: block;
-      width: 92%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--hover), #e1a654);
-      animation: focus-pulse 2.6s ease-in-out infinite;
+
+    .focus-topic:first-child {
+      padding-left: 0;
+      border-left: 0;
     }
-    
-    @keyframes focus-pulse {
-      0%, 100% { opacity: .82; }
-      50% { opacity: 1; }
+
+    .focus-topic h3 {
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.25;
     }
+
+    .focus-topic p {
+      color: var(--mid);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .focus-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .focus-links a {
+      padding: 4px 0;
+      color: var(--accent);
+      font-size: 13px;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .focus-links a:hover { color: var(--hover); }
     
     .telemetry {
       position: relative;
     }
     
     .telemetry::before {
-      content: "PV / UV / GEO";
+      content: "VISITORS / WORLDWIDE";
       position: absolute;
       right: 0;
       top: 4px;
@@ -950,88 +903,62 @@
     }
     
     .visitor-grid {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
       gap: 28px;
-      flex-wrap: wrap;
-      align-items: stretch;
+      align-items: center;
       margin-top: 6px;
     }
-    
-    .visitor-signal,
-    .visitor-metrics {
-      padding: 18px;
+
+    .visitor-map {
+      min-width: 0;
+      min-height: 150px;
+      padding: 12px;
       border: 1px solid rgba(216, 207, 191, .86);
       border-radius: 10px;
       background: rgba(255, 250, 242, .58);
+      overflow: hidden;
     }
-    
-    .visitor-signal {
-      flex: 0 1 230px;
-      min-height: 150px;
+
+    .visitor-map img {
+      display: block;
+      max-width: 100%;
+      height: auto;
     }
-    
-    .visitor-signal-label {
-      color: var(--hover);
+
+    /* The vendor writes pixel sizes inline once. Keep its map responsive on resize. */
+    .visitor-map #mapmyvisitors-widget { width: 100% !important; }
+    .visitor-map .mapmyvisitors-map {
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: 2.04;
+      background-size: 100% 100%;
+    }
+
+    .visitor-info { min-width: 0; color: var(--mid); font-size: 14px; }
+
+    .visitor-kicker {
+      margin-bottom: 10px;
+      color: var(--accent);
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: .14em;
     }
-    
-    .visitor-signal-map {
-      position: relative;
-      height: 104px;
-      margin-top: 14px;
-      overflow: hidden;
-      border-radius: 7px;
-      background:
-        linear-gradient(rgba(216, 207, 191, .34) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(216, 207, 191, .34) 1px, transparent 1px),
-        radial-gradient(circle at 34% 52%, rgba(22, 79, 139, .18), transparent 30%),
-        radial-gradient(circle at 72% 42%, rgba(240, 101, 46, .18), transparent 28%);
-      background-size: 20px 20px, 20px 20px, auto, auto;
-    }
-    
-    .visitor-signal-map i {
-      position: absolute;
-      left: var(--x);
-      top: var(--y);
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--hover);
-      box-shadow: 0 0 0 5px rgba(240, 101, 46, .12);
-      animation: focus-pulse 2.4s ease-in-out infinite;
-      animation-delay: var(--d);
-    }
-    
-    .visitor-metrics {
-      display: flex;
-      flex: 1 1 260px;
-      gap: 32px;
-      flex-wrap: wrap;
-      align-items: baseline;
-      min-width: 0;
-    }
-    
-    .visitor-number {
+
+    .visitor-stats-link {
+      display: inline-block;
+      margin-top: 12px;
       color: var(--accent);
-      font-family: var(--serif);
-      font-size: 26px;
-      font-weight: 600;
-      line-height: 1.1;
+      text-underline-offset: 3px;
     }
-    
-    .visitor-label {
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: .03em;
-    }
-    
-    .visitor-credit {
-      margin-top: 10px;
-      color: var(--muted);
+
+    .visitor-stats-link:hover { color: var(--hover); }
+
+    .visitor-note {
+      margin-top: 14px;
       font-size: 11.5px;
+      line-height: 1.6;
     }
     
     @media (prefers-reduced-motion: reduce) {
@@ -1040,9 +967,7 @@
       .news-item,
       .pub-card,
       .pub-img img,
-      .pub-img video,
-      .focus-meter i,
-      .visitor-signal-map i {
+      .pub-img video {
         animation: none;
         transition: none;
         transform: none;
@@ -1063,8 +988,7 @@
       .erdos,
       .focus-panel,
       .focus-grid,
-      .focus-copy,
-      .focus-terminal {
+      .focus-topic {
         min-width: 0;
         max-width: 100%;
       }
@@ -1115,37 +1039,19 @@
       }
     
       .focus-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
       }
-    
-      .focus-copy {
-        padding: 10px 0 0;
+
+      .focus-topic {
+        padding: 24px 0 0;
+        border-left: 0;
+        border-top: 1px solid var(--rule);
       }
-    
-      .focus-copy .focus-lead {
-        font-size: clamp(28px, 9vw, 36px);
-      }
-    
-      .focus-terminal {
-        border-radius: 8px;
-      }
-    
-      .focus-code {
-        font-size: 11px;
-        line-height: 1.7;
-        padding: 16px;
-      }
-    
-      .focus-meter {
-        grid-template-columns: 1fr auto;
-        gap: 8px;
-        padding: 0 16px 18px;
-      }
-    
-      .focus-meter b {
-        grid-column: 1 / -1;
-        order: 3;
+
+      .focus-topic:first-child {
+        padding-top: 0;
+        border-top: 0;
       }
     
       .telemetry::before {
@@ -1155,12 +1061,8 @@
       }
     
       .visitor-grid {
+        grid-template-columns: minmax(0, 1fr);
         gap: 14px;
-      }
-    
-      .visitor-signal,
-      .visitor-metrics {
-        flex-basis: 100%;
       }
     
       .hero-text p {
@@ -1240,20 +1142,6 @@
       .hero-links a {
         padding: 6px 12px;
         font-size: 12.5px;
-      }
-    
-      .focus-copy .focus-lead {
-        font-size: clamp(26px, 8.6vw, 34px);
-        overflow-wrap: anywhere;
-      }
-    
-      .focus-code {
-        font-size: 10.5px;
-      }
-    
-      .focus-terminal::after {
-        width: 48px;
-        height: 48px;
       }
     
       nav .inner {
@@ -1346,23 +1234,5 @@ summary:focus-visible {
 }
 .news-more:hover { color: var(--hover); }
 
-/* Semantic heading reset */
-h2.section-title,
-h3.pub-title {
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  margin: 0;
-}
-
-.focus-copy .focus-lead {
-  font-family: var(--serif);
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.25;
-  color: var(--ink);
-  margin: 0 0 12px;
-}
-@media (max-width: 760px) {
-  .focus-copy .focus-lead { font-size: 24px; }
-}
+/* Headings retain the section/publication typography declared above. */
+h3.pub-title { overflow-wrap: anywhere; }
