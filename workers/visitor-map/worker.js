@@ -21,6 +21,7 @@ function corsHeaders(request) {
   const allowOrigin = ALLOWED_ORIGINS.has(origin) ? origin : "https://jiayisu.com";
   return {
     "Access-Control-Allow-Origin": allowOrigin,
+    "Access-Control-Allow-Credentials": "true",
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Vary": "Origin"
@@ -313,7 +314,7 @@ async function handleStats(request, env) {
       sessions
     },
     200,
-    30
+    5
   );
 }
 

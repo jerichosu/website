@@ -310,7 +310,8 @@
     if (!apiBase || FORCE_DEMO_MAP) {
       return Promise.resolve(buildDemoData());
     }
-    return fetch(apiBase + "/api/stats", { method: "GET", credentials: "omit" })
+    var url = apiBase + "/api/stats" + (IS_PROD ? "?_=" + Date.now() : "");
+    return fetch(url, { method: "GET", credentials: "omit", cache: IS_PROD ? "no-store" : "default" })
       .then(function (resp) {
         if (!resp.ok) throw new Error("HTTP " + resp.status);
         return resp.json();
@@ -323,24 +324,24 @@
 
   function sendHit(pageLabel) {
     var apiBase = VISITOR_API.replace(/\/+$/, "");
-    if (!apiBase || !IS_PROD || navigator.webdriver) return;
+    if (!apiBase || !IS_PROD || navigator.webdriver) return Promise.resolve();
     var payload = JSON.stringify({
       page: pageLabel,
       referrer: document.referrer || ""
     });
     try {
-      if (navigator.sendBeacon) {
-        var blob = new Blob([payload], { type: "application/json" });
-        if (navigator.sendBeacon(apiBase + "/api/hit", blob)) return;
-      }
-      fetch(apiBase + "/api/hit", {
+      // text/plain + credentials: omit is a CORS simple request (no OPTIONS preflight),
+      // avoiding Safari/Chrome sendBeacon credential restrictions. Worker still parses JSON.
+      return fetch(apiBase + "/api/hit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
         body: payload,
         keepalive: true,
         credentials: "omit"
       }).catch(function () {});
-    } catch (e) {}
+    } catch (e) {
+      return Promise.resolve();
+    }
   }
 
   function recordVisit() {
@@ -348,7 +349,7 @@
     if (/go\.html$/i.test(path) && window.location.search) {
       path += window.location.search;
     }
-    sendHit(path);
+    return sendHit(path);
   }
 
   function initClickTracking() {
@@ -707,13 +708,13 @@
               .join('<span class="trail-sep">→</span>');
             return (
               "<tr>" +
-              '<td class="mono-cell" title="' + escapeHtml(formatClock(s.lastTs)) + '">' + escapeHtml(formatRelativeTime(s.lastTs)) + "</td>" +
-              "<td><strong>" + escapeHtml(loc) + "</strong></td>" +
-              '<td><div class="trail-pills">' + trailHtml + "</div></td>" +
-              "<td>" + escapeHtml(client) + ' <span class="device-tag">' + escapeHtml(s.device || "Desktop") + "</span></td>" +
-              '<td class="muted-cell">' + escapeHtml(s.org || "—") + "</td>" +
-              '<td class="muted-cell">' + escapeHtml(s.referrer || "Direct") + "</td>" +
-              '<td><span class="' + protoClass + '">' + escapeHtml(s.ipVersion || "IPv4") + "</span></td>" +
+              '<td class="mono-cell cell-time" data-label="Last Seen" title="' + escapeHtml(formatClock(s.lastTs)) + '">' + escapeHtml(formatRelativeTime(s.lastTs)) + "</td>" +
+              '<td class="cell-loc" data-label="Location"><strong>' + escapeHtml(loc) + "</strong></td>" +
+              '<td class="cell-trail" data-label="Pages"><div class="trail-pills">' + trailHtml + "</div></td>" +
+              '<td class="cell-client" data-label="Client">' + escapeHtml(client) + ' <span class="device-tag">' + escapeHtml(s.device || "Desktop") + "</span></td>" +
+              '<td class="muted-cell cell-org" data-label="Network">' + escapeHtml(s.org || "—") + "</td>" +
+              '<td class="muted-cell cell-ref" data-label="Referrer">' + escapeHtml(s.referrer || "Direct") + "</td>" +
+              '<td class="cell-ip" data-label="IP"><span class="' + protoClass + '">' + escapeHtml(s.ipVersion || "IPv4") + "</span></td>" +
               "</tr>"
             );
           })
@@ -749,13 +750,13 @@
             var protoClass = row.ipVersion === "IPv6" ? "proto-badge proto-badge--v6" : "proto-badge";
             return (
               "<tr>" +
-              '<td class="mono-cell" title="' + escapeHtml(formatClock(row.ts)) + '">' + escapeHtml(formatRelativeTime(row.ts)) + "</td>" +
-              '<td><span class="' + pageBadgeClass(row.page) + '">' + escapeHtml(formatPageLabel(row.page)) + "</span></td>" +
-              "<td><strong>" + escapeHtml(loc) + "</strong></td>" +
-              "<td>" + escapeHtml(client) + ' <span class="device-tag">' + escapeHtml(row.device || "Desktop") + "</span></td>" +
-              '<td class="muted-cell">' + escapeHtml(row.org || "—") + "</td>" +
-              '<td class="muted-cell">' + escapeHtml(row.referrer || "Direct") + "</td>" +
-              '<td><span class="' + protoClass + '">' + escapeHtml(row.ipVersion || "IPv4") + "</span></td>" +
+              '<td class="mono-cell cell-time" data-label="Time" title="' + escapeHtml(formatClock(row.ts)) + '">' + escapeHtml(formatRelativeTime(row.ts)) + "</td>" +
+              '<td class="cell-trail" data-label="Page"><span class="' + pageBadgeClass(row.page) + '">' + escapeHtml(formatPageLabel(row.page)) + "</span></td>" +
+              '<td class="cell-loc" data-label="Location"><strong>' + escapeHtml(loc) + "</strong></td>" +
+              '<td class="cell-client" data-label="Client">' + escapeHtml(client) + ' <span class="device-tag">' + escapeHtml(row.device || "Desktop") + "</span></td>" +
+              '<td class="muted-cell cell-org" data-label="Network">' + escapeHtml(row.org || "—") + "</td>" +
+              '<td class="muted-cell cell-ref" data-label="Referrer">' + escapeHtml(row.referrer || "Direct") + "</td>" +
+              '<td class="cell-ip" data-label="IP"><span class="' + protoClass + '">' + escapeHtml(row.ipVersion || "IPv4") + "</span></td>" +
               "</tr>"
             );
           })
@@ -831,9 +832,13 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    recordVisit();
     initClickTracking();
-    initHomeVisitorWidget();
-    initVisitorDashboard();
+    Promise.resolve(recordVisit()).then(function () {
+      initHomeVisitorWidget();
+      initVisitorDashboard();
+    }, function () {
+      initHomeVisitorWidget();
+      initVisitorDashboard();
+    });
   });
 })();

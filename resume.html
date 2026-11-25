@@ -3,27 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Resume of Jiayi Su, PhD — Project Manager at HGTech.">
+  <meta name="description" content="Resume of Jiayi Su, PhD — Algorithm Lead at HGTech.">
   <meta name="robots" content="noindex">
   <title>Jiayi Su — Resume</title>
   <link rel="icon" type="image/png" href="images/icons/seal_icons.png">
   <style>
+    *{box-sizing:border-box}
     html,body{margin:0;height:100%}
     body{display:flex;flex-direction:column;background:#faf8f4;color:#1a1917;
          font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-    .topbar{flex:0 0 auto;display:flex;align-items:center;gap:10px;
-            padding:8px 16px;border-bottom:1px solid #e6e0d6;font-size:13px;color:#4e4b45}
+    .topbar{flex:0 0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;
+            padding:8px 16px;border-bottom:1px solid #e6e0d6;font-size:13px;color:#4e4b45;
+            background:#faf8f4}
     .topbar a{color:#184e86;text-decoration:none}
-    iframe{flex:1 1 auto;border:0;width:100%}
-    .hidden-tracker{position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden}
+    .topbar a:hover{color:#c9582a}
+    .topbar-title{color:#787268}
+    .topbar-actions{margin-left:auto;display:inline-flex;align-items:center;gap:8px}
+    .topbar-btn{padding:4px 10px;border-radius:999px;border:1px solid #e6e0d6;
+                background:#ffffff;font-size:12px;font-weight:500}
+    .topbar-btn--primary{background:#184e86;border-color:#184e86;color:#ffffff !important}
+    iframe{flex:1 1 auto;border:0;width:100%;min-height:0}
+    @media (max-width:520px){
+      .topbar{padding:8px 12px}
+      .topbar-title{display:none}
+    }
   </style>
   <script defer src="js/visitor-map.js"></script>
 </head>
 <body>
   <div class="topbar">
     <a href="index.html">&larr; jiayisu.com</a>
-    <span>Resume &mdash; Jiayi Su</span>
-    <a href="data/jiayi_resume_v3.pdf" download style="margin-left:auto">Download PDF</a>
+    <span class="topbar-title">Resume &mdash; Jiayi Su</span>
+    <div class="topbar-actions">
+      <a class="topbar-btn" href="data/jiayi_resume_v3.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      <a class="topbar-btn topbar-btn--primary" href="data/jiayi_resume_v3.pdf" download>Download</a>
+    </div>
   </div>
   <iframe src="data/jiayi_resume_v3.pdf" title="Resume — Jiayi Su"></iframe>
 </body>
