@@ -57,7 +57,7 @@
   }
 
   function formatPageLabel(raw) {
-    if (!raw || raw === "/") return "Homepage (/)";
+    if (!raw || raw === "/" || raw === "/index.html") return "Homepage (/)";
     if (raw === "/bookshelf/" || raw === "/bookshelf/index.html") return "Bookshelf (/bookshelf/)";
     if (raw === "/resume.html") return "Resume (/resume.html)";
     if (raw === "/visitors.html") return "Visitors (/visitors.html)";
@@ -346,6 +346,7 @@
 
   function recordVisit() {
     var path = window.location.pathname || "/";
+    if (path === "/index.html") path = "/";
     if (/go\.html$/i.test(path) && window.location.search) {
       path += window.location.search;
     }
