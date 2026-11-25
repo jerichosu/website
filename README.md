@@ -1,29 +1,21 @@
 # Jiayi Su — personal academic website
 
-Source adapted from [Jon Barron's academic website](https://jonbarron.info/). Please attribute the original template if you reuse this code.
-
-Live site: [jiayisu.com](https://jiayisu.com/)
+Live site: [jiayisu.com](https://jiayisu.com/)  
+Design adapted from [Jon Barron's academic website](https://jonbarron.info/).
 
 ## Local preview
 
-From this directory, run `python -m http.server 4173 --bind 127.0.0.1`, then open
-`http://127.0.0.1:4173/`. No build step is required. Add `?settled=1` to disable
-the particle animation for stable visual checks.
+From this directory, run:
 
-## Maintaining publications and visitor statistics
+```bash
+python3 -m http.server 4175 --bind 127.0.0.1
+```
 
-- Update both News and Publications when a paper is accepted or published.
-  Accepted papers link to the conference until a proceedings URL is available.
-- CEEGE 2026: [IEEE Xplore](https://ieeexplore.ieee.org/document/11637656),
-  DOI `10.1109/CEEGE70076.2026.11637656`; citation in `data/su2026awtls.bib`.
-- Visitors uses the official responsive MapMyVisitors embed for `jiayisu.com`
-  (public project `1c5nr`). Its public embed identifier is not an account secret.
-  Manage colors through the project's Widget Customization page. Keep the source
-  width at the integer value `600`; site CSS scales the map responsively. The
-  vendor's automatic width can request broken fractional-width background images
-  and does not keep its inline map dimensions in sync with viewport changes.
-  The external widget needs network access and may be blocked by privacy tools;
-  the direct statistics link remains available. Preview visits may be counted.
-  Historical Vercount totals are not imported by this change.
-- Before publishing, check desktop and narrow/mobile layouts, the navigation
-  menu, news archive, publication summaries, BibTeX download, and visitor map.
+Open `http://127.0.0.1:4175/` (append `?settled=1` to render the particle portrait settled). Localhost previews never trigger production visitor tracking.
+
+## Structure
+
+- `index.html` & `css/site.css` — Refined Editorial homepage (hero particle portrait, Research Map + interactive 1D Kalman Filter demo, News archive, filterable Publications with 1-click BibTeX copy, 3-column Projects gallery, Links, and Editorial Visitor Map).
+- `bookshelf/index.html` — Curated bookshelf (62 technical and non-technical books with topic filters and locally hosted covers).
+- `visitors.html` — Full-page world visitor map, OS/Browser/Country breakdown, and recent visit log.
+- `workers/visitor-map/` — Self-hosted Cloudflare Workers + D1 telemetry backend resolving both IPv4 and IPv6 locations (`request.cf`) without storing raw IP addresses.

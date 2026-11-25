@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Jiayi's Bookshelf</title>
   <meta name="author" content="Jiayi Su">
-  <meta name="description" content="Technical and non-technical books on Jiayi Su's bookshelf — estimation, ML, systems, and more.">
+  <meta name="description" content="Technical and non-technical books on Jiayi Su's bookshelf — estimation, control, political economy, anthropology, and history.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://jiayisu.com/bookshelf/">
   <meta property="og:title" content="Jiayi's Bookshelf">
@@ -13,44 +13,66 @@
   <link rel="icon" type="image/png" href="../images/icons/seal_icons.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink:    #1a1a1a;
-      --mid:    #555;
-      --muted:  #888;
-      --rule:   #e0dbd3;
-      --bg:     #faf9f7;
-      --card:   #ffffff;
-      --accent: #1c4f8a;
-      --hover:  #c2621e;
-      --tag-bg: #eef2f8;
-      --max:    840px;
-      --serif:  'EB Garamond', Georgia, serif;
-      --sans:   'DM Sans', Helvetica, sans-serif;
+      --ink:          #1a1917;
+      --mid:          #4e4b45;
+      --muted:        #787268;
+      --rule:         #e6e0d6;
+      --bg:           #faf8f4;
+      --surface:      #ffffff;
+      --surface-soft: #f4f0e8;
+      --accent:       #184e86;
+      --accent-soft:  #eef3fa;
+      --hover:        #c9582a;
+      --terra-soft:   #fdf2ec;
+      --max:          960px;
+      --serif:        'EB Garamond', Georgia, serif;
+      --sans:         'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono:         'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-padding-top: 72px; background: var(--bg); }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
 
     body {
       background: var(--bg);
       color: var(--ink);
       font-family: var(--sans);
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.72;
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
     }
 
-    /* ── Nav ── */
-    nav {
+    /* ── Nav & Progress Bar ── */
+    nav#site-nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(250,249,247,0.92);
-      backdrop-filter: blur(10px);
+      background: rgba(250, 248, 244, 0.90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--rule);
+    }
+    .read-progress {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      background: var(--hover);
+      transform-origin: left;
+      transform: scaleX(0);
+      pointer-events: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .read-progress { display: none; }
     }
     nav .inner {
       max-width: var(--max);
@@ -59,125 +81,247 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 52px;
+      height: 54px;
       gap: 12px;
     }
     nav .logo {
       font-family: var(--serif);
-      font-size: 17px;
+      font-size: 17.5px;
+      font-weight: 600;
       color: var(--ink);
       text-decoration: none;
       white-space: nowrap;
       flex-shrink: 0;
     }
+    nav .logo:hover { color: var(--accent); }
     nav .links { display: flex; gap: 20px; }
     nav .links a {
-      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: 13.5px;
+      font-weight: 500;
       color: var(--mid);
       text-decoration: none;
-      letter-spacing: .02em;
+      letter-spacing: .01em;
       transition: color .15s;
     }
-    nav .links a:hover { color: var(--hover); }
+    nav .links a:hover,
+    nav .links a[aria-current="location"] {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
 
     /* ── Layout ── */
     .page {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0 24px 80px;
+      padding: 0 24px 88px;
     }
 
     /* ── Hero ── */
     .hero {
-      padding: 48px 0 32px;
+      padding: 44px 0 28px;
       border-bottom: 1px solid var(--rule);
-      animation: fadeUp .5s ease both;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--hover);
+      margin-bottom: 8px;
     }
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(26px, 5vw, 38px);
+      font-size: clamp(28px, 5vw, 40px);
       font-weight: 600;
-      line-height: 1.2;
+      line-height: 1.15;
     }
     .hero p {
-      margin-top: 12px;
+      margin-top: 10px;
       font-size: 15px;
       color: var(--mid);
-      max-width: 560px;
+      max-width: 660px;
+    }
+    .hero-stats {
+      margin-top: 12px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
     }
 
-    /* ── Section ── */
-    section { margin-top: 52px; }
-    .section-title {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--ink);
+    /* ── Filter Bar ── */
+    .filter-bar {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .filter-pill {
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--rule);
+      background: var(--surface);
+      color: var(--mid);
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .filter-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .filter-pill.is-active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+    .filter-count {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ── Sections ── */
+    section { margin-top: 40px; }
+    section.is-hidden { display: none; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
       border-bottom: 1.5px solid var(--ink);
       padding-bottom: 6px;
-      margin-bottom: 28px;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .section-count {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--muted);
     }
     .section-desc {
       font-size: 14px;
       color: var(--muted);
-      margin-bottom: 28px;
-      margin-top: -16px;
+      margin-bottom: 8px;
     }
 
-    /* ── Book grid ── */
-    .book-list { display: flex; flex-direction: column; gap: 0; }
+    /* ── 2-Column Editorial Book Grid ── */
+    .book-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 34px;
+      row-gap: 0;
+    }
     .book-card {
       display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 24px;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 16px;
       align-items: start;
-      padding: 24px 0;
+      padding: 20px 0;
       border-bottom: 1px solid var(--rule);
     }
-    .book-card:last-child { border-bottom: none; }
+    .book-card.is-hidden { display: none; }
+
     .book-cover {
       border-radius: 4px;
       overflow: hidden;
-      box-shadow: 2px 4px 14px rgba(0,0,0,.12);
+      border: 1px solid rgba(26, 25, 23, 0.08);
+      box-shadow: 0 6px 16px -10px rgba(26, 25, 23, 0.35);
       background: #e8e4de;
       aspect-ratio: 2/3;
       flex-shrink: 0;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .book-card:hover .book-cover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px -12px rgba(26, 25, 23, 0.42);
+      }
     }
     .book-cover img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: opacity .2s;
     }
-    .book-cover:hover img { opacity: .88; }
-    .book-body { padding-top: 2px; }
+    .book-body { min-width: 0; overflow-wrap: anywhere; }
     .book-title {
       font-family: var(--serif);
-      font-size: 16px;
+      font-size: 16.5px;
       font-weight: 600;
-      line-height: 1.35;
+      line-height: 1.32;
       color: var(--ink);
     }
     .book-title a { color: var(--ink); text-decoration: none; }
-    .book-title a:hover { color: var(--hover); }
+    .book-title a:hover { color: var(--hover); text-decoration: underline; text-underline-offset: 3px; }
     .book-author {
-      margin-top: 6px;
+      margin-top: 4px;
       font-size: 13px;
       color: var(--accent);
     }
     .book-author a { color: var(--accent); text-decoration: none; }
-    .book-author a:hover { color: var(--hover); }
+    .book-author a:hover { color: var(--hover); text-decoration: underline; }
+
+    .book-meta {
+      margin-top: 7px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      align-items: center;
+    }
+    .book-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.03em;
+      color: var(--mid);
+      background: var(--surface-soft);
+      border: 1px solid var(--rule);
+      padding: 1px 7px;
+      border-radius: 999px;
+    }
+
     .book-note {
       margin-top: 8px;
-      font-size: 13.5px;
+      font-size: 13px;
       font-style: italic;
+      line-height: 1.5;
       color: var(--mid);
-      padding: 6px 10px;
-      border-left: 2px solid var(--rule);
-      background: #f5f3f0;
+      padding: 5px 9px;
+      border-left: 2px solid var(--hover);
+      background: var(--surface-soft);
       border-radius: 0 4px 4px 0;
-      display: inline-block;
+    }
+    .book-blurb {
+      margin-top: 7px;
+      font-size: 12.8px;
+      line-height: 1.52;
+      color: var(--muted);
     }
 
     /* ── Global links ── */
@@ -186,85 +330,113 @@
 
     /* ── Footer ── */
     footer {
-      margin-top: 64px;
+      margin-top: 56px;
       padding-top: 20px;
       border-top: 1px solid var(--rule);
       font-size: 13px;
       color: var(--muted);
       display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
     footer a { color: var(--muted); }
     footer a:hover { color: var(--hover); }
+    .footer-right { display: flex; align-items: center; gap: 14px; }
 
-    /* ── Animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── Mobile ── */
-    @media (max-width: 520px) {
-      .book-card {
-        grid-template-columns: 100px 1fr;
-        gap: 16px;
-      }
-    }
-    @media (max-width: 380px) {
-      .book-card {
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+      .book-list {
         grid-template-columns: 1fr;
       }
-      .book-cover { max-width: 120px; aspect-ratio: 2/3; }
+      .book-card {
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: 16px;
+        padding: 18px 0;
+      }
+    }
+    @media (max-width: 520px) {
+      nav .inner { padding-inline: 16px; gap: 8px; }
+      nav .links { gap: 12px; }
+      .page { padding-inline: 16px; }
+      .hero { padding: 32px 0 22px; }
+      .book-card {
+        grid-template-columns: clamp(72px, 21vw, 92px) minmax(0, 1fr);
+        gap: 14px;
+      }
     }
   </style>
+  <link rel="stylesheet" href="../css/media-viewer.css">
+  <script defer src="../js/media-viewer.js"></script>
+  <script defer src="../js/visitor-map.js"></script>
 </head>
 <body>
 
 <!-- ── Nav ── -->
-<nav>
+<nav id="site-nav" aria-label="Bookshelf navigation">
   <div class="inner">
-    <a class="logo" href="https://jiayisu.com">← Jiayi Su</a>
+    <a class="logo" href="../index.html">← Jiayi Su</a>
     <div class="links">
       <a href="#technical">Technical</a>
       <a href="#nontechnical">Non-Technical</a>
     </div>
   </div>
+  <div class="read-progress" id="read-progress" aria-hidden="true"></div>
 </nav>
 
-<div class="page">
+<main class="page">
 
   <!-- ── Hero ── -->
   <div class="hero">
+    <div class="hero-eyebrow">Library &amp; Field Notes</div>
     <h1>📚 Jiayi's Bookshelf</h1>
-    <p>A curated collection of technical and non-technical books I enjoy. Reviews may be added periodically.</p>
+    <p>Books on state estimation, optimal control, political economy, grassroots governance, ethnography, urban history, and scientific inquiry.</p>
+    <div class="hero-stats">62 books · 15 Technical · 47 Non-Technical</div>
+  </div>
+
+  <!-- ── Topic Filters ── -->
+  <div class="filter-bar" role="region" aria-label="Filter books by topic">
+    <div class="filter-pills">
+      <button type="button" class="filter-pill is-active" data-filter="all" aria-pressed="true">All (62)</button>
+      <button type="button" class="filter-pill" data-filter="estimation-control" aria-pressed="false">Estimation &amp; Control (12)</button>
+      <button type="button" class="filter-pill" data-filter="optimization-ml" aria-pressed="false">Optimization, ML &amp; Vision (3)</button>
+      <button type="button" class="filter-pill" data-filter="power-politics" aria-pressed="false">Power &amp; Institutions (11)</button>
+      <button type="button" class="filter-pill" data-filter="history-economy" aria-pressed="false">History &amp; Economy (18)</button>
+      <button type="button" class="filter-pill" data-filter="anthro-urban" aria-pressed="false">Anthropology &amp; Urbanism (8)</button>
+      <button type="button" class="filter-pill" data-filter="science-phil-lit" aria-pressed="false">Science, Philosophy &amp; Lit (10)</button>
+    </div>
+    <span class="filter-count" id="bookshelf-filter-count">Showing 62 of 62 books</span>
   </div>
 
   <!-- ══════════════════ TECHNICAL ══════════════════ -->
   <section id="technical">
-    <div class="section-title">Technical</div>
-    <p class="section-desc">State estimation, control theory, and related engineering texts.</p>
+    <div class="section-head">
+      <h2 class="section-title">Technical</h2>
+      <span class="section-count" data-section-count>15 books</span>
+    </div>
+    <p class="section-desc">State estimation, optimal &amp; robust control, convex optimization, and machine perception.</p>
 
     <div class="book-list">
 
-      <div class="book-card">
+      <div class="book-card" data-cat="estimation-control" data-origin="original">
         <div class="book-cover">
           <a href="https://www.wiley.com/en-sg/Optimal+State+Estimation%3A+Kalman%2C+H+Infinity%2C+and+Nonlinear+Approaches-p-9780471708582" target="_blank" rel="noopener noreferrer">
-            <img src="img/dan_simon.jpg" alt="Optimal State Estimation">
+            <img src="img/dan_simon.jpg" alt="Optimal State Estimation" decoding="async">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://www.wiley.com/en-sg/Optimal+State+Estimation%3A+Kalman%2C+H+Infinity%2C+and+Nonlinear+Approaches-p-9780471708582" target="_blank" rel="noopener noreferrer">Optimal State Estimation: Kalman, H∞, and Nonlinear Approaches</a></div>
           <div class="book-author"><a href="https://engineering.csuohio.edu/eecs/dan-simon-professor" target="_blank" rel="noopener noreferrer">Dan Simon</a></div>
+          <div class="book-meta"><span class="book-tag">Estimation &amp; Control</span></div>
           <div class="book-note">"My estimation Bible, 1/3"</div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="estimation-control" data-origin="original">
         <div class="book-cover">
           <a href="http://users.cecs.anu.edu.au/~john/papers/BOOK/B02.PDF" target="_blank" rel="noopener noreferrer">
-            <img src="img/optimal_filtering.jpg" alt="Optimal Filtering">
+            <img src="img/optimal_filtering.jpg" alt="Optimal Filtering" decoding="async">
           </a>
         </div>
         <div class="book-body">
@@ -273,14 +445,15 @@
             <a href="https://en.wikipedia.org/wiki/Brian_Anderson_(academic)" target="_blank" rel="noopener noreferrer">Brian Anderson</a> &amp;
             <a href="https://en.wikipedia.org/wiki/John_B._Moore_(engineer)" target="_blank" rel="noopener noreferrer">John Moore</a>
           </div>
+          <div class="book-meta"><span class="book-tag">Estimation &amp; Control</span></div>
           <div class="book-note">"My estimation Bible, 2/3"</div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="estimation-control" data-origin="original">
         <div class="book-cover">
           <a href="https://www.amazon.com/Adaptive-Filtering-Prediction-Electrical-Engineering/dp/0486469328" target="_blank" rel="noopener noreferrer">
-            <img src="img/goodwin_sin.jpg" alt="Adaptive Filtering Prediction and Control">
+            <img src="img/goodwin_sin.jpg" alt="Adaptive Filtering Prediction and Control" decoding="async">
           </a>
         </div>
         <div class="book-body">
@@ -289,14 +462,15 @@
             <a href="https://en.wikipedia.org/wiki/Graham_Goodwin" target="_blank" rel="noopener noreferrer">Graham Goodwin</a> &amp;
             <a href="https://www.linkedin.com/in/kwai-sang-sin-48406b10/" target="_blank" rel="noopener noreferrer">Kwai Sang Sin</a>
           </div>
+          <div class="book-meta"><span class="book-tag">Estimation &amp; Control</span></div>
           <div class="book-note">"My estimation Bible, 3/3"</div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="estimation-control" data-origin="original">
         <div class="book-cover">
           <a href="https://link.springer.com/book/10.1007/978-1-4471-0283-0" target="_blank" rel="noopener noreferrer">
-            <img src="img/model_reduction.jpg" alt="Model Reduction for Control System Design">
+            <img src="img/model_reduction.jpg" alt="Model Reduction for Control System Design" decoding="async">
           </a>
         </div>
         <div class="book-body">
@@ -305,13 +479,14 @@
             <a href="https://en.wikipedia.org/wiki/Brian_Anderson_(academic)" target="_blank" rel="noopener noreferrer">Brian Anderson</a> &amp;
             <a href="https://ieeexplore.ieee.org/author/37277264000" target="_blank" rel="noopener noreferrer">Goro Obinata</a>
           </div>
+          <div class="book-meta"><span class="book-tag">Estimation &amp; Control</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="estimation-control" data-origin="original">
         <div class="book-cover">
           <a href="https://www.amazon.com/LMIs-Control-Systems-Analysis-Applications/dp/1466582995" target="_blank" rel="noopener noreferrer">
-            <img src="img/lmi.jpg" alt="LMIs in Control Systems">
+            <img src="img/lmi.jpg" alt="LMIs in Control Systems" decoding="async">
           </a>
         </div>
         <div class="book-body">
@@ -319,6 +494,167 @@
           <div class="book-author">
             <a href="https://en.wikipedia.org/wiki/Duan_Guangren" target="_blank" rel="noopener noreferrer">Guangren Duan</a>
           </div>
+          <div class="book-meta"><span class="book-tag">Estimation &amp; Control</span></div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="estimation-control" data-origin="added">
+        <div class="book-cover">
+          <a href="https://www.wiley.com/en-us/Estimation+with+Applications+to+Tracking+and+Navigation%3A+Theory%2C+Algorithms+and+Software-p-9780471416555" target="_blank" rel="noopener noreferrer">
+            <img src="img/bar_shalom_tracking.jpg" alt="Estimation with Applications to Tracking and Navigation: Theory, Algorithms and Software" decoding="async">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://www.wiley.com/en-us/Estimation+with+Applications+to+Tracking+and+Navigation%3A+Theory%2C+Algorithms+and+Software-p-9780471416555" target="_blank" rel="noopener noreferrer">Estimation with Applications to Tracking and Navigation: Theory, Algorithms and Software</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Yaakov_Bar-Shalom" target="_blank" rel="noopener noreferrer">Yaakov Bar-Shalom</a>, <a href="https://www.uno.edu/profile/faculty/xiao-rong-li" target="_blank" rel="noopener noreferrer">X. Rong Li</a> &amp; Thiagalingam Kirubarajan</div>
+          <div class="book-meta">
+            <span class="book-tag">Estimation &amp; Control</span>
+          </div>
+          <div class="book-blurb">Essential reference for target tracking, Kalman gating, and nonlinear multisensor estimation.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="estimation-control" data-origin="added">
+        <div class="book-cover">
+          <a href="https://users.aalto.fi/~ssarkka/pub/cup_book_online_20131111.pdf" target="_blank" rel="noopener noreferrer">
+            <img src="img/sarkka_bayesian.jpg" alt="Bayesian Filtering and Smoothing" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://users.aalto.fi/~ssarkka/pub/cup_book_online_20131111.pdf" target="_blank" rel="noopener noreferrer">Bayesian Filtering and Smoothing</a></div>
+          <div class="book-author"><a href="https://users.aalto.fi/~ssarkka/" target="_blank" rel="noopener noreferrer">Simo Särkkä</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Estimation &amp; Control</span>
+          </div>
+          <div class="book-blurb">Unified Bayesian derivation of EKF, UKF, particle filters, and Rauch–Tung–Striebel smoothers.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="estimation-control" data-origin="added">
+        <div class="book-cover">
+          <a href="https://us.artechhouse.com/Battery-Management-Systems-Volume-II-Equivalent-Circuit-Methods-P1917.aspx" target="_blank" rel="noopener noreferrer">
+            <img src="img/plett_bms.jpg" alt="Battery Management Systems, Volume II: Equivalent-Circuit Methods" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://us.artechhouse.com/Battery-Management-Systems-Volume-II-Equivalent-Circuit-Methods-P1917.aspx" target="_blank" rel="noopener noreferrer">Battery Management Systems, Volume II: Equivalent-Circuit Methods</a></div>
+          <div class="book-author"><a href="http://mocha-java.uccs.edu/" target="_blank" rel="noopener noreferrer">Gregory L. Plett</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Estimation &amp; Control</span>
+          </div>
+          <div class="book-blurb">Definitive engineering treatise on EKF/SPKF-based state-of-charge and state-of-health estimation.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="estimation-control" data-origin="added">
+        <div class="book-cover">
+          <a href="https://www.ece.lsu.edu/kemin/" target="_blank" rel="noopener noreferrer">
+            <img src="img/zhou_robust_control.jpg" alt="Robust and Optimal Control" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://www.ece.lsu.edu/kemin/" target="_blank" rel="noopener noreferrer">Robust and Optimal Control</a></div>
+          <div class="book-author"><a href="https://www.ece.lsu.edu/kemin/" target="_blank" rel="noopener noreferrer">Kemin Zhou</a>, <a href="https://en.wikipedia.org/wiki/John_Doyle_(engineer)" target="_blank" rel="noopener noreferrer">John C. Doyle</a> &amp; <a href="https://en.wikipedia.org/wiki/Keith_Glover" target="_blank" rel="noopener noreferrer">Keith Glover</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Estimation &amp; Control</span>
+          </div>
+          <div class="book-blurb">State-space foundations of H∞ control, Riccati theory, and balanced model reduction.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="estimation-control" data-origin="added">
+        <div class="book-cover">
+          <a href="https://global.oup.com/ushe/product/linear-system-theory-and-design-9780199959570" target="_blank" rel="noopener noreferrer">
+            <img src="img/chen_linear_systems.jpg" alt="Linear System Theory and Design" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://global.oup.com/ushe/product/linear-system-theory-and-design-9780199959570" target="_blank" rel="noopener noreferrer">Linear System Theory and Design</a></div>
+          <div class="book-author">Chi-Tsong Chen</div>
+          <div class="book-meta">
+            <span class="book-tag">Estimation &amp; Control</span>
+          </div>
+          <div class="book-blurb">Crystal-clear exposition of controllability, observability, realizations, and state feedback.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="estimation-control" data-origin="added">
+        <div class="book-cover">
+          <a href="https://www.pearson.com/en-us/subject-catalog/p/nonlinear-systems/P200000003217" target="_blank" rel="noopener noreferrer">
+            <img src="img/khalil_nonlinear.jpg" alt="Nonlinear Systems" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://www.pearson.com/en-us/subject-catalog/p/nonlinear-systems/P200000003217" target="_blank" rel="noopener noreferrer">Nonlinear Systems</a></div>
+          <div class="book-author"><a href="https://www.egr.msu.edu/~khalil/" target="_blank" rel="noopener noreferrer">Hassan K. Khalil</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Estimation &amp; Control</span>
+          </div>
+          <div class="book-blurb">Standard graduate benchmark for Lyapunov stability, passivity, and high-gain observers.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="estimation-control" data-origin="added">
+        <div class="book-cover">
+          <a href="https://mitpress.mit.edu/9780262201629/probabilistic-robotics/" target="_blank" rel="noopener noreferrer">
+            <img src="img/thrun_prob_robotics.jpg" alt="Probabilistic Robotics" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://mitpress.mit.edu/9780262201629/probabilistic-robotics/" target="_blank" rel="noopener noreferrer">Probabilistic Robotics</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Sebastian_Thrun" target="_blank" rel="noopener noreferrer">Sebastian Thrun</a>, <a href="https://en.wikipedia.org/wiki/Wolfram_Burgard" target="_blank" rel="noopener noreferrer">Wolfram Burgard</a> &amp; <a href="https://en.wikipedia.org/wiki/Dieter_Fox" target="_blank" rel="noopener noreferrer">Dieter Fox</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Estimation &amp; Control</span>
+          </div>
+          <div class="book-blurb">Recursive Bayes filters, SLAM, and belief-space planning for autonomous mobile robots.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="optimization-ml" data-origin="added">
+        <div class="book-cover">
+          <a href="https://web.stanford.edu/~boyd/cvxbook/" target="_blank" rel="noopener noreferrer">
+            <img src="img/boyd_convex.jpg" alt="Convex Optimization" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://web.stanford.edu/~boyd/cvxbook/" target="_blank" rel="noopener noreferrer">Convex Optimization</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Stephen_P._Boyd" target="_blank" rel="noopener noreferrer">Stephen Boyd</a> &amp; <a href="https://www.seas.ucla.edu/~vandenbe/" target="_blank" rel="noopener noreferrer">Lieven Vandenberghe</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Optimization, ML &amp; Vision</span>
+          </div>
+          <div class="book-blurb">Foundational companion to LMI-based control, semidefinite programming, and convex duality.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="optimization-ml" data-origin="added">
+        <div class="book-cover">
+          <a href="https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/" target="_blank" rel="noopener noreferrer">
+            <img src="img/bishop_prml.jpg" alt="Pattern Recognition and Machine Learning" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/" target="_blank" rel="noopener noreferrer">Pattern Recognition and Machine Learning</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Christopher_Bishop" target="_blank" rel="noopener noreferrer">Christopher M. Bishop</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Optimization, ML &amp; Vision</span>
+          </div>
+          <div class="book-blurb">Rigorous probabilistic perspective linking graphical models, EM, and linear-Gaussian state spaces.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="optimization-ml" data-origin="added">
+        <div class="book-cover">
+          <a href="https://link.springer.com/book/10.1007/978-3-030-34372-9" target="_blank" rel="noopener noreferrer">
+            <img src="img/szeliski_cv.jpg" alt="Computer Vision: Algorithms and Applications" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://link.springer.com/book/10.1007/978-3-030-34372-9" target="_blank" rel="noopener noreferrer">Computer Vision: Algorithms and Applications</a></div>
+          <div class="book-author">Richard Szeliski</div>
+          <div class="book-meta">
+            <span class="book-tag">Optimization, ML &amp; Vision</span>
+          </div>
+          <div class="book-blurb">Geometric camera calibration, 3D reconstruction, and modern visual estimation pipelines.</div>
         </div>
       </div>
 
@@ -327,337 +663,687 @@
 
   <!-- ══════════════════ NON-TECHNICAL ══════════════════ -->
   <section id="nontechnical">
-    <div class="section-title">Non-Technical</div>
-    <p class="section-desc">History, political science, sociology, anthropology, and more.</p>
+    <div class="section-head">
+      <h2 class="section-title">Non-Technical</h2>
+      <span class="section-count" data-section-count>47 books</span>
+    </div>
+    <p class="section-desc">Institutional power, comparative political economy, history, ethnography, urbanism, and science writing.</p>
 
     <div class="book-list">
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/One_Summer:_America,_1927" target="_blank" rel="noopener noreferrer">
-            <img src="img/One_Summer_America_1927.jpg" alt="One Summer America 1927">
+            <img src="img/One_Summer_America_1927.jpg" alt="One Summer America 1927" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/One_Summer:_America,_1927" target="_blank" rel="noopener noreferrer">One Summer: America, 1927</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Bill_Bryson" target="_blank" rel="noopener noreferrer">Bill Bryson</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
           <div class="book-note">American life in 1927: what it was becoming still shapes our modern world.</div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="power-politics" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/Dark_Money_(book)" target="_blank" rel="noopener noreferrer">
-            <img src="img/dark_money.jpg" alt="Dark Money">
+            <img src="img/dark_money.jpg" alt="Dark Money" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/Dark_Money_(book)" target="_blank" rel="noopener noreferrer">Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right</a></div>
           <div class="book-author"><a href="https://www.newyorker.com/contributors/jane-mayer" target="_blank" rel="noopener noreferrer">Jane Mayer</a></div>
+          <div class="book-meta"><span class="book-tag">Power &amp; Institutions</span></div>
           <div class="book-note">How the richest Americans are influencing American politics.</div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="power-politics" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/The_Dark_Side_(book)" target="_blank" rel="noopener noreferrer">
-            <img src="img/dark_side.jpg" alt="The Dark Side">
+            <img src="img/dark_side.jpg" alt="The Dark Side" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Dark_Side_(book)" target="_blank" rel="noopener noreferrer">The Dark Side: The Inside Story of How The War on Terror Turned into a War on American Ideals</a></div>
           <div class="book-author"><a href="https://www.newyorker.com/contributors/jane-mayer" target="_blank" rel="noopener noreferrer">Jane Mayer</a></div>
+          <div class="book-meta"><span class="book-tag">Power &amp; Institutions</span></div>
           <div class="book-note">I wish these are not true.</div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="power-politics" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/The_Kingdom_and_the_Power" target="_blank" rel="noopener noreferrer">
-            <img src="img/kingdom_and_power.jpg" alt="The Kingdom and the Power">
+            <img src="img/kingdom_and_power.jpg" alt="The Kingdom and the Power" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Kingdom_and_the_Power" target="_blank" rel="noopener noreferrer">The Kingdom and the Power: Behind the Scenes at The New York Times</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Gay_Talese" target="_blank" rel="noopener noreferrer">Gay Talese</a></div>
+          <div class="book-meta"><span class="book-tag">Power &amp; Institutions</span></div>
           <div class="book-note">Stories inside The New York Times.</div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="science-phil-lit" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/The_Man_Who_Knew_Infinity_(book)" target="_blank" rel="noopener noreferrer">
-            <img src="img/infinity.jpg" alt="The Man Who Knew Infinity">
+            <img src="img/infinity.jpg" alt="The Man Who Knew Infinity" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Man_Who_Knew_Infinity_(book)" target="_blank" rel="noopener noreferrer">The Man Who Knew Infinity: A Life of the Genius Ramanujan</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Robert_Kanigel" target="_blank" rel="noopener noreferrer">Robert Kanigel</a></div>
+          <div class="book-meta"><span class="book-tag">Science, Philosophy &amp; Lit</span></div>
           <div class="book-note">Story of the Indian math genius Ramanujan.</div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="anthro-urban" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/The_Death_and_Life_of_Great_American_Cities" target="_blank" rel="noopener noreferrer">
-            <img src="img/death_and_life.jpg" alt="The Death and Life of Great American Cities">
+            <img src="img/death_and_life.jpg" alt="The Death and Life of Great American Cities" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Death_and_Life_of_Great_American_Cities" target="_blank" rel="noopener noreferrer">The Death and Life of Great American Cities</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Jane_Jacobs" target="_blank" rel="noopener noreferrer">Jane Jacobs</a></div>
+          <div class="book-meta"><span class="book-tag">Anthropology &amp; Urbanism</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="anthro-urban" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/The_City_in_History" target="_blank" rel="noopener noreferrer">
-            <img src="img/city_in_history.jpg" alt="The City in History">
+            <img src="img/city_in_history.jpg" alt="The City in History" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_City_in_History" target="_blank" rel="noopener noreferrer">The City in History: Its Origins, Its Transformations, and Its Prospects</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Lewis_Mumford" target="_blank" rel="noopener noreferrer">Lewis Mumford</a></div>
+          <div class="book-meta"><span class="book-tag">Anthropology &amp; Urbanism</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="science-phil-lit" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/Being_and_Time" target="_blank" rel="noopener noreferrer">
-            <img src="img/being_and_time.jpg" alt="Being and Time">
+            <img src="img/being_and_time.jpg" alt="Being and Time" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/Being_and_Time" target="_blank" rel="noopener noreferrer">Being and Time</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Martin_Heidegger" target="_blank" rel="noopener noreferrer">Martin Heidegger</a></div>
+          <div class="book-meta"><span class="book-tag">Science, Philosophy &amp; Lit</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="power-politics" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/%22Left-Wing%22_Communism:_An_Infantile_Disorder" target="_blank" rel="noopener noreferrer">
-            <img src="img/left_wing.jpg" alt="Left-Wing Communism">
+            <img src="img/left_wing.jpg" alt="Left-Wing Communism" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/%22Left-Wing%22_Communism:_An_Infantile_Disorder" target="_blank" rel="noopener noreferrer">"Left-Wing" Communism: An Infantile Disorder</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Vladimir_Lenin" target="_blank" rel="noopener noreferrer">Vladimir Lenin</a></div>
+          <div class="book-meta"><span class="book-tag">Power &amp; Institutions</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://baike.baidu.com/item/%E4%BB%8E%E9%B8%A6%E7%89%87%E6%88%98%E4%BA%89%E5%88%B0%E4%BA%94%E5%9B%9B%E8%BF%90%E5%8A%A8/8805289" target="_blank" rel="noopener noreferrer">
-            <img src="img/from_opium.jpg" alt="From the Opium War to the May Fourth Movement">
+            <img src="img/from_opium.jpg" alt="From the Opium War to the May Fourth Movement" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://baike.baidu.com/item/%E4%BB%8E%E9%B8%A6%E7%89%87%E6%88%98%E4%BA%89%E5%88%B0%E4%BA%94%E5%9B%9B%E8%BF%90%E5%8A%A8/8805289" target="_blank" rel="noopener noreferrer">从鸦片战争到五四运动 (From the Opium War to the May Fourth Movement)</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Hu_Sheng" target="_blank" rel="noopener noreferrer">Hu Sheng</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/Guns,_Germs,_and_Steel" target="_blank" rel="noopener noreferrer">
-            <img src="img/steel_gun.jpg" alt="Guns, Germs, and Steel">
+            <img src="img/steel_gun.jpg" alt="Guns, Germs, and Steel" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/Guns,_Germs,_and_Steel" target="_blank" rel="noopener noreferrer">Guns, Germs, and Steel: The Fates of Human Societies</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Jared_Diamond" target="_blank" rel="noopener noreferrer">Jared Diamond</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="science-phil-lit" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/The_Pill_Versus_the_Springhill_Mine_Disaster" target="_blank" rel="noopener noreferrer">
-            <img src="img/Pill_vs_Springhill.jpg" alt="The Pill Versus the Springhill Mine Disaster">
+            <img src="img/Pill_vs_Springhill.jpg" alt="The Pill Versus the Springhill Mine Disaster" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Pill_Versus_the_Springhill_Mine_Disaster" target="_blank" rel="noopener noreferrer">The Pill Versus the Springhill Mine Disaster</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Richard_Brautigan" target="_blank" rel="noopener noreferrer">Richard Brautigan</a></div>
+          <div class="book-meta"><span class="book-tag">Science, Philosophy &amp; Lit</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://archive.org/details/indiaschinawar0000maxw" target="_blank" rel="noopener noreferrer">
-            <img src="img/india_china_war.jpg" alt="India's China War">
+            <img src="img/india_china_war.jpg" alt="India's China War" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://archive.org/details/indiaschinawar0000maxw" target="_blank" rel="noopener noreferrer">India's China War</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Neville_Maxwell" target="_blank" rel="noopener noreferrer">Neville Maxwell</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="science-phil-lit" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/The_Expert_at_the_Card_Table" target="_blank" rel="noopener noreferrer">
-            <img src="img/card.jpg" alt="The Expert at the Card Table">
+            <img src="img/card.jpg" alt="The Expert at the Card Table" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Expert_at_the_Card_Table" target="_blank" rel="noopener noreferrer">The Expert at the Card Table: The Classic Treatise on Card Manipulation</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/S._W._Erdnase" target="_blank" rel="noopener noreferrer">S. W. Erdnase</a></div>
+          <div class="book-meta"><span class="book-tag">Science, Philosophy &amp; Lit</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://books.google.com/books/about/The_Force_of_Destiny.html?id=lSRwOZ0Yxw8C" target="_blank" rel="noopener noreferrer">
-            <img src="img/italy.jpg" alt="The Force of Destiny">
+            <img src="img/italy.jpg" alt="The Force of Destiny" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://books.google.com/books/about/The_Force_of_Destiny.html?id=lSRwOZ0Yxw8C" target="_blank" rel="noopener noreferrer">The Force of Destiny: A History of Italy since 1796</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Christopher_Duggan" target="_blank" rel="noopener noreferrer">Christopher Duggan</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="science-phil-lit" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/One_Two_Three..._Infinity" target="_blank" rel="noopener noreferrer">
-            <img src="img/123.jpg" alt="One Two Three Infinity">
+            <img src="img/123.jpg" alt="One Two Three Infinity" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/One_Two_Three..._Infinity" target="_blank" rel="noopener noreferrer">One Two Three . . . Infinity: Facts and Speculations of Science</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/George_Gamow" target="_blank" rel="noopener noreferrer">George Gamow</a></div>
+          <div class="book-meta"><span class="book-tag">Science, Philosophy &amp; Lit</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://books.google.com/books/about/Dead_Aid.html?id=-gYxhXHjOckC" target="_blank" rel="noopener noreferrer">
-            <img src="img/dead_aid.jpg" alt="Dead Aid">
+            <img src="img/dead_aid.jpg" alt="Dead Aid" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://books.google.com/books/about/Dead_Aid.html?id=-gYxhXHjOckC" target="_blank" rel="noopener noreferrer">Dead Aid: Why Aid Is Not Working and How There Is a Better Way for Africa</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Dambisa_Moyo,_Baroness_Moyo" target="_blank" rel="noopener noreferrer">Dambisa Moyo</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="power-politics" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/Zhongxian_Ganbu" target="_blank" rel="noopener noreferrer">
-            <img src="img/zhongxian.jpg" alt="Zhongxian Ganbu">
+            <img src="img/zhongxian.jpg" alt="Zhongxian Ganbu" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/Zhongxian_Ganbu" target="_blank" rel="noopener noreferrer">中县干部 (Zhongxian Ganbu)</a></div>
           <div class="book-author"><a href="https://baike.baidu.com/item/%E5%86%AF%E5%86%9B%E6%97%97/8868587" target="_blank" rel="noopener noreferrer">冯军旗</a></div>
+          <div class="book-meta"><span class="book-tag">Power &amp; Institutions</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://books.google.com/books/about/Qatar.html?id=Z_SPT5N9ypoC" target="_blank" rel="noopener noreferrer">
-            <img src="img/qatar.jpg" alt="Qatar: A Modern History">
+            <img src="img/qatar.jpg" alt="Qatar: A Modern History" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://books.google.com/books/about/Qatar.html?id=Z_SPT5N9ypoC" target="_blank" rel="noopener noreferrer">Qatar: A Modern History</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Allen_James_Fromherz" target="_blank" rel="noopener noreferrer">Allen James Fromherz</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="http://www.saudiincbook.com/" target="_blank" rel="noopener noreferrer">
-            <img src="img/saudi.jpg" alt="Saudi, Inc.">
+            <img src="img/saudi.jpg" alt="Saudi, Inc." decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="http://www.saudiincbook.com/" target="_blank" rel="noopener noreferrer">Saudi, Inc.</a></div>
           <div class="book-author"><a href="http://www.ellenrwald.com/" target="_blank" rel="noopener noreferrer">Ellen R. Wald</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="anthro-urban" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/Argonauts_of_the_Western_Pacific" target="_blank" rel="noopener noreferrer">
-            <img src="img/western_pacific.jpg" alt="Argonauts of the Western Pacific">
+            <img src="img/western_pacific.jpg" alt="Argonauts of the Western Pacific" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/Argonauts_of_the_Western_Pacific" target="_blank" rel="noopener noreferrer">Argonauts of the Western Pacific</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Bronis%C5%82aw_Malinowski" target="_blank" rel="noopener noreferrer">Bronisław Malinowski</a></div>
+          <div class="book-meta"><span class="book-tag">Anthropology &amp; Urbanism</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://www.amazon.com/Power-Prowess-Kingship-Southeast-Publications/dp/0824825004" target="_blank" rel="noopener noreferrer">
-            <img src="img/power_and_power.jpg" alt="Power and Prowess">
+            <img src="img/power_and_power.jpg" alt="Power and Prowess" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://www.amazon.com/Power-Prowess-Kingship-Southeast-Publications/dp/0824825004" target="_blank" rel="noopener noreferrer">Power and Prowess: The Origins of Brooke Kingship in Sarawak</a></div>
           <div class="book-author"><a href="https://scholar.google.com.au/citations?user=SikEeZUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">J. H. Walker</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="anthro-urban" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/Tristes_Tropiques" target="_blank" rel="noopener noreferrer">
-            <img src="img/Tristes_Tropiques.jpg" alt="Tristes Tropiques">
+            <img src="img/Tristes_Tropiques.jpg" alt="Tristes Tropiques" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/Tristes_Tropiques" target="_blank" rel="noopener noreferrer">Tristes Tropiques</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Claude_L%C3%A9vi-Strauss" target="_blank" rel="noopener noreferrer">Claude Lévi-Strauss</a></div>
+          <div class="book-meta"><span class="book-tag">Anthropology &amp; Urbanism</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="power-politics" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/Politics_as_a_Vocation" target="_blank" rel="noopener noreferrer">
-            <img src="img/Politics_as_a_Vocation.jpg" alt="Politics as a Vocation">
+            <img src="img/Politics_as_a_Vocation.jpg" alt="Politics as a Vocation" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/Politics_as_a_Vocation" target="_blank" rel="noopener noreferrer">Politics as a Vocation</a></div>
           <div class="book-author"><a href="https://en.wikipedia.org/wiki/Max_Weber" target="_blank" rel="noopener noreferrer">Max Weber</a></div>
+          <div class="book-meta"><span class="book-tag">Power &amp; Institutions</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://books.google.com/books/about/The_Rise_and_Fall_of_Czech_Capitalism.html?id=lKuFAAAAIAAJ" target="_blank" rel="noopener noreferrer">
-            <img src="img/rise_fall.jpeg" alt="The Rise and Fall of Czech Capitalism">
+            <img src="img/rise_fall.jpeg" alt="The Rise and Fall of Czech Capitalism" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://books.google.com/books/about/The_Rise_and_Fall_of_Czech_Capitalism.html?id=lKuFAAAAIAAJ" target="_blank" rel="noopener noreferrer">The Rise and Fall of Czech Capitalism: Economic Development in the Czech Republic Since 1989</a></div>
           <div class="book-author"><a href="https://scholar.google.com/citations?user=ZBpkaV4AAAAJ" target="_blank" rel="noopener noreferrer">Martin Myant</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://en.wikipedia.org/wiki/Britannia_Unchained" target="_blank" rel="noopener noreferrer">
-            <img src="img/Britannia_Unchained.jpg" alt="Britannia Unchained">
+            <img src="img/Britannia_Unchained.jpg" alt="Britannia Unchained" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://en.wikipedia.org/wiki/Britannia_Unchained" target="_blank" rel="noopener noreferrer">Britannia Unchained: Global Lessons for Growth and Prosperity</a></div>
           <div class="book-author">Kwasi Kwarteng, Priti Patel, Dominic Raab, Chris Skidmore &amp; <a href="https://en.wikipedia.org/wiki/Liz_Truss" target="_blank" rel="noopener noreferrer">Liz Truss</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
         </div>
       </div>
 
-      <div class="book-card">
+      <div class="book-card" data-cat="history-economy" data-origin="original">
         <div class="book-cover">
           <a href="https://www.tandfonline.com/doi/abs/10.1080/713688310" target="_blank" rel="noopener noreferrer">
-            <img src="img/oxford_dev.jpg" alt="Indonesia: The Strange and Sudden Death of a Tiger Economy">
+            <img src="img/oxford_dev.jpg" alt="Indonesia: The Strange and Sudden Death of a Tiger Economy" decoding="async" loading="lazy">
           </a>
         </div>
         <div class="book-body">
           <div class="book-title"><a href="https://www.tandfonline.com/doi/abs/10.1080/713688310" target="_blank" rel="noopener noreferrer">Indonesia: The Strange and Sudden Death of a Tiger Economy (Journal Paper)</a></div>
           <div class="book-author"><a href="https://crawford.anu.edu.au/people/visitors/hal-hill" target="_blank" rel="noopener noreferrer">Hal Hill</a></div>
+          <div class="book-meta"><span class="book-tag">History &amp; Economy</span></div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="power-politics" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/The_Power_Broker" target="_blank" rel="noopener noreferrer">
+            <img src="img/power_broker.jpg" alt="The Power Broker: Robert Moses and the Fall of New York" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Power_Broker" target="_blank" rel="noopener noreferrer">The Power Broker: Robert Moses and the Fall of New York</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Robert_Caro" target="_blank" rel="noopener noreferrer">Robert A. Caro</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Power &amp; Institutions</span>
+          </div>
+          <div class="book-blurb">Anatomy of unelected infrastructure power and the urban world Jane Jacobs fought back against.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="power-politics" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/Seeing_Like_a_State" target="_blank" rel="noopener noreferrer">
+            <img src="img/seeing_like_a_state.jpg" alt="Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/Seeing_Like_a_State" target="_blank" rel="noopener noreferrer">Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/James_C._Scott" target="_blank" rel="noopener noreferrer">James C. Scott</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Power &amp; Institutions</span>
+          </div>
+          <div class="book-blurb">Why top-down administrative legibility erases local knowledge in cities, states, and economies.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="power-politics" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/The_Best_and_the_Brightest" target="_blank" rel="noopener noreferrer">
+            <img src="img/best_and_brightest.jpg" alt="The Best and the Brightest" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Best_and_the_Brightest" target="_blank" rel="noopener noreferrer">The Best and the Brightest</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/David_Halberstam" target="_blank" rel="noopener noreferrer">David Halberstam</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Power &amp; Institutions</span>
+          </div>
+          <div class="book-blurb">Insider institutional history of how elite technocrats reasoned themselves into Vietnam.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="power-politics" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/The_Origins_of_Political_Order" target="_blank" rel="noopener noreferrer">
+            <img src="img/origins_political_order.jpg" alt="The Origins of Political Order: From Prehuman Times to the French Revolution" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Origins_of_Political_Order" target="_blank" rel="noopener noreferrer">The Origins of Political Order: From Prehuman Times to the French Revolution</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Francis_Fukuyama" target="_blank" rel="noopener noreferrer">Francis Fukuyama</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Power &amp; Institutions</span>
+          </div>
+          <div class="book-blurb">Comparative emergence of state capacity, rule of law, and accountable institutions across civilizations.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="power-politics" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/The_Protestant_Ethic_and_the_Spirit_of_Capitalism" target="_blank" rel="noopener noreferrer">
+            <img src="img/protestant_ethic.jpg" alt="The Protestant Ethic and the Spirit of Capitalism" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Protestant_Ethic_and_the_Spirit_of_Capitalism" target="_blank" rel="noopener noreferrer">The Protestant Ethic and the Spirit of Capitalism</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Max_Weber" target="_blank" rel="noopener noreferrer">Max Weber</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Power &amp; Institutions</span>
+          </div>
+          <div class="book-blurb">Weber&#x27;s classic inquiry into how cultural ethos and bureaucratic rationality forged modern capitalism.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="history-economy" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/The_Prize:_The_Epic_Quest_for_Oil,_Money,_and_Power" target="_blank" rel="noopener noreferrer">
+            <img src="img/the_prize.jpg" alt="The Prize: The Epic Quest for Oil, Money, and Power" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Prize:_The_Epic_Quest_for_Oil,_Money,_and_Power" target="_blank" rel="noopener noreferrer">The Prize: The Epic Quest for Oil, Money, and Power</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Daniel_Yergin" target="_blank" rel="noopener noreferrer">Daniel Yergin</a></div>
+          <div class="book-meta">
+            <span class="book-tag">History &amp; Economy</span>
+          </div>
+          <div class="book-blurb">Geopolitical history of energy empires behind Saudi Aramco, Gulf statecraft, and the modern world.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="history-economy" data-origin="added">
+        <div class="book-cover">
+          <a href="https://zh.wikipedia.org/wiki/%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85" target="_blank" rel="noopener noreferrer">
+            <img src="img/zhishenshinei.jpg" alt="置身事内：中国政府与经济发展 (Embedded in Governance)" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://zh.wikipedia.org/wiki/%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85" target="_blank" rel="noopener noreferrer">置身事内：中国政府与经济发展 (Embedded in Governance)</a></div>
+          <div class="book-author"><a href="https://www.ceibs.edu/faculty/xiaohuanlan" target="_blank" rel="noopener noreferrer">兰小欢</a></div>
+          <div class="book-meta">
+            <span class="book-tag">History &amp; Economy</span>
+          </div>
+          <div class="book-blurb">Clear fiscal and institutional anatomy of Chinese local government finance and industrial growth.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="history-economy" data-origin="added">
+        <div class="book-cover">
+          <a href="https://www.amazon.com/How-Asia-Works-Failure-Dynamic/dp/0802121322" target="_blank" rel="noopener noreferrer">
+            <img src="img/how_asia_works.jpg" alt="How Asia Works: Success and Failure in the World&#x27;s Most Dynamic Region" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://www.amazon.com/How-Asia-Works-Failure-Dynamic/dp/0802121322" target="_blank" rel="noopener noreferrer">How Asia Works: Success and Failure in the World&#x27;s Most Dynamic Region</a></div>
+          <div class="book-author">Joe Studwell</div>
+          <div class="book-meta">
+            <span class="book-tag">History &amp; Economy</span>
+          </div>
+          <div class="book-blurb">Sharp comparative explanation of why Northeast Asian industrial policy diverged from Southeast Asia.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="history-economy" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/Why_Nations_Fail" target="_blank" rel="noopener noreferrer">
+            <img src="img/why_nations_fail.jpg" alt="Why Nations Fail: The Origins of Power, Prosperity, and Poverty" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/Why_Nations_Fail" target="_blank" rel="noopener noreferrer">Why Nations Fail: The Origins of Power, Prosperity, and Poverty</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Daron_Acemoglu" target="_blank" rel="noopener noreferrer">Daron Acemoglu</a> &amp; <a href="https://en.wikipedia.org/wiki/James_A._Robinson" target="_blank" rel="noopener noreferrer">James A. Robinson</a></div>
+          <div class="book-meta">
+            <span class="book-tag">History &amp; Economy</span>
+          </div>
+          <div class="book-blurb">How extractive versus inclusive political institutions shape long-run economic divergence.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="history-economy" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/The_Great_Transformation_(book)" target="_blank" rel="noopener noreferrer">
+            <img src="img/great_transformation.jpg" alt="The Great Transformation: The Political and Economic Origins of Our Time" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Great_Transformation_(book)" target="_blank" rel="noopener noreferrer">The Great Transformation: The Political and Economic Origins of Our Time</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Karl_Polanyi" target="_blank" rel="noopener noreferrer">Karl Polanyi</a></div>
+          <div class="book-meta">
+            <span class="book-tag">History &amp; Economy</span>
+          </div>
+          <div class="book-blurb">Why markets are always politically constructed—and the societal countermovements they provoke.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="history-economy" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/1587,_a_Year_of_No_Significance" target="_blank" rel="noopener noreferrer">
+            <img src="img/year_1587.jpg" alt="1587, a Year of No Significance: The Ming Dynasty in Decline (万历十五年)" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/1587,_a_Year_of_No_Significance" target="_blank" rel="noopener noreferrer">1587, a Year of No Significance: The Ming Dynasty in Decline (万历十五年)</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Ray_Huang" target="_blank" rel="noopener noreferrer">Ray Huang (黄仁宇)</a></div>
+          <div class="book-meta">
+            <span class="book-tag">History &amp; Economy</span>
+          </div>
+          <div class="book-blurb">Structural portrait of late Ming governance paralyzed between moral ideology and administrative reality.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="anthro-urban" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/The_Gift_(essay)" target="_blank" rel="noopener noreferrer">
+            <img src="img/the_gift.jpg" alt="The Gift: Forms and Functions of Exchange in Archaic Societies" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Gift_(essay)" target="_blank" rel="noopener noreferrer">The Gift: Forms and Functions of Exchange in Archaic Societies</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Marcel_Mauss" target="_blank" rel="noopener noreferrer">Marcel Mauss</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Anthropology &amp; Urbanism</span>
+          </div>
+          <div class="book-blurb">Foundational study of reciprocity and the Kula ring that dialogues directly with Malinowski.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="anthro-urban" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/The_Interpretation_of_Cultures" target="_blank" rel="noopener noreferrer">
+            <img src="img/interpretation_cultures.jpg" alt="The Interpretation of Cultures" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Interpretation_of_Cultures" target="_blank" rel="noopener noreferrer">The Interpretation of Cultures</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Clifford_Geertz" target="_blank" rel="noopener noreferrer">Clifford Geertz</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Anthropology &amp; Urbanism</span>
+          </div>
+          <div class="book-blurb">Thick description and Southeast Asian ethnography bridging Lévi-Strauss, Weber, and Indonesia.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="anthro-urban" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/Imagined_Communities" target="_blank" rel="noopener noreferrer">
+            <img src="img/imagined_communities.jpg" alt="Imagined Communities: Reflections on the Origin and Spread of Nationalism" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/Imagined_Communities" target="_blank" rel="noopener noreferrer">Imagined Communities: Reflections on the Origin and Spread of Nationalism</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Benedict_Anderson" target="_blank" rel="noopener noreferrer">Benedict Anderson</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Anthropology &amp; Urbanism</span>
+          </div>
+          <div class="book-blurb">How print capitalism and colonial maps shaped modern nation-states from Southeast Asia outward.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="anthro-urban" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/The_Image_of_the_City" target="_blank" rel="noopener noreferrer">
+            <img src="img/image_of_the_city.jpg" alt="The Image of the City" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Image_of_the_City" target="_blank" rel="noopener noreferrer">The Image of the City</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Kevin_A._Lynch" target="_blank" rel="noopener noreferrer">Kevin Lynch</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Anthropology &amp; Urbanism</span>
+          </div>
+          <div class="book-blurb">Empirical urban design classic on paths, edges, and landmarks—natural companion to Jane Jacobs.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="science-phil-lit" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/A_Mathematician%27s_Apology" target="_blank" rel="noopener noreferrer">
+            <img src="img/mathematicians_apology.jpg" alt="A Mathematician&#x27;s Apology" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/A_Mathematician%27s_Apology" target="_blank" rel="noopener noreferrer">A Mathematician&#x27;s Apology</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/G._H._Hardy" target="_blank" rel="noopener noreferrer">G. H. Hardy</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Science, Philosophy &amp; Lit</span>
+          </div>
+          <div class="book-blurb">Reflective meditation on mathematical beauty by Ramanujan&#x27;s collaborator and champion.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="science-phil-lit" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions" target="_blank" rel="noopener noreferrer">
+            <img src="img/scientific_revolutions.jpg" alt="The Structure of Scientific Revolutions" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions" target="_blank" rel="noopener noreferrer">The Structure of Scientific Revolutions</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Thomas_Kuhn" target="_blank" rel="noopener noreferrer">Thomas S. Kuhn</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Science, Philosophy &amp; Lit</span>
+          </div>
+          <div class="book-blurb">How paradigms stabilize normal science—and fracture during moments of conceptual crisis.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="science-phil-lit" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach" target="_blank" rel="noopener noreferrer">
+            <img src="img/geb_hofstadter.jpg" alt="Gödel, Escher, Bach: An Eternal Golden Braid" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach" target="_blank" rel="noopener noreferrer">Gödel, Escher, Bach: An Eternal Golden Braid</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Douglas_Hofstadter" target="_blank" rel="noopener noreferrer">Douglas R. Hofstadter</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Science, Philosophy &amp; Lit</span>
+          </div>
+          <div class="book-blurb">Playful fugue on formal systems, self-reference, recursion, and how meaning emerges from rules.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="science-phil-lit" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/Surely_You%27re_Joking,_Mr._Feynman!" target="_blank" rel="noopener noreferrer">
+            <img src="img/feynman_joking.jpg" alt="Surely You&#x27;re Joking, Mr. Feynman!" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/Surely_You%27re_Joking,_Mr._Feynman!" target="_blank" rel="noopener noreferrer">Surely You&#x27;re Joking, Mr. Feynman!</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Richard_Feynman" target="_blank" rel="noopener noreferrer">Richard P. Feynman</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Science, Philosophy &amp; Lit</span>
+          </div>
+          <div class="book-blurb">Irreverent, curiosity-driven memoir of safecracking, physics, and refusing intellectual pretense.</div>
+        </div>
+      </div>
+
+      <div class="book-card" data-cat="science-phil-lit" data-origin="added">
+        <div class="book-cover">
+          <a href="https://en.wikipedia.org/wiki/Trout_Fishing_in_America" target="_blank" rel="noopener noreferrer">
+            <img src="img/trout_fishing.jpg" alt="Trout Fishing in America" decoding="async" loading="lazy">
+          </a>
+        </div>
+        <div class="book-body">
+          <div class="book-title"><a href="https://en.wikipedia.org/wiki/Trout_Fishing_in_America" target="_blank" rel="noopener noreferrer">Trout Fishing in America</a></div>
+          <div class="book-author"><a href="https://en.wikipedia.org/wiki/Richard_Brautigan" target="_blank" rel="noopener noreferrer">Richard Brautigan</a></div>
+          <div class="book-meta">
+            <span class="book-tag">Science, Philosophy &amp; Lit</span>
+          </div>
+          <div class="book-blurb">Deadpan pastoral surrealism from the same offbeat countercultural vein as Brautigan&#x27;s verse.</div>
         </div>
       </div>
 
@@ -666,16 +1352,70 @@
 
   <!-- ── Footer ── -->
   <footer>
-    <a href="http://jiayisu.com">← Back to main page</a>
-    <span>Template from <a href="http://jonbarron.info" target="_blank" rel="noopener noreferrer">Jon Barron</a></span>
+    <a href="../index.html">← Back to main page</a>
+    <div class="footer-right">
+      <span>Template inspired by <a href="http://jonbarron.info" target="_blank" rel="noopener noreferrer">Jon Barron</a></span>
+      <a href="#">Back to top ↑</a>
+    </div>
   </footer>
 
-</div>
+</main>
 
-  <!-- ===== visitor tracking (counts direct visits to this sub-page) ===== -->
-  <script defer src="https://cn.vercount.one/js"></script>
-  <div style="position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden" aria-hidden="true">
-    <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=n9he1nNgcqR5_h28qvUNUvviwGsijrfQI8AidWZTEHY"></script>
-  </div>
+  <script>
+    (function () {
+      // Reading progress bar
+      var bar = document.getElementById("read-progress");
+      if (bar) {
+        var updateProgress = function () {
+          var doc = document.documentElement;
+          var max = doc.scrollHeight - doc.clientHeight;
+          var pct = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+          bar.style.transform = "scaleX(" + pct + ")";
+        };
+        window.addEventListener("scroll", updateProgress, { passive: true });
+        updateProgress();
+      }
+
+      // Topic & new-addition filter pills
+      var pills = Array.prototype.slice.call(document.querySelectorAll(".filter-pill"));
+      var cards = Array.prototype.slice.call(document.querySelectorAll(".book-card"));
+      var sections = Array.prototype.slice.call(document.querySelectorAll("main > section"));
+      var totalEl = document.getElementById("bookshelf-filter-count");
+      var totalCount = cards.length;
+
+      function applyFilter(key) {
+        var visibleTotal = 0;
+        cards.forEach(function (card) {
+          var match =
+            key === "all" ||
+            card.dataset.cat === key;
+          card.classList.toggle("is-hidden", !match);
+          if (match) visibleTotal++;
+        });
+        sections.forEach(function (sec) {
+          var count = sec.querySelectorAll(".book-card:not(.is-hidden)").length;
+          sec.classList.toggle("is-hidden", count === 0);
+          var badge = sec.querySelector("[data-section-count]");
+          if (badge) badge.textContent = count + (count === 1 ? " book" : " books");
+        });
+        if (totalEl) {
+          totalEl.textContent = "Showing " + visibleTotal + " of " + totalCount + " books";
+        }
+      }
+
+      pills.forEach(function (pill) {
+        pill.addEventListener("click", function () {
+          pills.forEach(function (p) {
+            p.classList.remove("is-active");
+            p.setAttribute("aria-pressed", "false");
+          });
+          pill.classList.add("is-active");
+          pill.setAttribute("aria-pressed", "true");
+          applyFilter(pill.dataset.filter);
+        });
+      });
+    })();
+  </script>
+
 </body>
 </html>
